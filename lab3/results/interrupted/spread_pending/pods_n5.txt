@@ -1,0 +1,5 @@
+web-7fcc7cd774-cvvrd   <none>
+web-7fcc7cd774-fhsv6   telemed-worker2
+web-7fcc7cd774-jf6m6   <none>
+web-7fcc7cd774-nbjkj   <none>
+web-7fcc7cd774-tnkfk   telemed-worker

@@ -1,0 +1,35 @@
+$ docker compose ps --format "table {{.Service}}\t{{.Ports}}"
+SERVICE   PORTS
+db        5432/tcp
+lb        0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+web       8000/tcp
+
+$ docker compose port db 5432
+:0
+
+$ docker network inspect telemed_backend --format "internal={{.Internal}}"
+internal=true
+
+# з хоста (macOS): спроба підключитися до бази
+$ nc -vz -G 2 localhost 5432 ; nc -vz -G 2 172.18.0.2 5432
+Connection to localhost port 5432 [tcp/postgresql] succeeded!
+nc: connectx to 172.18.0.2 port 5432 (tcp) failed: Operation timed out
+# хто слухає порти на хості: 5432 тримає локальний Homebrew postgres, а не стенд; 8080 — ssh-форвардер Colima
+$ lsof -nP -iTCP -sTCP:LISTEN | grep -E ':(5432|8080) '
+ssh 40263 *:8080
+postgres 60707 [::1]:5432
+postgres 60707 127.0.0.1:5432
+$ PGPASSWORD=*** psql -h localhost -p 5432 -U telemed -d telemed -c 'select count(*) from telemed_sessions'
+psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  role "telemed" does not exist
+
+# з контейнера сервісу: підключення до db:5432 за іменем сервісу
+$ docker compose exec web python -c "...asyncpg.connect(host=\"db\")...; SELECT version(), count(*)"
+connected: PostgreSQL 16.15 on aarch64-unknown-linu
+rows in telemed_sessions: 0
+
+# база не має виходу назовні (internal-мережа)
+$ docker compose exec db wget -T 3 -q -O- http://example.com
+wget: bad address 'example.com'
+
+$ docker compose exec web id
+uid=10001(app) gid=10001(app) groups=10001(app)

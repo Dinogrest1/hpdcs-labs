@@ -1,0 +1,32 @@
+$ kubectl get pods -A -o wide | grep -E "prometheus|state-metrics|pgexp|metrics-server|db-0"
+default              db-0                                                  telemed-control-plane   Running
+default              mon-kube-prometheus-stack-operator-6b98fc8d95-28ng7   telemed-control-plane   Running
+default              mon-kube-state-metrics-5f7d6d8856-ndgdx               telemed-control-plane   Running
+default              pgexp-prometheus-postgres-exporter-56455894c9-tk8ls   telemed-control-plane   Running
+default              prometheus-mon-kube-prometheus-stack-prometheus-0     telemed-control-plane   Running
+kube-system          metrics-server-668475c79c-pfggv                       telemed-control-plane   Running
+$ PromQL: sum by (pod) (http_requests_total{pod=~"web-.*"})
+   {'pod': 'web-7fcc7cd774-fhsv6'} = 723
+$ PromQL: sum by (pod) (container_cpu_cfs_periods_total{container="web"})
+   {'pod': 'web-7fcc7cd774-fhsv6'} = 4467
+$ PromQL: sum by (pod) (container_cpu_cfs_throttled_periods_total{container="web"})
+   {'pod': 'web-7fcc7cd774-fhsv6'} = 6
+$ PromQL: kube_deployment_status_replicas_ready{deployment="web"}
+   {'deployment': 'web', 'instance': '10.244.0.9:8080', 'pod': 'mon-kube-state-metrics-5f7d6d8856-ndgdx'} = 1
+$ PromQL: pg_up
+   {'instance': '10.244.0.13:9187', 'pod': 'pgexp-prometheus-postgres-exporter-56455894c9-tk8ls'} = 1
+$ curl localhost:9090/api/v1/targets | інтервал збору подів web
+   web-7fcc7cd774-fhsv6 up scrapeInterval 5s
+$ kubectl top pods
+NAME                                                  CPU(cores)   MEMORY(bytes)   
+db-0                                                  10m          29Mi            
+mon-kube-prometheus-stack-operator-6b98fc8d95-28ng7   6m           21Mi            
+mon-kube-state-metrics-5f7d6d8856-ndgdx               3m           17Mi            
+pgexp-prometheus-postgres-exporter-56455894c9-tk8ls   3m           9Mi             
+prometheus-mon-kube-prometheus-stack-prometheus-0     25m          307Mi           
+web-7fcc7cd774-fhsv6                                  3m           65Mi            
+$ kubectl top nodes
+NAME                    CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+telemed-control-plane   269m         3%       1440Mi          18%         
+telemed-worker          28m          0%       152Mi           1%          
+telemed-worker2         35m          0%       225Mi           2%          

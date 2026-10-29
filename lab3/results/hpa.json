@@ -1,0 +1,76 @@
+{
+ "end_unix": 1793276549,
+ "label": "hpa",
+ "mode": "profile",
+ "segments": [
+  {
+   "name": "seg1",
+   "duration_s": 30,
+   "rate": 1268,
+   "start_s": 0
+  },
+  {
+   "name": "seg2",
+   "duration_s": 60,
+   "rate": 8456,
+   "start_s": 30
+  },
+  {
+   "name": "seg3",
+   "duration_s": 90,
+   "rate": 1268,
+   "start_s": 90
+  }
+ ],
+ "steps": [
+  {
+   "step": 1,
+   "target_rps": 1268,
+   "start_unix": 1793276369,
+   "window_from_unix": 1793276369,
+   "window_to_unix": 1793276399,
+   "achieved_rps": 1267.9666666666667,
+   "achieved_std": 1.0980651740387641,
+   "sent_rps": 1267.9666666666667,
+   "p50_ms": 0.8377314262184582,
+   "p95_ms": 1.6507800303323088,
+   "p99_ms": 1.995260262604564,
+   "non2xx_share": 0,
+   "conn_errors": 0
+  },
+  {
+   "step": 2,
+   "target_rps": 8456,
+   "start_unix": 1793276399,
+   "window_from_unix": 1793276399,
+   "window_to_unix": 1793276459,
+   "achieved_rps": 8455.9,
+   "achieved_std": 4198.613179836683,
+   "sent_rps": 8456.016666666666,
+   "p50_ms": 7082.307388131996,
+   "p95_ms": 11262.077602021442,
+   "p99_ms": 11662.212427521003,
+   "non2xx_share": 0,
+   "conn_errors": 0
+  },
+  {
+   "step": 3,
+   "target_rps": 1268,
+   "start_unix": 1793276459,
+   "window_from_unix": 1793276459,
+   "window_to_unix": 1793276549,
+   "achieved_rps": 1268.0777777777778,
+   "achieved_std": 2.9038052437935047,
+   "sent_rps": 1268,
+   "p50_ms": 0.8805731219699888,
+   "p95_ms": 1.74387714474907,
+   "p99_ms": 3.236737978386644,
+   "non2xx_share": 0,
+   "conn_errors": 0
+  }
+ ],
+ "stop_reason": "кінець профілю",
+ "t0_unix": 1793276369,
+ "timeout_s": 5,
+ "url": "http://localhost:8080/telemed-sessions/{id}"
+}

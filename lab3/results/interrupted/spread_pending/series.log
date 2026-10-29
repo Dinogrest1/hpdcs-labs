@@ -1,0 +1,270 @@
+== 2026-10-29 11:28:46 засів
+$ ./scripts/seed.sh
+{"items":[{"id":1,"patient_code":"P-000001","doctor":"Лікар 2","channel":"audio","started_at":"2026-10-02T06:00:00+00:00","duration_min":10,"status":"in_progress","created_at":"2026-10-29T09:28:46.915864+00:00","updated_at":"2026-10-29T09:28:46.915864+00:00"}],"total":100,"limit":1,"offset":0}
+== 2026-10-29 11:28:47 крок 4: CRUD через localhost:8080
+> POST http://localhost:8080/telemed-sessions
+HTTP/1.1 201 Created
+x-pod: web-7fcc7cd774-fhsv6
+{"id":101,"patient_code":"P-CRUD01","doctor":"Коваленко О.П.","channel":"video","started_at":"2026-10-28T08:00:00+00:00","duration_min":30,"status":"scheduled","created_at":"2026-10-29T09:28:47.518234+00:00","updated_at":"2026-10-29T09:28:47.518234+00:00"}
+
+> GET http://localhost:8080/telemed-sessions/101
+HTTP/1.1 200 OK
+x-pod: web-7fcc7cd774-fhsv6
+{"id":101,"patient_code":"P-CRUD01","doctor":"Коваленко О.П.","channel":"video","started_at":"2026-10-28T08:00:00+00:00","duration_min":30,"status":"scheduled","created_at":"2026-10-29T09:28:47.518234+00:00","updated_at":"2026-10-29T09:28:47.518234+00:00"}
+
+> PUT http://localhost:8080/telemed-sessions/101
+HTTP/1.1 200 OK
+x-pod: web-7fcc7cd774-fhsv6
+{"id":101,"patient_code":"P-CRUD01","doctor":"Коваленко О.П.","channel":"audio","started_at":"2026-10-28T08:00:00+00:00","duration_min":45,"status":"completed","created_at":"2026-10-29T09:28:47.518234+00:00","updated_at":"2026-10-29T09:28:47.524899+00:00"}
+
+> GET http://localhost:8080/telemed-sessions?channel=audio&limit=2
+HTTP/1.1 200 OK
+x-pod: web-7fcc7cd774-fhsv6
+{"items":[{"id":1,"patient_code":"P-000001","doctor":"Лікар 2","channel":"audio","started_at":"2026-10-02T06:00:00+00:00","duration_min":10,"status":"in_progress","created_at":"2026-10-29T09:28:46.915864+00:00","updated_at":"2026-10-29T09:28:46.915864+00:00"},{"id":4,"patient_code":"P-000004","doctor":"Лікар 5","channel":"audio","started_at":"2026-10-05T06:00:00+00:00","duration_min":25,"status":"scheduled","created_at":"2026-10-29T09:28:46.930044+00:00","updated_at":"2026-10-29T09:28:46.930044+00:00"}],"total":35,"limit":2,"offset":0}
+
+> DELETE http://localhost:8080/telemed-sessions/101
+HTTP/1.1 204 No Content
+x-pod: web-7fcc7cd774-fhsv6
+
+
+> GET http://localhost:8080/telemed-sessions/101
+HTTP/1.1 404 Not Found
+x-pod: web-7fcc7cd774-fhsv6
+{"error":"telemed session 101 not found"}
+
+== 2026-10-29 11:28:47 крок 3: збереження даних після видалення пода бази
+$ kubectl get statefulset,pod,pvc,svc -l app=db -o wide
+NAME                  READY   AGE   CONTAINERS   IMAGES
+statefulset.apps/db   1/1     10h   postgres     postgres:16-alpine
+
+NAME       READY   STATUS    RESTARTS   AGE   IP           NODE                    NOMINATED NODE   READINESS GATES
+pod/db-0   1/1     Running   0          10h   10.244.0.6   telemed-control-plane   <none>           <none>
+
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/db   ClusterIP   None         <none>        5432/TCP   10h   app=db
+NAME        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-db-0   Bound    pvc-05db59c8-edba-4fd1-a107-d4a4785a4736   1Gi        RWO            standard       <unset>                 10h
+$ kubectl get pod db-0 -o jsonpath={.spec.nodeName}
+telemed-control-plane
+$ psql: SHOW max_connections
+100
+$ kubectl logs job/migrate
+db:5432 - accepting connections
+CREATE TABLE
+CREATE INDEX
+кількість записів до: 100, max(id) = 100
+$ kubectl delete pod db-0
+pod "db-0" deleted from default namespace
+pod/db-0 condition met
+кількість записів після: 100, max(id) = 100
+== 2026-10-29 11:28:49 крок 5: моніторинг
+$ kubectl get pods -A -o wide | grep -E "prometheus|state-metrics|pgexp|metrics-server|db-0"
+default              db-0                                                  telemed-control-plane   Running
+default              mon-kube-prometheus-stack-operator-6b98fc8d95-28ng7   telemed-control-plane   Running
+default              mon-kube-state-metrics-5f7d6d8856-ndgdx               telemed-control-plane   Running
+default              pgexp-prometheus-postgres-exporter-56455894c9-tk8ls   telemed-control-plane   Running
+default              prometheus-mon-kube-prometheus-stack-prometheus-0     telemed-control-plane   Running
+kube-system          metrics-server-668475c79c-pfggv                       telemed-control-plane   Running
+$ PromQL: sum by (pod) (http_requests_total{pod=~"web-.*"})
+   {'pod': 'web-7fcc7cd774-fhsv6'} = 723
+$ PromQL: sum by (pod) (container_cpu_cfs_periods_total{container="web"})
+   {'pod': 'web-7fcc7cd774-fhsv6'} = 4467
+$ PromQL: sum by (pod) (container_cpu_cfs_throttled_periods_total{container="web"})
+   {'pod': 'web-7fcc7cd774-fhsv6'} = 6
+$ PromQL: kube_deployment_status_replicas_ready{deployment="web"}
+   {'deployment': 'web', 'instance': '10.244.0.9:8080', 'pod': 'mon-kube-state-metrics-5f7d6d8856-ndgdx'} = 1
+$ PromQL: pg_up
+   {'instance': '10.244.0.13:9187', 'pod': 'pgexp-prometheus-postgres-exporter-56455894c9-tk8ls'} = 1
+$ curl localhost:9090/api/v1/targets | інтервал збору подів web
+   web-7fcc7cd774-fhsv6 up scrapeInterval 5s
+$ kubectl top pods
+NAME                                                  CPU(cores)   MEMORY(bytes)   
+db-0                                                  10m          29Mi            
+mon-kube-prometheus-stack-operator-6b98fc8d95-28ng7   6m           21Mi            
+mon-kube-state-metrics-5f7d6d8856-ndgdx               3m           17Mi            
+pgexp-prometheus-postgres-exporter-56455894c9-tk8ls   3m           9Mi             
+prometheus-mon-kube-prometheus-stack-prometheus-0     25m          307Mi           
+web-7fcc7cd774-fhsv6                                  3m           65Mi            
+$ kubectl top nodes
+NAME                    CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+telemed-control-plane   269m         3%       1440Mi          18%         
+telemed-worker          28m          0%       152Mi           1%          
+telemed-worker2         35m          0%       225Mi           2%          
+== 2026-10-29 11:28:50 крок 7: 1 реплік(и)
+web: 1 готових подів, 1 кінцевих точок, 1 цілей UP
+web-7fcc7cd774-fhsv6   telemed-worker2   true
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1400.0
+step 8 target=1600 achieved=1599.9
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=2000.0
+step 11 target=2200 achieved=2200.1
+step 12 target=2400 achieved=2399.9
+step 13 target=2600 achieved=2600.1
+step 14 target=2800 achieved=2777.2
+step 15 target=3000 achieved=3012.7
+step 16 target=3200 achieved=3200.0
+step 17 target=3400 achieved=3403.3
+step 18 target=3600 achieved=3600.0
+step 19 target=3800 achieved=3801.7
+step 20 target=4000 achieved=3820.3
+step 21 target=4200 achieved=4107.8
+step 22 target=4400 achieved=4141.4
+step 23 target=4600 achieved=3997.2
+step 24 target=4800 achieved=4228.1
+n1: 24 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 4228.1 ± 93.0 на сходинці 24 (задано 4800), p99 = 10821.6 мс
+prom_n1.json: bucket=11, requests=1, throttled=1, periods=1, cpu_usage=1, process_cpu=1, inprogress=1, ready=1, desired=0, pod_node=1, up=1, pg_conn=6
+== 2026-10-29 11:41:45 крок 7: 2 реплік(и)
+web: 2 готових подів, 2 кінцевих точок, 2 цілей UP
+web-7fcc7cd774-tnkfk   telemed-worker    true
+web-7fcc7cd774-fhsv6   telemed-worker2   true
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1400.0
+step 8 target=1600 achieved=1600.0
+step 9 target=1800 achieved=1799.9
+step 10 target=2000 achieved=2000.0
+step 11 target=2200 achieved=2200.1
+step 12 target=2400 achieved=2399.8
+step 13 target=2600 achieved=2600.2
+step 14 target=2800 achieved=2800.0
+step 15 target=3000 achieved=3000.0
+step 16 target=3200 achieved=3200.0
+step 17 target=3400 achieved=3400.0
+step 18 target=3600 achieved=3600.1
+step 19 target=3800 achieved=3799.9
+step 20 target=4000 achieved=4000.0
+step 21 target=4200 achieved=4200.0
+step 22 target=4400 achieved=4400.1
+step 23 target=4600 achieved=4600.1
+step 24 target=4800 achieved=4800.0
+step 25 target=5000 achieved=5000.1
+step 26 target=5200 achieved=5200.0
+step 27 target=5400 achieved=5400.0
+step 28 target=5600 achieved=5600.1
+step 29 target=5800 achieved=5799.9
+step 30 target=6000 achieved=6000.1
+step 31 target=6200 achieved=6200.1
+step 32 target=6400 achieved=6392.5
+step 33 target=6600 achieved=6600.1
+step 34 target=6800 achieved=6800.0
+step 35 target=7000 achieved=7000.0
+step 36 target=7200 achieved=7196.2
+step 37 target=7400 achieved=6273.8
+step 38 target=7600 achieved=7123.4
+step 39 target=7800 achieved=7496.1
+step 40 target=8000 achieved=7419.8
+step 41 target=8200 achieved=7444.9
+step 42 target=8400 achieved=7184.6
+step 43 target=8600 achieved=6853.4
+n2: 43 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 7496.1 ± 525.8 на сходинці 39 (задано 7800), p99 = 10930.0 мс
+prom_n2.json: bucket=22, requests=2, throttled=2, periods=2, cpu_usage=2, process_cpu=2, inprogress=2, ready=1, desired=0, pod_node=3, up=2, pg_conn=6
+== 2026-10-29 12:04:33 крок 7: 3 реплік(и)
+error: timed out waiting for the condition
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1399.9
+step 8 target=1600 achieved=1600.0
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=1999.9
+step 11 target=2200 achieved=2200.1
+step 12 target=2400 achieved=2399.9
+step 13 target=2600 achieved=2600.0
+step 14 target=2800 achieved=2800.0
+step 15 target=3000 achieved=3000.0
+step 16 target=3200 achieved=3200.0
+step 17 target=3400 achieved=3399.9
+step 18 target=3600 achieved=3600.0
+step 19 target=3800 achieved=3800.0
+step 20 target=4000 achieved=4000.1
+step 21 target=4200 achieved=4199.9
+step 22 target=4400 achieved=4399.9
+step 23 target=4600 achieved=4600.1
+step 24 target=4800 achieved=4800.1
+step 25 target=5000 achieved=5018.9
+step 26 target=5200 achieved=5200.0
+step 27 target=5400 achieved=5399.9
+step 28 target=5600 achieved=5600.1
+step 29 target=5800 achieved=5800.1
+step 30 target=6000 achieved=6000.0
+step 31 target=6200 achieved=6200.1
+step 32 target=6400 achieved=6399.9
+step 33 target=6600 achieved=6600.1
+step 34 target=6800 achieved=6800.0
+step 35 target=7000 achieved=7069.9
+step 36 target=7200 achieved=7096.9
+step 37 target=7400 achieved=7399.9
+step 38 target=7600 achieved=7599.9
+step 39 target=7800 achieved=7800.2
+step 40 target=8000 achieved=7489.1
+step 41 target=8200 achieved=7484.6
+step 42 target=8400 achieved=7744.0
+step 43 target=8600 achieved=7258.6
+step 44 target=8800 achieved=7725.7
+n3: 44 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 7800.2 ± 375.6 на сходинці 39 (задано 7800), p99 = 164.8 мс
+prom_n3.json: bucket=22, requests=2, throttled=2, periods=2, cpu_usage=2, process_cpu=2, inprogress=2, ready=1, desired=0, pod_node=3, up=2, pg_conn=6
+== 2026-10-29 12:30:19 крок 7: 5 реплік(и)
+error: timed out waiting for the condition
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1400.0
+step 8 target=1600 achieved=1600.0
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=2000.0
+step 11 target=2200 achieved=2200.0
+step 12 target=2400 achieved=2400.1
+step 13 target=2600 achieved=2600.0
+step 14 target=2800 achieved=2799.9
+step 15 target=3000 achieved=3000.0
+step 16 target=3200 achieved=3200.0
+step 17 target=3400 achieved=3400.0
+step 18 target=3600 achieved=3600.1
+step 19 target=3800 achieved=3800.0
+step 20 target=4000 achieved=4000.0
+step 21 target=4200 achieved=4200.0
+step 22 target=4400 achieved=4400.1
+step 23 target=4600 achieved=4600.0
+step 24 target=4800 achieved=4794.9
+step 25 target=5000 achieved=5000.0
+step 26 target=5200 achieved=5199.9
+step 27 target=5400 achieved=5400.1
+step 28 target=5600 achieved=5596.5
+step 29 target=5800 achieved=5800.0
+step 30 target=6000 achieved=5996.2
+step 31 target=6200 achieved=6200.0
+step 32 target=6400 achieved=6396.4
+step 33 target=6600 achieved=6599.9
+step 34 target=6800 achieved=6794.0
+step 35 target=7000 achieved=7000.0
+step 36 target=7200 achieved=7183.6
+step 37 target=7400 achieved=7362.2
+step 38 target=7600 achieved=7538.6
+step 39 target=7800 achieved=7731.5
+step 40 target=8000 achieved=8053.1
+step 41 target=8200 achieved=8000.4
+step 42 target=8400 achieved=7899.9
+step 43 target=8600 achieved=8035.1
+step 44 target=8800 achieved=7898.1
+step 45 target=9000 achieved=7744.1
+n5: 45 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 8053.1 ± 269.1 на сходинці 40 (задано 8000), p99 = 460.4 мс
+prom_n5.json: bucket=22, requests=2, throttled=2, periods=2, cpu_usage=2, process_cpu=2, inprogress=2, ready=1, desired=0, pod_node=5, up=2, pg_conn=6
+X(1) = 4228.1, X(5) = 8053.1; профіль: 30 с × 1268, 60 с × 7248 (= min(2·X(1), 0.9·X(5))), 90 с × 1268
+== 2026-10-29 12:56:34 крок 10: профіль на 5 фіксованих репліках
+./scripts/scale.sh: line 7: syntax error near unexpected token `then'

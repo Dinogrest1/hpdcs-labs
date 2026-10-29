@@ -1,0 +1,20 @@
+$ WEB_REPLICAS=2 docker compose up -d
+$ docker compose ps web  (імʼя, IP у backend і frontend)
+telemed-web-1 172.18.0.4 172.19.0.3 
+telemed-web-2 172.18.0.3 172.19.0.2 
+
+$ docker compose logs lb | grep -o "upstream=[0-9.:]*" | sort | uniq -c
+396652 upstream=172.19.0.2:8000
+396650 upstream=172.19.0.3:8000
+
+$ for i in $(seq 10); do curl -sD- -o/dev/null localhost:8080/telemed-sessions/1 | grep -i x-instance; done
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d

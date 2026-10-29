@@ -1,0 +1,64 @@
+# PostgreSQL на вузлі role=infra: headless Service дає поду стале імʼя db-0.db.
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels: {app: db}
+spec:
+  clusterIP: None
+  selector: {app: db}
+  ports:
+    - name: postgres
+      port: 5432
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+spec:
+  serviceName: db
+  replicas: 1
+  selector:
+    matchLabels: {app: db}
+  template:
+    metadata:
+      labels: {app: db}
+    spec:
+      nodeSelector:
+        role: infra
+      tolerations:
+        - key: node-role.kubernetes.io/control-plane
+          operator: Exists
+          effect: NoSchedule
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          args: ["-c", "max_connections=100"]
+          env:
+            - name: POSTGRES_USER
+              value: telemed
+            - name: POSTGRES_DB
+              value: telemed
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef: {name: db-secret, key: POSTGRES_PASSWORD}
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          ports:
+            - containerPort: 5432
+              name: postgres
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-h", "127.0.0.1", "-U", "telemed", "-d", "telemed"]
+            periodSeconds: 2
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi

@@ -1,0 +1,347 @@
+== 2026-10-28 22:59:23 запуск 2: nginx з max_fails=0; повтор кроку 3 і весь крок 7 (кроки 4 і 6 — із запуску 1)
+web: 2 екземпляри healthy, у Prometheus 2 цілей UP, lb перезапущено
+$ docker compose ps web
+telemed2-web-1 Up 6 hours (healthy)
+telemed2-web-2 Up About a minute (healthy)
+$ docker stop telemed2-web-2      # unix 1793221209
+telemed2-web-2
+зупинка зайняла 1 с
+$ docker inspect --format '{{.State.ExitCode}}' telemed2-web-2
+0
+graceful: 1 сходинок, зупинка: кінець профілю; X = 1000.1 ± 0.8 на сходинці 1 (задано 1000), p99 = 501.2 мс
+$ docker logs telemed2-web-2 | tail -6
+2026-10-28 20:58:03,266 INFO connected to database, instance=9282e28ed181 pool=10
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-10-28 21:00:09,930 INFO graceful shutdown complete, pool closed, instance=9282e28ed181
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1]
+# генератор, 10 с навколо зупинки (±5 с від docker stop):
+unix        sent  2xx  non2xx  conn_err  p99_ms
+1793221204  1001 1000       0         0   1.702
+1793221205  1000 1001       0         0   1.786
+1793221206  1000  999       0         0   2.096
+1793221207  1000 1000       0         0   1.791
+1793221208  1000 1001       0         0   1.908
+1793221209  1000  995       0         0   2.121
+1793221210  1000  755       0         0  506.982
+1793221211  1000 1000       0         0  502.042
+1793221212   999  999       0         0  502.104
+1793221213  1001 1001       0         0  502.198
+за 10 с: відповідей 2xx = 9751, не 2xx і помилок зʼєднання = 0
+== 2026-10-28 23:00:28 продовження серії: кроки 3, 4, 6 уже зняті (results/noop.json є)
+G = 40000 запитів/с
+== 2026-10-28 23:00:29 крок 7: 1 екземпляр(и)
+web: 1 екземпляри healthy, у Prometheus 1 цілей UP, lb перезапущено
+ Container telemed2-loadgen-run-8132486d5f57 Creating 
+ Container telemed2-loadgen-run-8132486d5f57 Created 
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=799.9
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1199.9
+step 7 target=1400 achieved=1399.9
+step 8 target=1600 achieved=1600.0
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=1999.9
+step 11 target=2200 achieved=2200.1
+step 12 target=2400 achieved=2399.9
+step 13 target=2600 achieved=2600.1
+step 14 target=2800 achieved=2799.9
+step 15 target=3000 achieved=3000.0
+step 16 target=3200 achieved=3200.2
+step 17 target=3400 achieved=3400.0
+step 18 target=3600 achieved=3599.9
+step 19 target=3800 achieved=3799.9
+step 20 target=4000 achieved=3999.9
+step 21 target=4200 achieved=4200.0
+step 22 target=4400 achieved=4399.9
+step 23 target=4600 achieved=4607.0
+step 24 target=4800 achieved=4800.0
+step 25 target=5000 achieved=4964.9
+step 26 target=5200 achieved=5200.0
+step 27 target=5400 achieved=5399.9
+step 28 target=5600 achieved=5600.1
+step 29 target=5800 achieved=5800.1
+step 30 target=6000 achieved=6000.0
+step 31 target=6200 achieved=6101.0
+step 32 target=6400 achieved=6158.1
+step 33 target=6600 achieved=6528.8
+step 34 target=6800 achieved=6841.2
+step 35 target=7000 achieved=6999.8
+step 36 target=7200 achieved=7164.8
+step 37 target=7400 achieved=7254.8
+step 38 target=7600 achieved=6893.3
+step 39 target=7800 achieved=6497.1
+step 40 target=8000 achieved=6379.2
+n1: 40 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 7254.8 ± 712.5 на сходинці 37 (задано 7400), p99 = 281.0 мс
+prom_n1.json: bucket=11 рядів, requests=1 рядів, cpu=1 рядів, inprogress=1 рядів, up=2 рядів
+== 2026-10-28 23:14:08 крок 7: 2 екземпляр(и)
+web: 2 екземпляри healthy, у Prometheus 2 цілей UP, lb перезапущено
+ Container telemed2-loadgen-run-54a45108c309 Creating 
+ Container telemed2-loadgen-run-54a45108c309 Created 
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.1
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1399.9
+step 8 target=1600 achieved=1600.1
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=2000.1
+step 11 target=2200 achieved=2200.1
+step 12 target=2400 achieved=2400.1
+step 13 target=2600 achieved=2599.8
+step 14 target=2800 achieved=2800.1
+step 15 target=3000 achieved=3000.1
+step 16 target=3200 achieved=3200.0
+step 17 target=3400 achieved=3400.0
+step 18 target=3600 achieved=3600.0
+step 19 target=3800 achieved=3800.0
+step 20 target=4000 achieved=4000.0
+step 21 target=4200 achieved=4200.0
+step 22 target=4400 achieved=4400.0
+step 23 target=4600 achieved=4600.0
+step 24 target=4800 achieved=4800.1
+step 25 target=5000 achieved=5000.0
+step 26 target=5200 achieved=5199.9
+step 27 target=5400 achieved=5400.1
+step 28 target=5600 achieved=5599.9
+step 29 target=5800 achieved=5799.9
+step 30 target=6000 achieved=6000.1
+step 31 target=6200 achieved=6199.9
+step 32 target=6400 achieved=6363.1
+step 33 target=6600 achieved=6600.0
+step 34 target=6800 achieved=6799.9
+step 35 target=7000 achieved=7000.2
+step 36 target=7200 achieved=7200.0
+step 37 target=7400 achieved=7400.1
+step 38 target=7600 achieved=7600.0
+step 39 target=7800 achieved=7799.9
+step 40 target=8000 achieved=8000.0
+step 41 target=8200 achieved=8200.1
+step 42 target=8400 achieved=8400.1
+step 43 target=8600 achieved=8600.1
+step 44 target=8800 achieved=8800.3
+step 45 target=9000 achieved=8999.9
+step 46 target=9200 achieved=9187.1
+step 47 target=9400 achieved=9399.9
+step 48 target=9600 achieved=9600.0
+step 49 target=9800 achieved=9800.0
+step 50 target=10000 achieved=10000.1
+step 51 target=10200 achieved=10200.1
+step 52 target=10400 achieved=10400.1
+step 53 target=10600 achieved=10600.0
+step 54 target=10800 achieved=10800.0
+step 55 target=11000 achieved=10972.5
+step 56 target=11200 achieved=11199.9
+step 57 target=11400 achieved=11400.0
+step 58 target=11600 achieved=11599.9
+step 59 target=11800 achieved=11856.0
+step 60 target=12000 achieved=11976.3
+step 61 target=12200 achieved=12033.2
+step 62 target=12400 achieved=12173.9
+step 63 target=12600 achieved=12424.3
+step 64 target=12800 achieved=12558.2
+step 65 target=13000 achieved=13058.5
+step 66 target=13200 achieved=11664.5
+step 67 target=13400 achieved=11374.3
+n2: 67 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 13058.5 ± 375.7 на сходинці 65 (задано 13000), p99 = 289.6 мс
+prom_n2.json: bucket=22 рядів, requests=2 рядів, cpu=2 рядів, inprogress=2 рядів, up=2 рядів
+== 2026-10-28 23:36:59 крок 7: 3 екземпляр(и)
+web: 3 екземпляри healthy, у Prometheus 3 цілей UP, lb перезапущено
+ Container telemed2-loadgen-run-921905dfe05a Creating 
+ Container telemed2-loadgen-run-921905dfe05a Created 
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=999.9
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1400.1
+step 8 target=1600 achieved=1599.9
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=2000.0
+step 11 target=2200 achieved=2199.8
+step 12 target=2400 achieved=2400.0
+step 13 target=2600 achieved=2600.0
+step 14 target=2800 achieved=2800.0
+step 15 target=3000 achieved=3000.0
+step 16 target=3200 achieved=3199.9
+step 17 target=3400 achieved=3400.0
+step 18 target=3600 achieved=3600.0
+step 19 target=3800 achieved=3800.0
+step 20 target=4000 achieved=3999.9
+step 21 target=4200 achieved=4200.1
+step 22 target=4400 achieved=4400.0
+step 23 target=4600 achieved=4600.1
+step 24 target=4800 achieved=4800.0
+step 25 target=5000 achieved=4999.6
+step 26 target=5200 achieved=5200.0
+step 27 target=5400 achieved=5400.0
+step 28 target=5600 achieved=5599.9
+step 29 target=5800 achieved=5800.0
+step 30 target=6000 achieved=5999.9
+step 31 target=6200 achieved=6199.9
+step 32 target=6400 achieved=6400.1
+step 33 target=6600 achieved=6600.1
+step 34 target=6800 achieved=6800.1
+step 35 target=7000 achieved=6999.9
+step 36 target=7200 achieved=7200.0
+step 37 target=7400 achieved=7400.0
+step 38 target=7600 achieved=7600.0
+step 39 target=7800 achieved=7799.9
+step 40 target=8000 achieved=8000.0
+step 41 target=8200 achieved=8199.9
+step 42 target=8400 achieved=8405.6
+step 43 target=8600 achieved=8599.9
+step 44 target=8800 achieved=8800.0
+step 45 target=9000 achieved=9000.0
+step 46 target=9200 achieved=9200.1
+step 47 target=9400 achieved=9399.9
+step 48 target=9600 achieved=9599.4
+step 49 target=9800 achieved=9794.3
+step 50 target=10000 achieved=9999.9
+step 51 target=10200 achieved=10200.0
+step 52 target=10400 achieved=10400.0
+step 53 target=10600 achieved=10600.1
+step 54 target=10800 achieved=10800.1
+step 55 target=11000 achieved=10999.9
+step 56 target=11200 achieved=11196.4
+step 57 target=11400 achieved=11385.5
+step 58 target=11600 achieved=11604.3
+step 59 target=11800 achieved=11799.8
+step 60 target=12000 achieved=11994.3
+step 61 target=12200 achieved=12200.0
+step 62 target=12400 achieved=12400.1
+step 63 target=12600 achieved=12600.1
+step 64 target=12800 achieved=12799.9
+step 65 target=13000 achieved=13000.1
+step 66 target=13200 achieved=13199.9
+step 67 target=13400 achieved=13400.1
+step 68 target=13600 achieved=13610.4
+step 69 target=13800 achieved=13800.2
+step 70 target=14000 achieved=14000.0
+step 71 target=14200 achieved=14199.8
+step 72 target=14400 achieved=14409.7
+step 73 target=14600 achieved=14599.9
+step 74 target=14800 achieved=14800.3
+step 75 target=15000 achieved=15000.3
+step 76 target=15200 achieved=15212.3
+step 77 target=15400 achieved=15399.7
+step 78 target=15600 achieved=15622.9
+step 79 target=15800 achieved=15800.0
+step 80 target=16000 achieved=15999.7
+step 81 target=16200 achieved=16226.8
+step 82 target=16400 achieved=16392.3
+step 83 target=16600 achieved=16603.7
+step 84 target=16800 achieved=16771.9
+step 85 target=17000 achieved=16590.6
+step 86 target=17200 achieved=17209.1
+step 87 target=17400 achieved=17408.7
+step 88 target=17600 achieved=17602.4
+step 89 target=17800 achieved=17800.3
+step 90 target=18000 achieved=17953.5
+step 91 target=18200 achieved=17800.2
+step 92 target=18400 achieved=18313.0
+step 93 target=18600 achieved=18571.6
+step 94 target=18800 achieved=17066.7
+step 95 target=19000 achieved=17334.8
+step 96 target=19200 achieved=15775.7
+step 97 target=19400 achieved=15628.2
+n3: 97 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 18571.6 ± 1591.2 на сходинці 93 (задано 18600), p99 = 446.9 мс
+prom_n3.json: bucket=33 рядів, requests=3 рядів, cpu=3 рядів, inprogress=3 рядів, up=3 рядів
+== 2026-10-29 00:09:47 крок 7: 4 екземпляр(и)
+web: 4 екземпляри healthy, у Prometheus 4 цілей UP, lb перезапущено
+ Container telemed2-loadgen-run-08a965841ca5 Creating 
+ Container telemed2-loadgen-run-08a965841ca5 Created 
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.1
+step 5 target=1000 achieved=1000.1
+step 6 target=1200 achieved=1200.1
+step 7 target=1400 achieved=1400.1
+step 8 target=1600 achieved=1600.0
+step 9 target=1800 achieved=1799.9
+step 10 target=2000 achieved=2000.0
+step 11 target=2200 achieved=2200.0
+step 12 target=2400 achieved=2399.8
+step 13 target=2600 achieved=2599.8
+step 14 target=2800 achieved=2800.0
+step 15 target=3000 achieved=3000.0
+step 16 target=3200 achieved=3200.0
+step 17 target=3400 achieved=3400.1
+step 18 target=3600 achieved=3600.0
+step 19 target=3800 achieved=3799.9
+step 20 target=4000 achieved=3999.9
+step 21 target=4200 achieved=4200.1
+step 22 target=4400 achieved=4400.1
+step 23 target=4600 achieved=4600.0
+step 24 target=4800 achieved=4800.0
+step 25 target=5000 achieved=5000.0
+step 26 target=5200 achieved=5199.9
+step 27 target=5400 achieved=5399.9
+step 28 target=5600 achieved=5601.1
+step 29 target=5800 achieved=5800.0
+step 30 target=6000 achieved=6000.1
+step 31 target=6200 achieved=6200.1
+step 32 target=6400 achieved=6400.0
+step 33 target=6600 achieved=6600.1
+step 34 target=6800 achieved=6799.8
+step 35 target=7000 achieved=6999.9
+step 36 target=7200 achieved=7199.9
+step 37 target=7400 achieved=7399.9
+step 38 target=7600 achieved=7600.1
+step 39 target=7800 achieved=7800.1
+step 40 target=8000 achieved=8000.0
+step 41 target=8200 achieved=8199.9
+step 42 target=8400 achieved=8400.0
+step 43 target=8600 achieved=8600.1
+step 44 target=8800 achieved=8800.0
+step 45 target=9000 achieved=9000.9
+step 46 target=9200 achieved=9200.1
+step 47 target=9400 achieved=9400.1
+step 48 target=9600 achieved=9599.9
+step 49 target=9800 achieved=9800.0
+step 50 target=10000 achieved=9999.1
+step 51 target=10200 achieved=10200.1
+step 52 target=10400 achieved=10400.1
+step 53 target=10600 achieved=10600.1
+step 54 target=10800 achieved=10801.6
+step 55 target=11000 achieved=10999.9
+step 56 target=11200 achieved=11200.1
+step 57 target=11400 achieved=11400.0
+step 58 target=11600 achieved=11601.5
+step 59 target=11800 achieved=11799.0
+step 60 target=12000 achieved=12000.1
+step 61 target=12200 achieved=12200.0
+step 62 target=12400 achieved=12400.3
+step 63 target=12600 achieved=12599.9
+step 64 target=12800 achieved=12800.1
+step 65 target=13000 achieved=12998.6
+step 66 target=13200 achieved=13201.7
+step 67 target=13400 achieved=13400.4
+step 68 target=13600 achieved=13600.1
+step 69 target=13800 achieved=13799.9
+step 70 target=14000 achieved=13999.9
+step 71 target=14200 achieved=14200.0
+step 72 target=14400 achieved=14391.1
+step 73 target=14600 achieved=14599.8
+step 74 target=14800 achieved=14799.9
+step 75 target=15000 achieved=15010.3
+step 76 target=15200 achieved=15199.5
+step 77 target=15400 achieved=15400.3
+step 78 target=15600 achieved=15595.3
+step 79 target=15800 achieved=15799.8
+step 80 target=16000 achieved=16000.0
+step 81 target=16200 achieved=16202.1
+step 82 target=16400 achieved=16403.2
+step 83 target=16600 achieved=16600.4
+step 84 target=16800 achieved=13927.3
+step 85 target=17000 achieved=1349.1
+n4: 85 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 16600.4 ± 94.5 на сходинці 83 (задано 16600), p99 = 56.4 мс
+prom_n4.json: bucket=44 рядів, requests=4 рядів, cpu=4 рядів, inprogress=4 рядів, up=4 рядів
+== 2026-10-29 00:39:21 серію завершено

@@ -1,0 +1,86 @@
+name: telemed2
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-telemed}
+      POSTGRES_DB: ${POSTGRES_DB:-telemed}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    # 4 екземпляри × пул 10 = 40 зʼєднань, запас до стандартних 100.
+    command: ["postgres", "-c", "max_connections=100"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+    # Як у ЛР 1 (варіант 26): база лише у внутрішній мережі, порт на хост не публікується.
+    networks: [backend]
+
+  web:
+    build: .
+    image: telemed2-web:latest
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: ${POSTGRES_USER:-telemed}
+      DB_NAME: ${POSTGRES_DB:-telemed}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      DB_POOL_SIZE: "10"            # варіант 26
+      PROMETHEUS_DISABLE_CREATED_SERIES: "True"
+    depends_on:
+      db:
+        condition: service_healthy
+    stop_grace_period: 10s
+    deploy:
+      replicas: ${WEB_REPLICAS:-1}
+      resources:
+        limits:                     # з варіанта ЛР 1, не змінюються
+          cpus: "1"
+          memory: 512M
+    networks: [backend, frontend]
+
+  lb:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      # 8080 на хості зайнятий іншим процесом (llama-server), тому балансувальник — на 8088.
+      - "8088:80"
+    depends_on:
+      web:
+        condition: service_healthy
+    networks: [frontend]
+
+  prometheus:
+    image: prom/prometheus:v3.1.0
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - promdata:/prometheus
+    ports:
+      - "9090:9090"
+    networks: [frontend]
+
+  # Генератор (Go): запускається окремо, у мережі frontend поряд із балансувальником.
+  loadgen:
+    build: ./loadgen
+    image: telemed2-loadgen:latest
+    profiles: [tools]
+    volumes:
+      - ./results:/results
+    networks: [frontend]
+
+networks:
+  backend:
+    internal: true
+  frontend: {}
+
+volumes:
+  pgdata: {}
+  promdata: {}

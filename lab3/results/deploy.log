@@ -1,0 +1,120 @@
+== кластер
+Creating cluster "telemed" ...
+ • Ensuring node image (kindest/node:v1.37.0) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.37.0) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+ • Waiting ≤ 2m0s for control-plane = Ready ⏳  ...
+ ✓ Waiting ≤ 2m0s for control-plane = Ready ⏳
+ • Ready after 6s 💚
+Set kubectl context to "kind-telemed"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-telemed
+
+Thanks for using kind! 😊
+node/telemed-control-plane labeled
+NAME                    STATUS     ROLES           AGE   VERSION   ROLE
+telemed-control-plane   Ready      control-plane   21s   v1.37.0   infra
+telemed-worker          NotReady   <none>          7s    v1.37.0   
+telemed-worker2         NotReady   <none>          7s    v1.37.0   
+== образи сервісу і генератора
+sha256:58cd30143258421b35ac287b1582ac236f1a6fb6b8ccb9d58c2f41826e145799
+sha256:bcd04f21fb39e1c290924fef8981a36f349a6650cbd10fd0765bf8dea04eb1ce
+Image: "telemed3-web:lab3" with ID "sha256:bcd04f21fb39e1c290924fef8981a36f349a6650cbd10fd0765bf8dea04eb1ce" not yet present on node "telemed-worker2", loading...
+Image: "telemed3-web:lab3" with ID "sha256:bcd04f21fb39e1c290924fef8981a36f349a6650cbd10fd0765bf8dea04eb1ce" not yet present on node "telemed-worker", loading...
+Image: "telemed3-web:lab3" with ID "sha256:bcd04f21fb39e1c290924fef8981a36f349a6650cbd10fd0765bf8dea04eb1ce" not yet present on node "telemed-control-plane", loading...
+== база і міграція
+secret/db-secret created
+configmap/schema created
+service/db created
+statefulset.apps/db created
+Waiting for 1 pods to be ready...
+partitioned roll out complete: 1 new pods have been updated...
+job.batch/migrate created
+job.batch/migrate condition met
+db:5432 - accepting connections
+CREATE TABLE
+CREATE INDEX
+== моніторинг
+Release "mon" does not exist. Installing it now.
+NAME: mon
+LAST DEPLOYED: Thu Oct 29 00:46:23 2026
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+kube-prometheus-stack has been installed. Check its status by running:
+  kubectl --namespace default get pods -l "release=mon"
+
+Get Grafana 'admin' user password by running:
+
+  kubectl --namespace default get secrets mon-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+
+Access Grafana local instance:
+
+  export POD_NAME=$(kubectl --namespace default get pod -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=mon" -oname)
+  kubectl --namespace default port-forward $POD_NAME 3000
+
+Get your grafana admin user password by running:
+
+  kubectl get secret --namespace default -l app.kubernetes.io/component=admin-secret -o jsonpath="{.items[0].data.admin-password}" | base64 --decode ; echo
+
+
+Visit https://github.com/prometheus-operator/kube-prometheus for instructions on how to create & configure Alertmanager and Prometheus instances using the Operator.
+Release "pgexp" does not exist. Installing it now.
+NAME: pgexp
+LAST DEPLOYED: Thu Oct 29 00:47:03 2026
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app=prometheus-postgres-exporter,release=pgexp" -o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl port-forward $POD_NAME 8080:9187 --namespace default
+Release "metrics-server" does not exist. Installing it now.
+NAME: metrics-server
+LAST DEPLOYED: Thu Oct 29 00:47:22 2026
+NAMESPACE: kube-system
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+***********************************************************************
+* Metrics Server                                                      *
+***********************************************************************
+  Chart version: 3.14.0
+  App version:   0.9.0
+  Image tag:     registry.k8s.io/metrics-server/metrics-server:v0.9.0
+***********************************************************************
+== web
+configmap/web-config created
+deployment.apps/web created
+service/web created
+podmonitor.monitoring.coreos.com/web created
+Waiting for deployment "web" rollout to finish: 0 of 1 updated replicas are available...
+deployment "web" successfully rolled out
+NAME                                                  READY   STATUS      RESTARTS   AGE     IP            NODE                    NOMINATED NODE   READINESS GATES
+db-0                                                  1/1     Running     0          2m14s   10.244.0.6    telemed-control-plane   <none>           <none>
+migrate-glpnq                                         0/1     Completed   0          100s    10.244.0.7    telemed-control-plane   <none>           <none>
+mon-kube-prometheus-stack-operator-6b98fc8d95-28ng7   1/1     Running     0          82s     10.244.0.10   telemed-control-plane   <none>           <none>
+mon-kube-state-metrics-5f7d6d8856-ndgdx               1/1     Running     0          82s     10.244.0.9    telemed-control-plane   <none>           <none>
+pgexp-prometheus-postgres-exporter-56455894c9-tk8ls   1/1     Running     0          53s     10.244.0.13   telemed-control-plane   <none>           <none>
+prometheus-mon-kube-prometheus-stack-prometheus-0     2/2     Running     0          72s     10.244.0.11   telemed-control-plane   <none>           <none>
+web-7fcc7cd774-fhsv6                                  1/1     Running     0          5s      10.244.1.2    telemed-worker2         <none>           <none>

@@ -1,0 +1,22 @@
+$ POST x2
+<- HTTP 201
+<- HTTP 201
+$ GET /telemed-sessions?limit=1
+total = 2
+$ docker compose down
+ Network telemed_frontend Removed 
+$ docker compose up -d
+$ GET /telemed-sessions?limit=1   # після down/up
+total = 2
+$ docker compose stop db; GET /healthz
+{"error":"database check failed: gaierror"}
+<- HTTP 503
+$ docker compose start db; GET /healthz
+{"status":"ok","instance":"973492078a40"}
+<- HTTP 200
+$ docker compose down -v
+ Volume telemed_pgdata Removing 
+ Volume telemed_pgdata Removed 
+$ docker compose up -d
+$ GET /telemed-sessions?limit=1   # після down -v/up
+total = 0

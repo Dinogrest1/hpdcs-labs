@@ -1,0 +1,15 @@
+== 2026-10-28 16:52:37 крок 6: /noop, межа генератора
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+... (190 сходинок пропущено) ...
+step 196 target=39200 achieved=39197.9
+step 197 target=39400 achieved=39400.1
+step 198 target=39600 achieved=39600.0
+step 199 target=39800 achieved=39799.9
+step 200 target=40000 achieved=40000.1
+noop: 200 сходинок, зупинка: max-steps; X = 40000.1 ± 10.2 на сходинці 200 (задано 40000), p99 = 1.5 мс
+prom_noop.json: bucket=11 рядів, requests=1 рядів, cpu=4 рядів, inprogress=4 рядів, up=4 рядів
+G = 40000 запитів/с

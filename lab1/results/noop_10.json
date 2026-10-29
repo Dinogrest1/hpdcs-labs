@@ -1,0 +1,21 @@
+{
+  "mode": "open",
+  "url": "http://lb/noop",
+  "label": "noop",
+  "target_rps": 10.0,
+  "concurrency": null,
+  "procs": 8,
+  "threads_per_proc": 64,
+  "warmup_s": 10.0,
+  "duration_s": 30.0,
+  "sent_in_window": 300,
+  "achieved_rps": 10.0,
+  "p50_ms": 1.1131279999858634,
+  "p95_ms": 4.457166000065627,
+  "p99_ms": 5.4667539999400105,
+  "mean_ms": 1.3933892499907568,
+  "non2xx_share": 0.0,
+  "inflight_mean": 0.007349774700785478,
+  "active_mean": 0.005758000220473132,
+  "generator_lag_max_ms": 0.0
+}

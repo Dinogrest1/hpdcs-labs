@@ -1,0 +1,24 @@
+$ kubectl get statefulset,pod,pvc,svc -l app=db -o wide
+NAME                  READY   AGE   CONTAINERS   IMAGES
+statefulset.apps/db   1/1     10h   postgres     postgres:16-alpine
+
+NAME       READY   STATUS    RESTARTS   AGE   IP           NODE                    NOMINATED NODE   READINESS GATES
+pod/db-0   1/1     Running   0          10h   10.244.0.6   telemed-control-plane   <none>           <none>
+
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/db   ClusterIP   None         <none>        5432/TCP   10h   app=db
+NAME        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-db-0   Bound    pvc-05db59c8-edba-4fd1-a107-d4a4785a4736   1Gi        RWO            standard       <unset>                 10h
+$ kubectl get pod db-0 -o jsonpath={.spec.nodeName}
+telemed-control-plane
+$ psql: SHOW max_connections
+100
+$ kubectl logs job/migrate
+db:5432 - accepting connections
+CREATE TABLE
+CREATE INDEX
+кількість записів до: 100, max(id) = 100
+$ kubectl delete pod db-0
+pod "db-0" deleted from default namespace
+pod/db-0 condition met
+кількість записів після: 100, max(id) = 100

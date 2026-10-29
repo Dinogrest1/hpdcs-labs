@@ -1,0 +1,9 @@
+$ docker inspect telemed-web-1 --format 'NanoCpus={{.HostConfig.NanoCpus}} Memory={{.HostConfig.Memory}}'
+NanoCpus=1000000000 Memory=536870912
+# під час прогону 6000 запитів/с на одному інстансі
+$ docker stats --no-stream --format 'table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}'
+NAME                               CPU %     MEM USAGE / LIMIT
+telemed-loadgen-run-673b2683ccbf   48.22%    150.8MiB / 7.737GiB
+telemed-lb-1                       18.57%    27.18MiB / 7.737GiB
+telemed-web-1                      100.39%   64.36MiB / 512MiB
+telemed-db-1                       20.34%    42.58MiB / 7.737GiB

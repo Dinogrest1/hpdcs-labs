@@ -1,0 +1,46 @@
+== 2026-10-28 22:44:17 повтор кроку 7 для N = 1 від мережі (перший прогін n1 о 21:13–21:26 ішов від батареї)
+web: 1 екземпляри healthy, у Prometheus 1 цілей UP, lb перезапущено
+ Container telemed2-loadgen-run-5bf6e03b8476 Creating 
+ Container telemed2-loadgen-run-5bf6e03b8476 Created 
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1400.0
+step 8 target=1600 achieved=1600.0
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=2000.2
+step 11 target=2200 achieved=2200.1
+step 12 target=2400 achieved=2399.9
+step 13 target=2600 achieved=2600.0
+step 14 target=2800 achieved=2800.2
+step 15 target=3000 achieved=2999.9
+step 16 target=3200 achieved=3200.2
+step 17 target=3400 achieved=3399.9
+step 18 target=3600 achieved=3600.0
+step 19 target=3800 achieved=3800.0
+step 20 target=4000 achieved=4000.0
+step 21 target=4200 achieved=4200.1
+step 22 target=4400 achieved=4354.3
+step 23 target=4600 achieved=4599.9
+step 24 target=4800 achieved=4799.9
+step 25 target=5000 achieved=5009.3
+step 26 target=5200 achieved=5203.0
+step 27 target=5400 achieved=5417.3
+step 28 target=5600 achieved=5603.3
+step 29 target=5800 achieved=5791.8
+step 30 target=6000 achieved=5977.9
+step 31 target=6200 achieved=6165.7
+step 32 target=6400 achieved=6398.5
+step 33 target=6600 achieved=6591.1
+step 34 target=6800 achieved=6476.9
+step 35 target=7000 achieved=6975.5
+step 36 target=7200 achieved=7208.1
+step 37 target=7400 achieved=7370.0
+step 38 target=7600 achieved=6734.5
+step 39 target=7800 achieved=6447.6
+n1: 39 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 7370.0 ± 752.6 на сходинці 37 (задано 7400), p99 = 307.4 мс
+prom_n1.json: bucket=11 рядів, requests=1 рядів, cpu=1 рядів, inprogress=1 рядів, up=4 рядів
+== 2026-10-28 22:57:57 повтор n1 завершено

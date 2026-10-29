@@ -1,0 +1,30 @@
+screens/04_targets_ui.png
+{
+ "G": 40000.13333333333,
+ "X": {
+  "1": 7254.8,
+  "2": 13058.5,
+  "3": 18571.6,
+  "4": 16600.4
+ },
+ "limited": {
+  "1": false,
+  "2": false,
+  "3": false,
+  "4": false
+ },
+ "usl": {
+  "sigma": 0.0,
+  "kappa": 0.05560321555383803,
+  "N_star": 4.240822018954158,
+  "note": "\u03c3 < 0 \u2192 \u03c3 = 0, \u03ba = \u03a3vy/\u03a3v\u00b2",
+  "fit_points": [
+   2,
+   3,
+   4
+  ]
+ },
+ "m4_threshold_ms": 2.0
+}
+screens/08_prometheus_graph.png
+done

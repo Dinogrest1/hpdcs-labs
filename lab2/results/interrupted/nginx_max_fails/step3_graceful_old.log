@@ -1,0 +1,30 @@
+web: 2 екземпляри healthy, у Prometheus 2 цілей UP, lb перезапущено
+$ docker compose ps web
+telemed2-web-1 Up 22 seconds (healthy)
+telemed2-web-2 Up 13 seconds (healthy)
+$ docker stop telemed2-web-2      # unix 1793199124
+telemed2-web-2
+зупинка зайняла 0 с
+$ docker inspect --format '{{.State.ExitCode}}' telemed2-web-2
+0
+graceful: 1 сходинок, зупинка: кінець профілю; X = 1000.0 ± 2.1 на сходинці 1 (задано 1000), p99 = 2.4 мс
+$ docker logs telemed2-web-2 | tail -6
+2026-10-28 14:51:29,485 INFO connected to database, instance=6bea3729638c pool=10
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-10-28 14:52:04,528 INFO graceful shutdown complete, pool closed, instance=6bea3729638c
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1]
+# генератор, 10 с навколо зупинки (±5 с від docker stop):
+unix        sent  2xx  non2xx  conn_err  p99_ms
+1793199119  1000 1000       0         0   2.091
+1793199120  1001 1000       0         0   1.925
+1793199121   999 1000       0         0   2.083
+1793199122  1001 1001       0         0   1.698
+1793199123  1000  999       0         0   1.728
+1793199124  1000  997       0         0   1.721
+1793199125  1000 1003       0         0   1.738
+1793199126   999 1000       0         0   5.588
+1793199127  1001 1001       0         0   1.751
+1793199128  1000  999       0         0   1.825
+за 10 с: відповідей 2xx = 10000, не 2xx і помилок зʼєднання = 0

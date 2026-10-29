@@ -1,0 +1,13 @@
+$ docker compose ps
+telemed2-db-1 Up 8 hours (healthy)
+telemed2-lb-1 Up Less than a second
+telemed2-prometheus-1 Up 8 hours
+telemed2-web-1 Up 8 hours (healthy)
+telemed2-web-2 Up About an hour (healthy)
+telemed2-web-3 Up About an hour (healthy)
+telemed2-web-4 Up 31 minutes (healthy)
+$ curl -s localhost:9090/api/v1/targets   # job="web"
+http://172.22.0.6:8000/metrics up interval 5s via dns web
+http://172.22.0.7:8000/metrics up interval 5s via dns web
+http://172.22.0.3:8000/metrics up interval 5s via dns web
+http://172.22.0.5:8000/metrics up interval 5s via dns web

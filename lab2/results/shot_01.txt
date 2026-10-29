@@ -1,0 +1,21 @@
+$ curl -s web:8000/metrics | grep -E "http_|process_cpu"   # фрагмент
+process_cpu_seconds_total 5585.51
+http_requests_total{code="200",method="GET",path="/healthz"} 7820.0
+http_requests_total{code="201",method="POST",path="/telemed-sessions"} 100.0
+http_requests_total{code="200",method="GET",path="/telemed-sessions"} 1.0
+http_requests_total{code="200",method="GET",path="/telemed-sessions/{session_id}"} 3.5070611e+07
+http_requests_total{code="500",method="GET",path="/telemed-sessions/{session_id}"} 237.0
+http_request_duration_seconds_bucket{le="0.002",method="GET",path="/telemed-sessions/{session_id}"} 3.0521824e+07
+http_request_duration_seconds_bucket{le="0.005",method="GET",path="/telemed-sessions/{session_id}"} 3.1001187e+07
+http_request_duration_seconds_bucket{le="0.01",method="GET",path="/telemed-sessions/{session_id}"} 3.1348429e+07
+http_request_duration_seconds_bucket{le="0.02",method="GET",path="/telemed-sessions/{session_id}"} 3.183262e+07
+http_request_duration_seconds_bucket{le="0.05",method="GET",path="/telemed-sessions/{session_id}"} 3.2584705e+07
+http_request_duration_seconds_bucket{le="0.1",method="GET",path="/telemed-sessions/{session_id}"} 3.3263277e+07
+http_request_duration_seconds_bucket{le="0.2",method="GET",path="/telemed-sessions/{session_id}"} 3.4526946e+07
+http_request_duration_seconds_bucket{le="0.5",method="GET",path="/telemed-sessions/{session_id}"} 3.502449e+07
+http_request_duration_seconds_bucket{le="1.0",method="GET",path="/telemed-sessions/{session_id}"} 3.5068901e+07
+http_request_duration_seconds_bucket{le="2.0",method="GET",path="/telemed-sessions/{session_id}"} 3.5070823e+07
+http_request_duration_seconds_bucket{le="+Inf",method="GET",path="/telemed-sessions/{session_id}"} 3.5070848e+07
+http_request_duration_seconds_count{method="GET",path="/telemed-sessions/{session_id}"} 3.5070848e+07
+http_request_duration_seconds_sum{method="GET",path="/telemed-sessions/{session_id}"} 446791.41681480303
+http_requests_in_progress 1.0

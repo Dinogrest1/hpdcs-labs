@@ -1,0 +1,198 @@
+== 2026-10-29 12:58:33 продовження серії: засів і кроки 3-5 уже зроблені
+== крок 7: 1 — уже знято, пропущено
+== крок 7: 2 — уже знято, пропущено
+== 2026-10-29 12:58:34 крок 7: 3 реплік(и)
+web: 3 готових подів, 3 кінцевих точок, 3 цілей UP
+web-5f98bd4fb9-n2v4j   telemed-worker    true
+web-5f98bd4fb9-vb8k2   telemed-worker    true
+web-5f98bd4fb9-5n9lc   telemed-worker2   true
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1399.9
+step 8 target=1600 achieved=1600.0
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=2000.0
+step 11 target=2200 achieved=2200.0
+step 12 target=2400 achieved=2400.0
+step 13 target=2600 achieved=2599.9
+step 14 target=2800 achieved=2800.2
+step 15 target=3000 achieved=3000.0
+step 16 target=3200 achieved=3199.9
+step 17 target=3400 achieved=3400.1
+step 18 target=3600 achieved=3600.0
+step 19 target=3800 achieved=3800.1
+step 20 target=4000 achieved=4000.0
+step 21 target=4200 achieved=4200.0
+step 22 target=4400 achieved=4400.1
+step 23 target=4600 achieved=4600.1
+step 24 target=4800 achieved=4799.9
+step 25 target=5000 achieved=4999.9
+step 26 target=5200 achieved=5200.1
+step 27 target=5400 achieved=5399.9
+step 28 target=5600 achieved=5599.9
+step 29 target=5800 achieved=5800.0
+step 30 target=6000 achieved=5991.5
+step 31 target=6200 achieved=6200.7
+step 32 target=6400 achieved=6400.1
+step 33 target=6600 achieved=6600.7
+step 34 target=6800 achieved=6800.0
+step 35 target=7000 achieved=7000.1
+step 36 target=7200 achieved=7200.0
+step 37 target=7400 achieved=7400.0
+step 38 target=7600 achieved=7599.1
+step 39 target=7800 achieved=7800.0
+step 40 target=8000 achieved=7999.9
+step 41 target=8200 achieved=8199.0
+step 42 target=8400 achieved=8399.0
+step 43 target=8600 achieved=8600.9
+step 44 target=8800 achieved=8799.0
+step 45 target=9000 achieved=8999.0
+step 46 target=9200 achieved=9200.0
+step 47 target=9400 achieved=9401.0
+step 48 target=9600 achieved=9600.0
+step 49 target=9800 achieved=9800.1
+step 50 target=10000 achieved=10000.6
+step 51 target=10200 achieved=10199.4
+step 52 target=10400 achieved=10400.0
+step 53 target=10600 achieved=10599.9
+step 54 target=10800 achieved=10798.8
+step 55 target=11000 achieved=11079.1
+step 56 target=11200 achieved=11199.0
+step 57 target=11400 achieved=11415.9
+step 58 target=11600 achieved=11526.0
+step 59 target=11800 achieved=11176.0
+step 60 target=12000 achieved=11504.1
+step 61 target=12200 achieved=11382.3
+step 62 target=12400 achieved=11467.5
+step 63 target=12600 achieved=11181.0
+step 64 target=12800 achieved=11301.7
+n3: 64 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 11526.0 ± 495.0 на сходинці 58 (задано 11600), p99 = 458.1 мс
+prom_n3.json: bucket=33, requests=3, throttled=3, periods=3, cpu_usage=3, process_cpu=3, inprogress=3, ready=1, desired=0, pod_node=3, up=3, pg_conn=6
+== 2026-10-29 13:31:45 крок 7: 5 реплік(и)
+web: 5 готових подів, 5 кінцевих точок, 5 цілей UP
+web-5f98bd4fb9-n2v4j   telemed-worker    true
+web-5f98bd4fb9-vb8k2   telemed-worker    true
+web-5f98bd4fb9-5n9lc   telemed-worker2   true
+web-5f98bd4fb9-j4ltj   telemed-worker2   true
+web-5f98bd4fb9-jrzm9   telemed-worker2   true
+step 1 target=200 achieved=200.0
+step 2 target=400 achieved=400.0
+step 3 target=600 achieved=600.0
+step 4 target=800 achieved=800.0
+step 5 target=1000 achieved=1000.0
+step 6 target=1200 achieved=1200.0
+step 7 target=1400 achieved=1399.9
+step 8 target=1600 achieved=1599.9
+step 9 target=1800 achieved=1800.0
+step 10 target=2000 achieved=2000.0
+step 11 target=2200 achieved=2200.0
+step 12 target=2400 achieved=2400.0
+step 13 target=2600 achieved=2600.0
+step 14 target=2800 achieved=2800.1
+step 15 target=3000 achieved=2999.8
+step 16 target=3200 achieved=3200.1
+step 17 target=3400 achieved=3399.9
+step 18 target=3600 achieved=3600.1
+step 19 target=3800 achieved=3800.0
+step 20 target=4000 achieved=3999.9
+step 21 target=4200 achieved=4199.9
+step 22 target=4400 achieved=4400.0
+step 23 target=4600 achieved=4599.9
+step 24 target=4800 achieved=4799.9
+step 25 target=5000 achieved=4999.9
+step 26 target=5200 achieved=5200.1
+step 27 target=5400 achieved=5400.0
+step 28 target=5600 achieved=5599.9
+step 29 target=5800 achieved=5800.0
+step 30 target=6000 achieved=5998.9
+step 31 target=6200 achieved=6200.1
+step 32 target=6400 achieved=6400.0
+step 33 target=6600 achieved=6600.1
+step 34 target=6800 achieved=6800.1
+step 35 target=7000 achieved=7000.1
+step 36 target=7200 achieved=7198.9
+step 37 target=7400 achieved=7399.8
+step 38 target=7600 achieved=7600.1
+step 39 target=7800 achieved=7800.0
+step 40 target=8000 achieved=8000.4
+step 41 target=8200 achieved=8200.1
+step 42 target=8400 achieved=8400.0
+step 43 target=8600 achieved=8599.9
+step 44 target=8800 achieved=8800.6
+step 45 target=9000 achieved=8999.8
+step 46 target=9200 achieved=9200.2
+step 47 target=9400 achieved=9399.5
+step 48 target=9600 achieved=9600.0
+step 49 target=9800 achieved=9800.2
+step 50 target=10000 achieved=9999.9
+step 51 target=10200 achieved=10199.0
+step 52 target=10400 achieved=10400.8
+step 53 target=10600 achieved=10599.6
+step 54 target=10800 achieved=10799.8
+step 55 target=11000 achieved=10997.9
+step 56 target=11200 achieved=11200.4
+step 57 target=11400 achieved=11399.5
+step 58 target=11600 achieved=11652.1
+step 59 target=11800 achieved=11800.2
+step 60 target=12000 achieved=12001.6
+step 61 target=12200 achieved=12200.6
+step 62 target=12400 achieved=12400.9
+step 63 target=12600 achieved=12599.0
+step 64 target=12800 achieved=12798.2
+step 65 target=13000 achieved=13012.9
+step 66 target=13200 achieved=13237.8
+step 67 target=13400 achieved=13392.9
+step 68 target=13600 achieved=13600.1
+step 69 target=13800 achieved=13799.9
+step 70 target=14000 achieved=13999.9
+step 71 target=14200 achieved=14200.0
+step 72 target=14400 achieved=14400.3
+step 73 target=14600 achieved=14600.2
+step 74 target=14800 achieved=14751.6
+step 75 target=15000 achieved=15000.9
+step 76 target=15200 achieved=15198.5
+step 77 target=15400 achieved=15689.0
+step 78 target=15600 achieved=15600.7
+step 79 target=15800 achieved=16324.1
+step 80 target=16000 achieved=13054.2
+step 81 target=16200 achieved=14771.8
+step 82 target=16400 achieved=14018.5
+step 83 target=16600 achieved=14803.3
+n5: 83 сходинок, зупинка: дві сходинки поспіль досягнута < 0.9 заданої; X = 16324.1 ± 1010.0 на сходинці 79 (задано 15800), p99 = 863.2 мс
+prom_n5.json: bucket=55, requests=5, throttled=5, periods=5, cpu_usage=5, process_cpu=5, inprogress=5, ready=1, desired=0, pod_node=5, up=5, pg_conn=6
+X(1) = 4228.1, X(5) = 16324.1; профіль: 30 с × 1268, 60 с × 8456 (= min(2·X(1), 0.9·X(5))), 90 с × 1268
+== 2026-10-29 14:14:26 крок 10: профіль на 5 фіксованих репліках
+web: 5 готових подів, 5 кінцевих точок, 5 цілей UP
+web-5f98bd4fb9-n2v4j   telemed-worker    true
+web-5f98bd4fb9-vb8k2   telemed-worker    true
+web-5f98bd4fb9-5n9lc   telemed-worker2   true
+web-5f98bd4fb9-j4ltj   telemed-worker2   true
+web-5f98bd4fb9-jrzm9   telemed-worker2   true
+fixed5: 3 сходинок, зупинка: кінець профілю; X = 8456.0 ± 308.6 на сходинці 2 (задано 8456), p99 = 161.5 мс
+prom_fixed5.json: bucket=55, requests=5, throttled=5, periods=5, cpu_usage=5, process_cpu=5, inprogress=5, ready=1, desired=0, pod_node=5, up=5, pg_conn=6
+== 2026-10-29 14:17:58 крок 11: той самий профіль з HPA
+web: 1 готових подів, 1 кінцевих точок, 1 цілей UP
+web-5f98bd4fb9-n2v4j   telemed-worker   true
+horizontalpodautoscaler.autoscaling/web created
+$ kubectl get hpa web
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web    Deployment/web   cpu: 1%/70%   1         5         1          67s
+hpa: 3 сходинок, зупинка: кінець профілю; X = 8455.9 ± 4198.6 на сходинці 2 (задано 8456), p99 = 11662.2 мс
+prom_hpa.json: bucket=55, requests=5, throttled=5, periods=5, cpu_usage=5, process_cpu=5, inprogress=5, ready=1, desired=1, pod_node=5, up=5, pg_conn=6
+$ kubectl get hpa web
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web    Deployment/web   cpu: 1%/70%   1         5         1          5m8s
+$ kubectl describe hpa web | events
+Events:
+  Type    Reason             Age    From                       Message
+  ----    ------             ----   ----                       -------
+  Normal  SuccessfulRescale  3m23s  horizontal-pod-autoscaler  New size: 2; reason: cpu resource utilization (percentage of request) above target
+  Normal  SuccessfulRescale  2m53s  horizontal-pod-autoscaler  New size: 5; reason: cpu resource utilization (percentage of request) above target
+  Normal  SuccessfulRescale  98s    horizontal-pod-autoscaler  New size: 2; reason: All metrics below target
+  Normal  SuccessfulRescale  22s    horizontal-pod-autoscaler  New size: 1; reason: All metrics below target
+horizontalpodautoscaler.autoscaling "web" deleted from default namespace
+== 2026-10-29 14:23:29 серію завершено

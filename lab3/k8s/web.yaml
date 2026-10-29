@@ -1,0 +1,83 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-config
+data:
+  DB_HOST: db
+  DB_PORT: "5432"
+  DB_USER: telemed
+  DB_NAME: telemed
+  DB_POOL_SIZE: "10"                      # варіант 26 у ЛР 2
+  PROMETHEUS_DISABLE_CREATED_SERIES: "True"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels: {app: web}
+spec:
+  # Поля replicas немає: кількість задає kubectl scale або HPA,
+  # і повторне застосування маніфесту її не скидає.
+  selector:
+    matchLabels: {app: web}
+  template:
+    metadata:
+      labels: {app: web}
+    spec:
+      terminationGracePeriodSeconds: 15
+      # Д1: поди web порівну на двох worker (control-plane має taint і toleration у web немає).
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          # Honor: вузол з taint, який под не толерує (control-plane), не рахується доменом.
+          # Без цього control-plane з 0 подів рахувався б, і третій под порушував би maxSkew → Pending.
+          nodeTaintsPolicy: Honor
+          labelSelector:
+            matchLabels: {app: web}
+      containers:
+        - name: web
+          image: telemed3-web:lab3
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef: {name: web-config}
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef: {name: db-secret, key: POSTGRES_PASSWORD}
+            - name: POD_NAME
+              valueFrom:
+                fieldRef: {fieldPath: metadata.name}
+          ports:
+            - name: http
+              containerPort: 8000
+          resources:
+            requests: {cpu: 250m}
+            limits: {cpu: 500m, memory: 512Mi}
+          readinessProbe:
+            httpGet: {path: /healthz, port: http}
+            timeoutSeconds: 3
+            periodSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet: {path: /livez, port: http}
+            periodSeconds: 10
+            timeoutSeconds: 3
+          lifecycle:
+            preStop:
+              # пауза, поки kube-proxy вилучає под з кінцевих точок, і лише потім SIGTERM
+              sleep: {seconds: 5}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels: {app: web}
+spec:
+  type: NodePort
+  selector: {app: web}
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+      nodePort: 30080

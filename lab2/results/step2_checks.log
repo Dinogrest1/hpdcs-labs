@@ -1,0 +1,20 @@
+$ curl -s localhost:8088/livez
+{"status":"alive","instance":"7a6f292849e2"}
+$ for i in 1 2 3 4 5 6; do curl -s -D - -o /dev/null localhost:8088/telemed-sessions/1 | grep -i x-pod; done
+x-pod: 7a6f292849e2
+x-pod: 7a6f292849e2
+x-pod: 7a6f292849e2
+x-pod: 7a6f292849e2
+x-pod: 7a6f292849e2
+x-pod: 7a6f292849e2
+$ docker compose exec web env | grep DB_POOL_SIZE
+DB_POOL_SIZE=10
+$ docker compose exec db psql -U telemed -c "SELECT client_addr, count(*) FROM pg_stat_activity WHERE datname='telemed' GROUP BY 1"
+ client_addr | count 
+-------------+-------
+ 172.21.0.3  |    10
+ 172.21.0.4  |    10
+ 172.21.0.5  |    10
+ 172.21.0.6  |    10
+(4 rows)
+

@@ -1,0 +1,18 @@
+$ docker images telemed-web
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+telemed-web:latest   13dba6e5954a        292MB         62.9MB   U    
+
+$ docker history telemed-web --format "{{.Size}}	{{.CreatedBy}}" | head -9
+0B	CMD ["uvicorn" "main:app" "--host" "0.0.0.0"…
+0B	HEALTHCHECK {Test:[CMD python /srv/healthche…
+0B	EXPOSE [8000/tcp]
+0B	USER 10001
+20.5kB	COPY app/main.py app/healthcheck.py ./ # bui…
+4.1kB	WORKDIR /srv
+69.5MB	COPY /opt/venv /opt/venv # buildkit
+49.2kB	RUN /bin/sh -c useradd --uid 10001 --no-crea…
+0B	ENV PATH=/opt/venv/bin:/usr/local/bin:/usr/l…
+
+$ docker run --rm --entrypoint sh telemed-web -c "du -sh --exclude=/proc --exclude=/sys /; which gcc cc make curl wget"
+215M	/
+(жодного з gcc, cc, make, curl, wget в образі немає)

@@ -1,0 +1,73 @@
+name: telemed
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-telemed}
+      POSTGRES_DB: ${POSTGRES_DB:-telemed}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    # -h 127.0.0.1: під час initdb тимчасовий сервер слухає лише unix-сокет,
+    # тож перевірка по TCP не дасть хибного "готово" до накатування схеми.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+    # Порт бази на хост не публікується (додаткова вимога варіанта 26).
+    networks: [backend]
+
+  web:
+    build: .
+    image: telemed-web:latest
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: ${POSTGRES_USER:-telemed}
+      DB_NAME: ${POSTGRES_DB:-telemed}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    depends_on:
+      db:
+        condition: service_healthy
+    deploy:
+      replicas: ${WEB_REPLICAS:-1}
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    networks: [backend, frontend]
+
+  lb:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      web:
+        condition: service_healthy
+    networks: [frontend]
+
+  # Генератор навантаження: запускається окремо, у тій самій мережі, що й балансувальник.
+  loadgen:
+    image: python:3.12-slim
+    profiles: [tools]
+    working_dir: /loadgen
+    volumes:
+      - ./loadgen:/loadgen
+      - ./results:/results
+    networks: [frontend]
+    entrypoint: ["python", "/loadgen/loadgen.py"]
+
+networks:
+  # internal: true — мережа без виходу назовні і без можливості
+  # опублікувати з неї порт; у ній живуть лише база і вебінстанси.
+  backend:
+    internal: true
+  frontend: {}
+
+volumes:
+  pgdata: {}

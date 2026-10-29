@@ -1,0 +1,21 @@
+{
+  "mode": "open",
+  "url": "http://lb/telemed-sessions/{id}",
+  "label": "open r=1",
+  "target_rps": 100.0,
+  "concurrency": null,
+  "procs": 8,
+  "threads_per_proc": 64,
+  "warmup_s": 10.0,
+  "duration_s": 30.0,
+  "sent_in_window": 3000,
+  "achieved_rps": 100.0,
+  "p50_ms": 2.095721999921807,
+  "p95_ms": 3.6720009999271497,
+  "p99_ms": 4.627229999982774,
+  "mean_ms": 2.1652479269844584,
+  "non2xx_share": 0.0,
+  "inflight_mean": 0.1675073729658479,
+  "active_mean": 0.1601498450674827,
+  "generator_lag_max_ms": 0.0
+}

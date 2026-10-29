@@ -1,0 +1,34 @@
+{
+ "end_unix": 1793221228,
+ "label": "graceful",
+ "mode": "profile",
+ "segments": [
+  {
+   "name": "seg1",
+   "duration_s": 40,
+   "rate": 1000,
+   "start_s": 0
+  }
+ ],
+ "steps": [
+  {
+   "step": 1,
+   "target_rps": 1000,
+   "start_unix": 1793221188,
+   "window_from_unix": 1793221213,
+   "window_to_unix": 1793221228,
+   "achieved_rps": 1000.0666666666667,
+   "achieved_std": 0.7988086367179803,
+   "sent_rps": 1000.0666666666667,
+   "p50_ms": 16.617886935295605,
+   "p95_ms": 501.1825938708924,
+   "p99_ms": 501.1825938708924,
+   "non2xx_share": 0,
+   "conn_errors": 0
+  }
+ ],
+ "stop_reason": "кінець профілю",
+ "t0_unix": 1793221188,
+ "timeout_s": 5,
+ "url": "http://lb/telemed-sessions/{id}"
+}

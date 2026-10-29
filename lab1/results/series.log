@@ -1,0 +1,64 @@
+== стенд з 1 інстансами (томи порожні)
+telemed-db-1 Up 7 seconds (healthy)
+telemed-lb-1 Up Less than a second
+telemed-web-1 Up 5 seconds (healthy)
+seeded, total = 100 first id = 1
+== перевірка генератора на /noop (nginx return 200, сервіс не задіяний)
+noop 10.0 10 p50=1.1 p95=4.5 p99=5.5 non2xx=0.000 L=0.0 lag=0.0ms
+noop 100.0 100 p50=1.0 p95=2.6 p99=4.9 non2xx=0.000 L=0.1 lag=0.0ms
+noop 500.0 500 p50=0.7 p95=1.5 p99=2.2 non2xx=0.000 L=0.2 lag=2.4ms
+noop 2000.0 2000 p50=0.3 p95=0.7 p99=1.0 non2xx=0.000 L=0.4 lag=10.0ms
+noop 8000.0 8000 p50=0.2 p95=0.3 p99=0.4 non2xx=0.000 L=0.6 lag=19.5ms
+n=1 rep1 10.0 10 p50=3.1 p95=4.9 p99=7.7 non2xx=0.000 L=0.0 lag=0.0ms
+n=1 rep2 10.0 10 p50=3.2 p95=5.8 p99=7.4 non2xx=0.000 L=0.0 lag=0.0ms
+n=1 rep3 10.0 10 p50=3.0 p95=4.2 p99=6.2 non2xx=0.000 L=0.0 lag=0.0ms
+n=1 rep1 100.0 100 p50=2.1 p95=3.7 p99=5.9 non2xx=0.000 L=0.2 lag=0.0ms
+n=1 rep2 100.0 100 p50=2.4 p95=3.9 p99=4.9 non2xx=0.000 L=0.2 lag=0.0ms
+n=1 rep3 100.0 100 p50=2.1 p95=3.7 p99=4.6 non2xx=0.000 L=0.2 lag=0.0ms
+== стенд з 1 інстансами (томи порожні)
+telemed-db-1 Up 7 seconds (healthy)
+telemed-lb-1 Up Less than a second
+telemed-web-1 Up 5 seconds (healthy)
+seeded, total = 100 first id = 1
+== перевірка генератора на /noop (nginx return 200, сервіс не задіяний)
+n=1 rep1 500.0 500 p50=1.1 p95=1.9 p99=2.9 non2xx=0.000 L=0.5 lag=0.0ms
+n=1 rep2 500.0 500 p50=1.1 p95=2.0 p99=3.1 non2xx=0.000 L=0.5 lag=0.0ms
+n=1 rep3 500.0 500 p50=1.2 p95=2.0 p99=4.2 non2xx=0.000 L=0.5 lag=0.0ms
+n=1 rep1 6000.0 3214 p50=23129.6 p95=35210.0 p99=36736.9 non2xx=0.000 L=76078.0 lag=43.9ms
+n=1 rep2 6000.0 3444 p50=20848.5 p95=33410.5 p99=35012.4 non2xx=0.000 L=68814.6 lag=244.7ms
+n=1 rep3 6000.0 3696 p50=16029.5 p95=27934.8 p99=28721.7 non2xx=0.000 L=62732.8 lag=22.2ms
+== закритий контур на рівні 6000: concurrency = 512 (середня кількість одночасних запитів у відкритому контурі)
+closed rep1 512 4217 p50=5.1 p95=665.4 p99=1619.1 non2xx=0.000 L=512.0 lag=0.0ms
+== стенд з 2 інстансами (томи порожні)
+telemed-db-1 Up 7 seconds (healthy)
+telemed-lb-1 Up Less than a second
+telemed-web-1 Up 5 seconds (healthy)
+telemed-web-2 Up 5 seconds (healthy)
+seeded, total = 100 first id = 1
+n=2 rep1 10.0 10 p50=3.4 p95=5.6 p99=7.5 non2xx=0.000 L=0.0 lag=0.0ms
+n=2 rep2 10.0 10 p50=3.3 p95=5.7 p99=8.0 non2xx=0.000 L=0.0 lag=0.0ms
+n=2 rep3 10.0 10 p50=3.6 p95=5.4 p99=7.6 non2xx=0.000 L=0.0 lag=0.0ms
+n=2 rep1 100.0 100 p50=2.2 p95=3.6 p99=4.5 non2xx=0.000 L=0.2 lag=0.0ms
+n=2 rep2 100.0 100 p50=2.3 p95=3.6 p99=4.8 non2xx=0.000 L=0.2 lag=0.0ms
+n=2 rep3 100.0 100 p50=2.2 p95=3.6 p99=4.5 non2xx=0.000 L=0.2 lag=0.0ms
+n=2 rep1 500.0 500 p50=1.1 p95=2.0 p99=2.9 non2xx=0.000 L=0.5 lag=0.0ms
+n=2 rep2 500.0 500 p50=1.1 p95=2.0 p99=3.0 non2xx=0.000 L=0.5 lag=0.0ms
+n=2 rep3 500.0 500 p50=1.0 p95=1.8 p99=2.7 non2xx=0.000 L=0.4 lag=0.0ms
+n=2 rep1 6000.0 6000 p50=0.6 p95=44.2 p99=155.4 non2xx=0.000 L=44.7 lag=26.5ms
+n=2 rep2 6000.0 6000 p50=0.6 p95=63.2 p99=217.2 non2xx=0.000 L=71.1 lag=9.2ms
+n=2 rep3 6000.0 6000 p50=0.6 p95=27.3 p99=82.6 non2xx=0.000 L=24.9 lag=11.7ms
+== розподіл запитів між інстансами
+telemed-web-1 172.18.0.4 172.19.0.3 
+telemed-web-2 172.18.0.3 172.19.0.2 
+396652 upstream=172.19.0.2:8000
+396650 upstream=172.19.0.3:8000
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d
+x-instance: 2a9d545b3647
+x-instance: a635ccde409d

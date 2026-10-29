@@ -1,0 +1,61 @@
+### 1. Створення
+$ curl -X POST /telemed-sessions -d '{"patient_code":"P-000123","doctor":"Коваленко О.П.","channel":"video","started_at":"2026-10-10T10:00:00+03:00","duration_min":30,"status":"scheduled"}'
+{"id":1,"patient_code":"P-000123","doctor":"Коваленко О.П.","channel":"video","started_at":"2026-10-10T07:00:00+00:00","duration_min":30,"status":"scheduled","created_at":"2026-10-10T10:39:33.603917+00:00","updated_at":"2026-10-10T10:39:33.603917+00:00"}
+<- HTTP 201
+
+### 2. Перелік із фільтром за каналом
+$ curl -X GET /telemed-sessions?channel=video&limit=5&offset=0
+{"items":[{"id":1,"patient_code":"P-000123","doctor":"Коваленко О.П.","channel":"video","started_at":"2026-10-10T07:00:00+00:00","duration_min":30,"status":"scheduled","created_at":"2026-10-10T10:39:33.603917+00:00","updated_at":"2026-10-10T10:39:33.603917+00:00"}],"total":1,"limit":5,"offset":0}
+<- HTTP 200
+
+### 3. Один запис за id=1
+$ curl -X GET /telemed-sessions/1
+{"id":1,"patient_code":"P-000123","doctor":"Коваленко О.П.","channel":"video","started_at":"2026-10-10T07:00:00+00:00","duration_min":30,"status":"scheduled","created_at":"2026-10-10T10:39:33.603917+00:00","updated_at":"2026-10-10T10:39:33.603917+00:00"}
+<- HTTP 200
+
+### 4. Повна заміна
+$ curl -X PUT /telemed-sessions/1 -d '{"patient_code":"P-000123","doctor":"Коваленко О.П.","channel":"audio","started_at":"2026-10-10T10:00:00+03:00","duration_min":45,"status":"completed"}'
+{"id":1,"patient_code":"P-000123","doctor":"Коваленко О.П.","channel":"audio","started_at":"2026-10-10T07:00:00+00:00","duration_min":45,"status":"completed","created_at":"2026-10-10T10:39:33.603917+00:00","updated_at":"2026-10-10T10:39:33.680712+00:00"}
+<- HTTP 200
+
+### 5. Видалення
+$ curl -X DELETE /telemed-sessions/1
+
+<- HTTP 204
+
+### 6. Повторне видалення
+$ curl -X DELETE /telemed-sessions/1
+{"error":"telemed session 1 not found"}
+<- HTTP 404
+
+### 7. Читання видаленого
+$ curl -X GET /telemed-sessions/1
+{"error":"telemed session 1 not found"}
+<- HTTP 404
+
+### 8. Валідація: тривалість 0 і 91 хв, невідомий канал, зайве поле id
+$ curl -X POST /telemed-sessions -d '{"patient_code":"P-000124","doctor":"Іваненко","channel":"video","started_at":"2026-10-10T10:00:00+03:00","duration_min":0,"status":"scheduled"}'
+{"error":"validation failed","details":[{"field":"duration_min","problem":"Value error, must be greater than 0 and not greater than 90 minutes"}]}
+<- HTTP 400
+
+$ curl -X POST /telemed-sessions -d '{"patient_code":"P-000124","doctor":"Іваненко","channel":"video","started_at":"2026-10-10T10:00:00+03:00","duration_min":91,"status":"scheduled"}'
+{"error":"validation failed","details":[{"field":"duration_min","problem":"Value error, must be greater than 0 and not greater than 90 minutes"}]}
+<- HTTP 400
+
+$ curl -X POST /telemed-sessions -d '{"patient_code":"P-000124","doctor":"Іваненко","channel":"fax","started_at":"2026-10-10T10:00:00+03:00","duration_min":20,"status":"scheduled"}'
+{"error":"validation failed","details":[{"field":"channel","problem":"Input should be 'video', 'audio' or 'chat'"}]}
+<- HTTP 400
+
+$ curl -X POST /telemed-sessions -d '{"id":5,"patient_code":"P-000124","doctor":"Іваненко","channel":"chat","started_at":"2026-10-10T10:00:00+03:00","duration_min":20,"status":"scheduled"}'
+{"error":"validation failed","details":[{"field":"id","problem":"Extra inputs are not permitted"}]}
+<- HTTP 400
+
+### 9. PUT неіснуючого, некоректний limit
+$ curl -X PUT /telemed-sessions/999999 -d '{"patient_code":"P-000124","doctor":"Іваненко","channel":"chat","started_at":"2026-10-10T10:00:00+03:00","duration_min":20,"status":"scheduled"}'
+{"error":"telemed session 999999 not found"}
+<- HTTP 404
+
+$ curl -X GET /telemed-sessions?limit=1000
+{"error":"validation failed","details":[{"field":"query.limit","problem":"Input should be less than or equal to 100"}]}
+<- HTTP 400
+

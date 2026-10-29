@@ -1,0 +1,5 @@
+web-5f98bd4fb9-5n9lc   telemed-worker2
+web-5f98bd4fb9-j4ltj   telemed-worker2
+web-5f98bd4fb9-jrzm9   telemed-worker2
+web-5f98bd4fb9-n2v4j   telemed-worker
+web-5f98bd4fb9-vb8k2   telemed-worker

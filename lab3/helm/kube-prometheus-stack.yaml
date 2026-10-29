@@ -1,0 +1,46 @@
+# Prometheus + kube-state-metrics + збір cAdvisor через kubelet; усе на вузлі role=infra.
+defaultRules: {create: false}
+alertmanager: {enabled: false}
+grafana: {enabled: false}
+nodeExporter: {enabled: false}
+kubeControllerManager: {enabled: false}
+kubeScheduler: {enabled: false}
+kubeEtcd: {enabled: false}
+kubeProxy: {enabled: false}
+
+kubelet:
+  serviceMonitor:
+    interval: 5s
+    cAdvisor: true
+
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 30090
+  prometheusSpec:
+    scrapeInterval: 5s
+    evaluationInterval: 5s
+    retention: 3d
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+    nodeSelector: {role: infra}
+    tolerations:
+      - {key: node-role.kubernetes.io/control-plane, operator: Exists, effect: NoSchedule}
+
+prometheusOperator:
+  nodeSelector: {role: infra}
+  tolerations:
+    - {key: node-role.kubernetes.io/control-plane, operator: Exists, effect: NoSchedule}
+  admissionWebhooks:
+    patch:
+      nodeSelector: {role: infra}
+      tolerations:
+        - {key: node-role.kubernetes.io/control-plane, operator: Exists, effect: NoSchedule}
+
+kube-state-metrics:
+  nodeSelector: {role: infra}
+  tolerations:
+    - {key: node-role.kubernetes.io/control-plane, operator: Exists, effect: NoSchedule}
+  prometheus:
+    monitor:
+      interval: 5s
