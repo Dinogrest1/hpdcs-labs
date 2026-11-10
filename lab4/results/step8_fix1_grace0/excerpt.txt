@@ -1,0 +1,17 @@
+# results/step8_fix1.log (уривок) і журнали подів results/step8_fix1_grace0/exit_*.log, log_*.log
+psql> SELECT id, status, attempts, token, worker_id FROM tasks WHERE attempts > 1 ORDER BY id LIMIT 10
+   id   | status | attempts | token |        worker_id        
+--------+--------+----------+-------+-------------------------
+ 214797 | done   |        2 |     2 | worker-c7b5f4bc8-xdkxn
+ 214811 | done   |        2 |     2 | worker-5d8556494d-4k5z5
+(2 rows)
+
+$ grep -h "214797\|214811" results/step8_fix1_grace0/*.log
+18:58:16.327 SIGTERM: нових задач не беру, задача в обробці: task=214797, чекаю до 0.0 с
+18:58:16.359 task=214797 done token=1 attempts=1 fetch=11.7ms process=37.2ms store=1.0ms
+18:58:16.429 SIGTERM: нових задач не беру, задача в обробці: task=214797, чекаю до 0.0 с
+18:58:16.429 task=214797 done token=2 attempts=2 fetch=0.7ms process=36.2ms store=17.0ms
+18:58:16.837 SIGTERM: нових задач не беру, задача в обробці: task=214811, чекаю до 0.0 с
+18:58:16.905 task=214811 done token=1 attempts=1 fetch=3.8ms process=20.5ms store=44.8ms
+18:58:16.906 task=214811 token=1 не завершилась за 0.0 с: повернуто в чергу (оновлено рядків: 1)
+18:58:16.958 task=214811 done token=2 attempts=2 fetch=5.0ms process=25.6ms store=2.5ms

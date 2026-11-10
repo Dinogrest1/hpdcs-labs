@@ -1,0 +1,21 @@
+18:15:13.269 старт worker=worker-7d6fcb6f79-df7hm claim=skip_locked store=idempotent order=created lease=True L=10с heartbeat=True T_poll=50мс FAIL_RATE=0
+18:15:26.038 task=203 done token=1 attempts=1 fetch=1.1ms process=13.7ms store=1.2ms
+18:15:26.107 task=204 done token=1 attempts=1 fetch=0.8ms process=14.1ms store=0.8ms
+18:15:26.122 task=205 done token=1 attempts=1 fetch=0.6ms process=13.6ms store=0.9ms
+18:15:26.186 task=206 done token=1 attempts=1 fetch=0.6ms process=11.4ms store=0.7ms
+18:15:26.251 task=207 done token=1 attempts=1 fetch=0.6ms process=11.9ms store=0.6ms
+18:15:26.264 task=208 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.6ms
+18:15:26.328 task=209 done token=1 attempts=1 fetch=0.5ms process=12.2ms store=0.5ms
+18:15:26.394 task=210 done token=1 attempts=1 fetch=0.5ms process=13.1ms store=0.5ms
+18:15:26.459 task=211 done token=1 attempts=1 fetch=0.6ms process=13.5ms store=0.6ms
+18:15:26.473 task=212 done token=1 attempts=1 fetch=0.4ms process=12.2ms store=0.5ms
+18:15:26.538 task=213 done token=1 attempts=1 fetch=0.5ms process=13.3ms store=0.6ms
+18:15:26.604 task=214 done token=1 attempts=1 fetch=0.6ms process=13.8ms store=0.5ms
+18:15:26.618 task=215 done token=1 attempts=1 fetch=0.4ms process=12.7ms store=0.5ms
+18:15:26.683 task=216 done token=1 attempts=1 fetch=0.5ms process=12.5ms store=0.7ms
+18:15:26.749 task=217 done token=1 attempts=1 fetch=0.5ms process=13.0ms store=0.6ms
+18:15:26.816 task=218 done token=1 attempts=1 fetch=1.1ms process=13.3ms store=0.5ms
+18:15:26.830 task=219 done token=1 attempts=1 fetch=0.5ms process=12.4ms store=0.5ms
+18:15:26.894 task=220 done token=1 attempts=1 fetch=0.8ms process=11.4ms store=0.6ms
+18:15:26.963 task=221 done token=1 attempts=1 fetch=0.6ms process=13.3ms store=2.8ms
+18:15:26.979 task=222 done token=1 attempts=1 fetch=1.0ms process=12.0ms store=2.1ms

@@ -1,0 +1,6 @@
+NAME                      READY   STATUS             RESTARTS       AGE
+worker-655756c4bd-4r6g5   0/1     Error              4 (108s ago)   2m30s
+worker-655756c4bd-57jpx   0/1     CrashLoopBackOff   4 (66s ago)    2m30s
+worker-655756c4bd-727cx   0/1     Error              4 (101s ago)   2m30s
+worker-655756c4bd-9zjkq   0/1     Error              4 (110s ago)   2m30s
+worker-655756c4bd-wvhd2   0/1     Error              4 (107s ago)   2m30s

@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: worker-config
+data:
+  DB_HOST: db
+  DB_PORT: "5432"
+  DB_USER: telemed
+  DB_NAME: telemed
+  WEB_HOST: web
+  WEB_PORT: "8000"
+  RESOURCE: /telemed-sessions
+  Q_LO: "0.05"                            # варіант 26
+  Q_HI: "0.95"
+  LOG_FILE: /logs/worker.log
+  PROMETHEUS_DISABLE_CREATED_SERIES: "True"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  labels: {app: worker}
+spec:
+  # Поля replicas немає: кількість воркерів задає kubectl scale.
+  selector:
+    matchLabels: {app: worker}
+  template:
+    metadata:
+      labels: {app: worker}
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: worker
+          image: telemed4-worker:lab4
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef: {name: worker-config}
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef: {name: db-secret, key: POSTGRES_PASSWORD}
+            - name: WORKER_ID                 # імʼя пода через Downward API
+              valueFrom:
+                fieldRef: {fieldPath: metadata.name}
+            # Параметри варіанта 26 і остаточний режим; серія змінює їх через kubectl set env.
+            - {name: POLL_MS, value: "50"}
+            - {name: LEASE_SECONDS, value: "10"}
+            - {name: FAIL_RATE, value: "0"}
+            - {name: CLAIM_MODE, value: skip_locked}
+            - {name: STORE_MODE, value: idempotent}
+            - {name: LEASE_ENABLED, value: "1"}
+            - {name: HEARTBEAT, value: "1"}
+            - {name: CLAIM_ORDER, value: created}
+            - {name: GRACE_SECONDS, value: "25"}
+          ports:
+            - name: metrics
+              containerPort: 9000
+          resources:
+            requests: {cpu: 250m}
+            limits: {cpu: 500m, memory: 512Mi}
+          volumeMounts:
+            - name: logs
+              mountPath: /logs
+      volumes:
+        # Копія журналу воркера: том живе, поки існує под, і переживає перезапуски контейнера.
+        - name: logs
+          emptyDir: {}

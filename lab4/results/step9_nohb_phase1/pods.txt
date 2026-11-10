@@ -1,0 +1,6 @@
+NAME                      READY   STATUS    RESTARTS      AGE
+worker-85658dbd69-592hl   1/1     Running   64 (1s ago)   2m29s
+worker-85658dbd69-dxjtv   1/1     Running   63 (1s ago)   2m29s
+worker-85658dbd69-ghvj6   0/1     Error     62 (4s ago)   2m29s
+worker-85658dbd69-gqjnf   0/1     Error     61 (2s ago)   2m29s
+worker-85658dbd69-sff6r   0/1     Error     65 (2s ago)   2m29s

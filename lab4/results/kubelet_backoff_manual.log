@@ -1,0 +1,23 @@
+$ docker exec telemed-worker grep -A1 -E '^(crashLoopBackOff|featureGates)' /var/lib/kubelet/config.yaml
+crashLoopBackOff:
+  maxContainerRestartPeriod: 1s
+--
+featureGates:
+  KubeletCrashLoopBackOffMax: true
+$ docker exec telemed-worker2 grep -A1 -E '^(crashLoopBackOff|featureGates)' /var/lib/kubelet/config.yaml
+crashLoopBackOff:
+  maxContainerRestartPeriod: 1s
+--
+featureGates:
+  KubeletCrashLoopBackOffMax: true
+$ docker exec telemed-worker systemctl is-active kubelet: active
+$ docker exec telemed-worker2 systemctl is-active kubelet: active
+node/telemed-worker condition met
+node/telemed-worker2 condition met
+$ kubectl run crashtest --image=telemed4-worker:lab4 --restart=Always -- python -c "import sys; sys.exit(1)"
+$ kubectl get pod crashtest   # через 40 с
+NAME        READY   STATUS    RESTARTS      AGE   IP            NODE             NOMINATED NODE   READINESS GATES
+crashtest   1/1     Running   20 (3s ago)   40s   10.244.2.61   telemed-worker   <none>           <none>
+$ kubectl get events --field-selector involvedObject.name=crashtest | grep -c Started
+27s   Normal    Started     pod/crashtest   Container started
+2s    Warning   BackOff     pod/crashtest   Back-off restarting failed container crashtest in pod crashtest_default(532f153a-6cbb-4698-8550-7142a71e84f6)

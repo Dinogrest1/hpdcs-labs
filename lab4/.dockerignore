@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+.git
+**/__pycache__
+**/*.pyc
+results/
+screens/
+loadgen/
+scripts/
+report/
+*.md
+*.docx
+worker/
+db/
+k8s/
+helm/

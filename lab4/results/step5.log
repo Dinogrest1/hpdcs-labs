@@ -1,0 +1,78 @@
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=2
+worker-7d6fcb6f79-ftqzt   telemed-worker    Running   0
+worker-7d6fcb6f79-jnhkc   telemed-worker2   Running   0
+зупинятиметься воркер worker-7d6fcb6f79-ftqzt
+$ kubectl exec worker-7d6fcb6f79-ftqzt -- sh -c 'kill -STOP 1; sleep 1; grep State /proc/1/status; kill -CONT 1'
+State:	S (sleeping)
+# процес лишився в стані S: ядро не доставляє STOP процесу з PID 1 зсередини його простору PID.
+# Той самий сигнал надсилається з вузла, де воркер не є PID 1.
+$ docker exec telemed-worker kill -STOP 5792   # PID процесу воркера worker-7d6fcb6f79-ftqzt на вузлі
+== 2026-11-10 20:22:43 воркер зупинено; задача, яка була в нього в обробці (до)
+State:	T (stopped)
+psql> SELECT id, status, attempts, token, worker_id, lease_until FROM tasks WHERE status = 'running' AND worker_id = 'worker-7d6fcb6f79-ftqzt'
+  id  | status  | attempts | token |        worker_id        |          lease_until          
+------+---------+----------+-------+-------------------------+-------------------------------
+ 1655 | running |        1 |     1 | worker-7d6fcb6f79-ftqzt | 2026-11-10 18:22:53.449316+00
+(1 row)
+
+step5: надіслано 100 POST за 1.0 с (100.0 за секунду), створено задач (202): 100, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 40.2 мс
+== 2026-11-10 20:22:59 через 15 с після зупинки: lease сплив, задачу повернуто в чергу і забрано
+psql> SELECT id, status, attempts, token, worker_id FROM tasks WHERE id = 1655
+  id  | status | attempts | token |        worker_id        
+------+--------+----------+-------+-------------------------
+ 1655 | done   |        2 |     2 | worker-7d6fcb6f79-jnhkc
+(1 row)
+
+$ docker exec telemed-worker kill -CONT 5792   # PID процесу воркера worker-7d6fcb6f79-ftqzt на вузлі
+воркер був зупинений 20.2 с
+== 2026-11-10 20:23:06 через 3 с після відновлення (після)
+State:	S (sleeping)
+psql> SELECT id, status, attempts, token, worker_id, round(extract(epoch FROM finished_at - created_at)::numeric, 2) AS seconds_to_done FROM tasks WHERE id = 1655
+  id  | status | attempts | token |        worker_id        | seconds_to_done 
+------+--------+----------+-------+-------------------------+-----------------
+ 1655 | done   |        2 |     2 | worker-7d6fcb6f79-jnhkc |           10.16
+(1 row)
+
+psql> SELECT task_id, token, worker_id, result FROM task_results WHERE task_id = 1655
+ task_id | token |        worker_id        |                                              result                                              
+---------+-------+-------------------------+--------------------------------------------------------------------------------------------------
+    1655 |     2 | worker-7d6fcb6f79-jnhkc | {"std": 1183.297, "mean": 2040.306, "p_hi": 3892, "p_lo": 199, "removed": 6535, "record_id": 63}
+(1 row)
+
+psql> SELECT count(*) AS result_rows_for_task FROM task_results WHERE task_id = 1655
+ result_rows_for_task 
+----------------------
+                    1
+(1 row)
+
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step5/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=12, worker_claims=8, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=4, worker_throttled=4, worker_periods=4, restarts=4, db_xacts=1, up=4
+$ grep 'task=1655 ' results/step5/log_*.log   # журнали обох воркерів про цю задачу
+worker-7d6fcb6f79-ftqzt.log:18:23:03.644 task=1655 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+worker-7d6fcb6f79-ftqzt.log:18:23:03.652 task=1655 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+worker-7d6fcb6f79-jnhkc.log:18:22:53.467 task=1655 lease сплив: статус queued (attempts=1, token=1)
+worker-7d6fcb6f79-jnhkc.log:18:22:53.487 task=1655 done token=2 attempts=2 fetch=2.6ms process=14.8ms store=1.0ms
+psql> SELECT status, count(*), max(attempts) AS max_attempts_used FROM tasks GROUP BY status
+ status | count | max_attempts_used 
+--------+-------+-------------------
+ done   |   100 |                 2
+(1 row)
+
+psql> SELECT count(*) AS result_rows, count(DISTINCT task_id) AS tasks FROM task_results
+ result_rows | tasks 
+-------------+-------
+         100 |   100
+(1 row)
+
+$ python3 scripts/calc.py stat step5
+worker_tasks_total:  done = 100, failed = 0, lost = 1
+worker_claims_total: task = 101, empty = 548
+  reap         n =    649  середнє =    0.437 мс  p99 =    1.695 мс
+  claim        n =    101  середнє =    1.024 мс  p99 =   24.950 мс
+  claim_empty  n =    548  середнє =    0.251 мс  p99 =    0.959 мс
+  fetch        n =    100  середнє =    1.613 мс  p99 =   30.000 мс
+  process      n =    100  середнє =   20.271 мс  p99 =   49.259 мс
+  store        n =    100  середнє =    2.360 мс  p99 =   43.333 мс
+  claim_all    n =    649  середнє =    0.372 мс  p99 =    1.939 мс

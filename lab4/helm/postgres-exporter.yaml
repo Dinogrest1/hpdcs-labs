@@ -1,0 +1,15 @@
+config:
+  datasource:
+    host: db
+    user: telemed
+    database: telemed
+    sslmode: disable
+    passwordSecret:
+      name: db-secret
+      key: POSTGRES_PASSWORD
+serviceMonitor:
+  enabled: true
+  interval: 5s
+nodeSelector: {role: infra}
+tolerations:
+  - {key: node-role.kubernetes.io/control-plane, operator: Exists, effect: NoSchedule}

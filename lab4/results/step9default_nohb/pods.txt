@@ -1,0 +1,6 @@
+NAME                      READY   STATUS             RESTARTS        AGE     IP            NODE              NOMINATED NODE   READINESS GATES
+worker-854df8b988-2x4nd   0/1     CrashLoopBackOff   5 (2m34s ago)   5m36s   10.244.1.33   telemed-worker2   <none>           <none>
+worker-854df8b988-ldj5v   0/1     CrashLoopBackOff   5 (2m37s ago)   5m36s   10.244.1.34   telemed-worker2   <none>           <none>
+worker-854df8b988-lpqm6   0/1     CrashLoopBackOff   5 (2m31s ago)   5m36s   10.244.2.48   telemed-worker    <none>           <none>
+worker-854df8b988-msdhg   0/1     CrashLoopBackOff   5 (2m38s ago)   5m35s   10.244.2.49   telemed-worker    <none>           <none>
+worker-854df8b988-r7s8c   0/1     CrashLoopBackOff   5 (2m31s ago)   5m35s   10.244.2.50   telemed-worker    <none>           <none>

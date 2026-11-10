@@ -1,0 +1,6 @@
+NAME                      READY   STATUS   RESTARTS       AGE
+worker-655756c4bd-59vwb   0/1     Error    4 (104s ago)   2m30s
+worker-655756c4bd-88pvk   0/1     Error    4 (104s ago)   2m30s
+worker-655756c4bd-bnqnq   0/1     Error    4 (107s ago)   2m30s
+worker-655756c4bd-kssv9   0/1     Error    4 (105s ago)   2m29s
+worker-655756c4bd-zfx4b   0/1     Error    4 (103s ago)   2m30s

@@ -1,0 +1,23 @@
+18:35:47.016 старт worker=worker-655756c4bd-zfx4b claim=skip_locked store=idempotent order=created lease=True L=10с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+18:35:48.060 task=87742 done token=1 attempts=1 fetch=1.3ms process=12.8ms store=1.2ms
+18:35:48.173 task=87755 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:35:49.474 старт worker=worker-655756c4bd-zfx4b claim=skip_locked store=idempotent order=created lease=True L=10с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+18:35:49.536 task=87770 done token=1 attempts=1 fetch=1.7ms process=20.0ms store=1.2ms
+18:35:49.554 task=87774 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:36:04.480 старт worker=worker-655756c4bd-zfx4b claim=skip_locked store=idempotent order=created lease=True L=10с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+18:36:04.504 task=87790 done token=2 attempts=2 fetch=0.9ms process=13.3ms store=1.3ms
+18:36:04.520 task=87792 done token=1 attempts=1 fetch=0.8ms process=12.8ms store=1.1ms
+18:36:04.573 task=87793 done token=1 attempts=1 fetch=0.5ms process=51.0ms store=0.9ms
+18:36:04.586 task=87794 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=1.0ms
+18:36:04.598 task=87795 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:36:32.434 старт worker=worker-655756c4bd-zfx4b claim=skip_locked store=idempotent order=created lease=True L=10с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+18:36:32.454 task=87816 done token=1 attempts=1 fetch=0.8ms process=10.7ms store=1.0ms
+18:36:32.514 task=87817 done token=1 attempts=1 fetch=0.5ms process=58.5ms store=0.7ms
+18:36:32.527 task=87818 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.6ms
+18:36:32.538 task=87819 done token=1 attempts=1 fetch=0.4ms process=10.4ms store=0.5ms
+18:36:32.550 task=87820 done token=1 attempts=1 fetch=0.4ms process=10.4ms store=0.6ms
+18:36:32.563 task=87821 done token=1 attempts=1 fetch=0.4ms process=10.6ms store=0.6ms
+18:36:32.620 task=87822 done token=1 attempts=1 fetch=0.4ms process=56.3ms store=0.6ms
+18:36:32.631 task=87823 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:37:21.444 старт worker=worker-655756c4bd-zfx4b claim=skip_locked store=idempotent order=created lease=True L=10с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+18:37:21.514 task=87831 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)

@@ -1,0 +1,97 @@
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl get job migrate migrate-tasks
+NAME            STATUS     COMPLETIONS   DURATION   AGE
+migrate         Complete   1/1           3s         12d
+migrate-tasks   Complete   1/1           3s         4m23s
+$ kubectl logs job/migrate-tasks
+db:5432 - accepting connections
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE TABLE
+$ psql: \d tasks
+                                     Table "public.tasks"
+    Column    |           Type           | Collation | Nullable |           Default            
+--------------+--------------------------+-----------+----------+------------------------------
+ id           | bigint                   |           | not null | generated always as identity
+ record_id    | bigint                   |           | not null | 
+ status       | character varying(16)    |           | not null | 'queued'::character varying
+ seed         | bigint                   |           | not null | 
+ priority     | smallint                 |           | not null | 2
+ attempts     | integer                  |           | not null | 0
+ max_attempts | integer                  |           | not null | 3
+ token        | bigint                   |           | not null | 0
+ lease_until  | timestamp with time zone |           |          | 
+ worker_id    | text                     |           |          | 
+ created_at   | timestamp with time zone |           | not null | now()
+ started_at   | timestamp with time zone |           |          | 
+ finished_at  | timestamp with time zone |           |          | 
+Indexes:
+    "tasks_pkey" PRIMARY KEY, btree (id)
+    "idx_tasks_status_created" btree (status, created_at)
+    "idx_tasks_status_priority_created" btree (status, priority DESC, created_at)
+Check constraints:
+    "tasks_priority_check" CHECK (priority >= 1 AND priority <= 3)
+    "tasks_status_check" CHECK (status::text = ANY (ARRAY['queued'::character varying, 'running'::character varying, 'done'::character varying, 'failed'::character varying]::text[]))
+Foreign-key constraints:
+    "tasks_record_id_fkey" FOREIGN KEY (record_id) REFERENCES telemed_sessions(id) ON DELETE CASCADE
+Referenced by:
+    TABLE "task_results" CONSTRAINT "task_results_task_id_fkey" FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
+
+$ psql: \d task_results
+                      Table "public.task_results"
+   Column   |           Type           | Collation | Nullable | Default 
+------------+--------------------------+-----------+----------+---------
+ task_id    | bigint                   |           | not null | 
+ token      | bigint                   |           | not null | 
+ worker_id  | text                     |           | not null | 
+ result     | jsonb                    |           | not null | 
+ created_at | timestamp with time zone |           | not null | now()
+Indexes:
+    "task_results_pkey" PRIMARY KEY, btree (task_id)
+Foreign-key constraints:
+    "task_results_task_id_fkey" FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE
+
+> POST http://localhost:8080/telemed-sessions/7/tasks
+HTTP/1.1 202 Accepted
+x-pod: web-595c59f959-cl768
+{"id":201,"record_id":7,"status":"queued","seed":1181368125,"priority":2,"attempts":0,"max_attempts":3,"token":0,"lease_until":null,"worker_id":null,"created_at":"2026-11-10T18:15:05.939920+00:00","started_at":null,"finished_at":null}
+
+> POST http://localhost:8080/telemed-sessions/999999/tasks
+HTTP/1.1 404 Not Found
+x-pod: web-595c59f959-cl768
+{"error":"telemed session 999999 not found"}
+
+> POST http://localhost:8080/telemed-sessions/8/tasks  {"priority":3}
+HTTP/1.1 202 Accepted
+x-pod: web-595c59f959-cl768
+{"id":202,"record_id":8,"status":"queued","seed":1409840487,"priority":3,"attempts":0,"max_attempts":3,"token":0,"lease_until":null,"worker_id":null,"created_at":"2026-11-10T18:15:05.947103+00:00","started_at":null,"finished_at":null}
+
+> POST http://localhost:8080/telemed-sessions/8/tasks  {"priority":7}
+HTTP/1.1 400 Bad Request
+x-pod: web-595c59f959-cl768
+{"error":"validation failed","details":[{"field":"priority","problem":"Input should be less than or equal to 3"}]}
+
+> GET http://localhost:8080/tasks/201
+HTTP/1.1 200 OK
+x-pod: web-595c59f959-cl768
+{"id":201,"record_id":7,"status":"queued","seed":1181368125,"priority":2,"attempts":0,"max_attempts":3,"token":0,"lease_until":null,"worker_id":null,"created_at":"2026-11-10T18:15:05.939920+00:00","started_at":null,"finished_at":null,"result":null}
+
+> GET http://localhost:8080/tasks/999999999
+HTTP/1.1 404 Not Found
+x-pod: web-595c59f959-cl768
+{"error":"task 999999999 not found"}
+
+> GET http://localhost:8080/tasks?status=queued&limit=1&offset=1
+HTTP/1.1 200 OK
+x-pod: web-595c59f959-cl768
+{"items":[{"id":202,"record_id":8,"status":"queued","seed":1409840487,"priority":3,"attempts":0,"max_attempts":3,"token":0,"lease_until":null,"worker_id":null,"created_at":"2026-11-10T18:15:05.947103+00:00","started_at":null,"finished_at":null}],"total":2,"limit":1,"offset":1}
+
+> GET http://localhost:8080/tasks?status=bogus
+HTTP/1.1 400 Bad Request
+x-pod: web-595c59f959-cl768
+{"error":"validation failed","details":[{"field":"query.status","problem":"Input should be 'queued', 'running', 'done' or 'failed'"}]}
+
+> GET http://localhost:8080/metrics | grep ^tasks_   # через 6 с після створення: вимірювачі оновлюються раз на 5 с
+tasks_queued 2.0
+tasks_running 0.0

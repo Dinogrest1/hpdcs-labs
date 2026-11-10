@@ -1,0 +1,3 @@
+NAME                      READY   STATUS    RESTARTS   AGE   IP            NODE              NOMINATED NODE   READINESS GATES
+worker-7d6fcb6f79-q66qh   1/1     Running   0          68s   10.244.1.16   telemed-worker2   <none>           <none>
+worker-7d6fcb6f79-tnwth   1/1     Running   0          68s   10.244.2.23   telemed-worker    <none>           <none>

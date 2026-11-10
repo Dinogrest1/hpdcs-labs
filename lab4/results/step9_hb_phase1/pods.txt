@@ -1,0 +1,6 @@
+NAME                      READY   STATUS   RESTARTS      AGE
+worker-85658dbd69-6msqh   0/1     Error    65 (4s ago)   2m30s
+worker-85658dbd69-dsn97   0/1     Error    65 (4s ago)   2m30s
+worker-85658dbd69-kmjbn   0/1     Error    64 (5s ago)   2m30s
+worker-85658dbd69-mvmf9   0/1     Error    68 (4s ago)   2m30s
+worker-85658dbd69-vtg9k   0/1     Error    64 (3s ago)   2m30s

@@ -1,0 +1,6 @@
+# У kind kubelet має самопідписаний сертифікат, тому --kubelet-insecure-tls.
+args:
+  - --kubelet-insecure-tls
+nodeSelector: {role: infra}
+tolerations:
+  - {key: node-role.kubernetes.io/control-plane, operator: Exists, effect: NoSchedule}

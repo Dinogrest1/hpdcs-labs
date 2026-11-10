@@ -1,0 +1,9 @@
+записів з id 1..100 до засіву: 100
+$ psql: SELECT count(*), min(id), max(id) FROM telemed_sessions WHERE id BETWEEN 1 AND 100
+100|1|100
+$ psql: SELECT channel, count(*) FROM telemed_sessions WHERE id BETWEEN 1 AND 100 GROUP BY channel ORDER BY channel
+audio|34
+chat|33
+video|33
+$ curl "localhost:8080/telemed-sessions?limit=2"
+{"items":[{"id":1,"patient_code":"P-000001","doctor":"Лікар 2","channel":"audio","started_at":"2026-10-02T06:00:00+00:00","duration_min":10,"status":"in_progress","created_at":"2026-10-29T09:28:46.915864+00:00","updated_at":"2026-10-29T09:28:46.915864+00:00"},{"id":2,"patient_code":"P-000002","doctor":"Лікар 3","channel":"chat","started_at":"2026-10-03T06:00:00+00:00","duration_min":15,"status":"completed","created_at":"2026-10-29T09:28:46.923283+00:00","updated_at":"2026-10-29T09:28:46.923283+00:00"}],"total":100,"limit":2,"offset":0}

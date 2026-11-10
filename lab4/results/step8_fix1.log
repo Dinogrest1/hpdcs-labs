@@ -1,0 +1,115 @@
+== 2026-11-10 20:56:46 λ = 0,7 · X(5) = 133.9 задач/с, 60 с; GRACE_SECONDS = 25; на 20-й секунді rollout restart
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-85b796844-8xbmj   telemed-worker2   Running   0
+worker-85b796844-9lw6s   telemed-worker2   Running   0
+worker-85b796844-bzngl   telemed-worker    Running   0
+worker-85b796844-hcdnj   telemed-worker    Running   0
+worker-85b796844-r94lc   telemed-worker    Running   0
+$ kubectl rollout restart deployment/worker   # 2026-11-10 20:57:09
+deployment.apps/worker restarted
+deployment "worker" successfully rolled out
+step8: надіслано 8034 POST за 60.0 с (133.9 за секунду), створено задач (202): 8034, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 6.1 мс
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step8/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=45, worker_claims=30, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=15, worker_throttled=15, worker_periods=15, restarts=15, db_xacts=1, up=18
+$ kubectl get pods -l app=worker -w -o custom-columns=POD,PHASE,EXIT,REASON | grep -v "<none>"   # коди завершення старих подів
+worker-85b796844-8xbmj    Succeeded   0        Completed
+worker-85b796844-9lw6s    Succeeded   0        Completed
+worker-85b796844-bzngl    Succeeded   0        Completed
+worker-85b796844-hcdnj    Succeeded   0        Completed
+worker-85b796844-r94lc    Succeeded   0        Completed
+$ tail -n 2 журналів старих подів (kubectl logs -f, запущений до перезапуску)
+--- worker-85b796844-8xbmj
+18:57:11.010 SIGTERM: нових задач не беру, задача в обробці: task=206790, чекаю до 25.0 с
+18:57:11.045 вихід з кодом 0
+--- worker-85b796844-9lw6s
+18:57:10.418 SIGTERM: нових задач не беру, задача в обробці: task=206773, чекаю до 25.0 с
+18:57:10.441 вихід з кодом 0
+--- worker-85b796844-bzngl
+18:57:09.865 SIGTERM: нових задач не беру, задача в обробці: task=206711, чекаю до 25.0 с
+18:57:09.875 вихід з кодом 0
+--- worker-85b796844-hcdnj
+18:57:10.478 SIGTERM: нових задач не беру, задача в обробці: task=206775, чекаю до 25.0 с
+18:57:10.491 вихід з кодом 0
+--- worker-85b796844-r94lc
+18:57:10.378 вихід з кодом 0
+18:57:10.379 SIGTERM: нових задач не беру, задача в обробці: немає, чекаю до 25.0 с
+$ grep -c 'повернуто в чергу' results/step8/exit_*.log
+0
+psql> SELECT count(*) AS tasks, count(*) FILTER (WHERE status = 'done') AS done, count(*) FILTER (WHERE status = 'failed') AS failed, count(*) FILTER (WHERE attempts > 1) AS attempts_gt_1 FROM tasks
+ tasks | done | failed | attempts_gt_1 
+-------+------+--------+---------------
+  8034 | 8034 |      0 |             0
+(1 row)
+
+psql> SELECT count(*) AS result_rows, (SELECT count(*) FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d) AS tasks_with_more_than_one_result FROM task_results
+ result_rows | tasks_with_more_than_one_result 
+-------------+---------------------------------
+        8034 |                               0
+(1 row)
+
+psql> SELECT id, status, attempts, token, worker_id FROM tasks WHERE attempts > 1 ORDER BY id LIMIT 10
+ id | status | attempts | token | worker_id 
+----+--------+----------+-------+-----------
+(0 rows)
+
+== 2026-11-10 20:57:52 λ = 0,7 · X(5) = 133.9 задач/с, 60 с; GRACE_SECONDS = 0; на 20-й секунді rollout restart
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=0
+$ kubectl scale deployment/worker --replicas=5
+worker-c7b5f4bc8-bz8lr   telemed-worker2   Running   0
+worker-c7b5f4bc8-h58tx   telemed-worker2   Running   0
+worker-c7b5f4bc8-tc52w   telemed-worker    Running   0
+worker-c7b5f4bc8-xdkxn   telemed-worker    Running   0
+worker-c7b5f4bc8-xw9wb   telemed-worker    Running   0
+$ kubectl rollout restart deployment/worker   # 2026-11-10 20:58:15
+deployment.apps/worker restarted
+deployment "worker" successfully rolled out
+step8_grace0: надіслано 8034 POST за 60.0 с (133.9 за секунду), створено задач (202): 8034, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 6.4 мс
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step8_grace0/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=45, worker_claims=30, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=15, worker_throttled=15, worker_periods=15, restarts=15, db_xacts=1, up=15
+$ kubectl get pods -l app=worker -w -o custom-columns=POD,PHASE,EXIT,REASON | grep -v "<none>"   # коди завершення старих подів
+worker-c7b5f4bc8-bz8lr    Succeeded   0        Completed
+worker-c7b5f4bc8-h58tx    Succeeded   0        Completed
+worker-c7b5f4bc8-tc52w    Succeeded   0        Completed
+worker-c7b5f4bc8-xdkxn    Succeeded   0        Completed
+worker-c7b5f4bc8-xw9wb    Succeeded   0        Completed
+$ tail -n 2 журналів старих подів (kubectl logs -f, запущений до перезапуску)
+--- worker-c7b5f4bc8-bz8lr
+18:58:16.906 вихід з кодом 0
+18:58:16.906 task=214811 token=1 не завершилась за 0.0 с: повернуто в чергу (оновлено рядків: 1)
+18:58:16.907 вихід з кодом 0
+--- worker-c7b5f4bc8-h58tx
+18:58:16.327 SIGTERM: нових задач не беру, задача в обробці: task=214797, чекаю до 0.0 с
+18:58:16.360 вихід з кодом 0
+--- worker-c7b5f4bc8-tc52w
+18:58:16.281 SIGTERM: нових задач не беру, задача в обробці: task=214795, чекаю до 0.0 с
+18:58:16.309 вихід з кодом 0
+--- worker-c7b5f4bc8-xdkxn
+18:58:16.429 SIGTERM: нових задач не беру, задача в обробці: task=214797, чекаю до 0.0 с
+18:58:16.430 вихід з кодом 0
+--- worker-c7b5f4bc8-xw9wb
+18:58:15.753 SIGTERM: нових задач не беру, задача в обробці: немає, чекаю до 0.0 с
+18:58:15.753 вихід з кодом 0
+$ grep -c 'повернуто в чергу' results/step8_grace0/exit_*.log
+1
+psql> SELECT count(*) AS tasks, count(*) FILTER (WHERE status = 'done') AS done, count(*) FILTER (WHERE status = 'failed') AS failed, count(*) FILTER (WHERE attempts > 1) AS attempts_gt_1 FROM tasks
+ tasks | done | failed | attempts_gt_1 
+-------+------+--------+---------------
+  8034 | 8034 |      0 |             2
+(1 row)
+
+psql> SELECT count(*) AS result_rows, (SELECT count(*) FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d) AS tasks_with_more_than_one_result FROM task_results
+ result_rows | tasks_with_more_than_one_result 
+-------------+---------------------------------
+        8034 |                               0
+(1 row)
+
+psql> SELECT id, status, attempts, token, worker_id FROM tasks WHERE attempts > 1 ORDER BY id LIMIT 10
+   id   | status | attempts | token |        worker_id        
+--------+--------+----------+-------+-------------------------
+ 214797 | done   |        2 |     2 | worker-c7b5f4bc8-xdkxn
+ 214811 | done   |        2 |     2 | worker-5d8556494d-4k5z5
+(2 rows)
+

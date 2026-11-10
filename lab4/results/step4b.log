@@ -1,0 +1,62 @@
+== 2026-11-10 20:55:59 захоплення skip_locked, T_poll = 1 мс, 5 воркерів, 3000 задач у черзі до старту
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker CLAIM_MODE=skip_locked STORE_MODE=plain LEASE_ENABLED=0 HEARTBEAT=0 POLL_MS=1
+step4b_skip_locked: надіслано 3000 POST за 6.0 с (500.0 за секунду), створено задач (202): 3000, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 2.1 мс
+$ kubectl scale deployment/worker --replicas=5
+черга порожня: queued = 0, running = 0 (чекали 15 с)
+results/step4b_skip_locked/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=18, worker_claims=12, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=6, worker_throttled=6, worker_periods=6, restarts=6, db_xacts=1, up=6
+psql> SELECT count(*) AS result_rows, (SELECT count(*) FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d) AS n_dup FROM task_results
+ result_rows | n_dup 
+-------------+-------
+        3000 |     0
+(1 row)
+
+$ python3 scripts/calc.py dup step4b_skip_locked
+n = 3000; рядків у task_results: 3000; n_dup за таблицею = 0, D = 0.0000; рядків done у журналах: 3000; n_dup за журналами = 0, D = 0.0000
+найбільше рядків pg_stat_activity з wait_event_type = 'Lock' за прогін: 0
+$ python3 scripts/calc.py x step4b_skip_locked
+X = 222.7 задач/с за останні 13.5 с (розкид 4.2); черга спорожніла за 13.5 с, завершено 3000
+$ python3 scripts/calc.py stat step4b_skip_locked
+worker_tasks_total:  done = 3000, failed = 0, lost = 0
+worker_claims_total: task = 3000, empty = 2898
+  claim        n =   3000  середнє =    0.442 мс  p99 =    2.959 мс
+  claim_empty  n =   2898  середнє =    0.127 мс  p99 =    0.497 мс
+  fetch        n =   3000  середнє =    0.866 мс  p99 =    4.667 мс
+  process      n =   3000  середнє =   19.552 мс  p99 =   67.500 мс
+  store        n =   3000  середнє =    1.411 мс  p99 =   25.000 мс
+  claim_all    n =   5898  середнє =    0.287 мс  p99 =    2.380 мс
+$ sort -t, -k2 -nr results/step4b_skip_locked/db_seconds.csv | head -3   # unix, Lock у pg_stat_activity, granted = false у pg_locks, …
+1794336980.386,0,0,110340132,87,5,2908,0
+1794336979.377,0,0,110339064,300,5,2695,0
+1794336978.370,0,0,110338000,519,5,2476,0
+== 2026-11-10 20:56:22 захоплення for_update, T_poll = 1 мс, 5 воркерів, 3000 задач у черзі до старту
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker CLAIM_MODE=for_update STORE_MODE=plain LEASE_ENABLED=0 HEARTBEAT=0 POLL_MS=1
+step4b_for_update: надіслано 3000 POST за 6.0 с (500.0 за секунду), створено задач (202): 3000, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 2.7 мс
+$ kubectl scale deployment/worker --replicas=5
+черга порожня: queued = 0, running = 0 (чекали 15 с)
+results/step4b_for_update/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=30, worker_claims=20, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=10, worker_throttled=10, worker_periods=10, restarts=10, db_xacts=1, up=10
+psql> SELECT count(*) AS result_rows, (SELECT count(*) FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d) AS n_dup FROM task_results
+ result_rows | n_dup 
+-------------+-------
+        3000 |     0
+(1 row)
+
+$ python3 scripts/calc.py dup step4b_for_update
+n = 3000; рядків у task_results: 3000; n_dup за таблицею = 0, D = 0.0000; рядків done у журналах: 3000; n_dup за журналами = 0, D = 0.0000
+найбільше рядків pg_stat_activity з wait_event_type = 'Lock' за прогін: 0
+$ python3 scripts/calc.py x step4b_for_update
+X = 216.0 задач/с за останні 13.9 с (розкид 8.8); черга спорожніла за 13.9 с, завершено 3000
+$ python3 scripts/calc.py stat step4b_for_update
+worker_tasks_total:  done = 3000, failed = 0, lost = 0
+worker_claims_total: task = 3000, empty = 1566
+  claim        n =   3000  середнє =    0.378 мс  p99 =    2.417 мс
+  claim_empty  n =   1566  середнє =    0.131 мс  p99 =    0.498 мс
+  fetch        n =   3000  середнє =    0.828 мс  p99 =    4.556 мс
+  process      n =   3000  середнє =   20.497 мс  p99 =   72.794 мс
+  store        n =   3000  середнє =    1.160 мс  p99 =   13.750 мс
+  claim_all    n =   4566  середнє =    0.293 мс  p99 =    1.931 мс
+$ sort -t, -k2 -nr results/step4b_for_update/db_seconds.csv | head -3   # unix, Lock у pg_stat_activity, granted = false у pg_locks, …
+1794337004.397,0,0,110367086,153,4,2843,0
+1794337003.389,0,0,110366128,370,5,2625,0
+1794337002.378,0,0,110365175,589,4,2407,0

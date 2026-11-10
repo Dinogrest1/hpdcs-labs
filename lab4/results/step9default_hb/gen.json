@@ -1,0 +1,17 @@
+{
+ "conn_errors": 0,
+ "created": 40170,
+ "end_unix": 1794336534.995324,
+ "label": "step9_hb",
+ "last_sent_unix": 1794336534.992531,
+ "mode": "tasks",
+ "non2xx": 0,
+ "p50_ms": 1.934,
+ "p99_ms": 4.223,
+ "priorities": null,
+ "rate": 133.9,
+ "requested": 40170,
+ "sent_rate": 133.90000000004667,
+ "t0_unix": 1794336235,
+ "url": "http://localhost:8080/telemed-sessions/{id}/tasks"
+}

@@ -1,0 +1,1359 @@
+19:10:06.956 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:06.968 task=262113 lease сплив: статус queued (attempts=1, token=1)
+19:10:07.005 task=262113 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:08.288 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:08.322 task=262138 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:11.029 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:11.035 task=262018 lease сплив: статус failed (attempts=3, token=3)
+19:10:11.049 task=262141 done token=2 attempts=2 fetch=0.6ms process=11.7ms store=1.0ms
+19:10:11.062 task=262142 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:13.246 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:13.266 task=262158 done token=1 attempts=1 fetch=0.7ms process=11.5ms store=1.0ms
+19:10:13.305 task=262160 done token=1 attempts=1 fetch=1.0ms process=36.9ms store=1.0ms
+19:10:13.338 task=262161 done token=1 attempts=1 fetch=0.5ms process=29.0ms store=0.7ms
+19:10:13.338 task=262159 lease сплив: статус queued (attempts=2, token=2)
+19:10:13.350 task=262159 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:15.246 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:15.253 task=262085 lease сплив: статус queued (attempts=2, token=2)
+19:10:15.266 task=262085 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:17.237 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:17.305 task=261949 done token=3 attempts=3 fetch=1.8ms process=16.2ms store=1.0ms
+19:10:17.318 task=262179 done token=2 attempts=2 fetch=0.4ms process=11.3ms store=0.5ms
+19:10:17.332 task=262180 done token=1 attempts=1 fetch=0.5ms process=12.0ms store=0.7ms
+19:10:17.332 task=262107 lease сплив: статус queued (attempts=2, token=2)
+19:10:17.384 task=262107 done token=3 attempts=3 fetch=0.4ms process=51.0ms store=0.6ms
+19:10:17.404 task=262181 done token=1 attempts=1 fetch=0.4ms process=18.0ms store=0.4ms
+19:10:17.416 task=262182 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.6ms
+19:10:17.428 task=262183 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.6ms
+19:10:17.440 task=262184 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.5ms
+19:10:17.491 task=262185 done token=1 attempts=1 fetch=0.4ms process=49.5ms store=0.5ms
+19:10:17.511 task=262186 done token=1 attempts=1 fetch=0.4ms process=18.7ms store=0.6ms
+19:10:17.524 task=262187 done token=1 attempts=1 fetch=0.6ms process=11.0ms store=0.6ms
+19:10:17.536 task=262188 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.6ms
+19:10:17.589 task=262189 done token=1 attempts=1 fetch=0.5ms process=50.7ms store=0.5ms
+19:10:17.609 task=262190 done token=1 attempts=1 fetch=0.4ms process=17.3ms store=1.8ms
+19:10:17.626 task=262191 done token=1 attempts=1 fetch=2.7ms process=13.6ms store=0.6ms
+19:10:17.640 task=262192 done token=1 attempts=1 fetch=0.7ms process=11.7ms store=0.8ms
+19:10:17.687 task=262193 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:20.021 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:20.030 task=262205 lease сплив: статус queued (attempts=2, token=2)
+19:10:20.051 task=262205 done token=3 attempts=3 fetch=1.3ms process=17.2ms store=0.8ms
+19:10:20.065 task=262206 done token=1 attempts=1 fetch=0.4ms process=11.6ms store=1.3ms
+19:10:20.103 task=262207 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=25.9ms
+19:10:20.116 task=262208 done token=1 attempts=1 fetch=0.4ms process=11.8ms store=0.5ms
+19:10:20.129 task=262209 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.5ms
+19:10:20.141 task=262210 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.5ms
+19:10:20.153 task=262211 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.4ms
+19:10:20.209 task=262212 done token=1 attempts=1 fetch=0.5ms process=54.0ms store=0.5ms
+19:10:20.223 task=262213 done token=1 attempts=1 fetch=1.3ms process=11.8ms store=0.4ms
+19:10:20.235 task=262214 done token=1 attempts=1 fetch=0.5ms process=10.9ms store=0.4ms
+19:10:20.247 task=262215 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.4ms
+19:10:20.305 task=262216 done token=1 attempts=1 fetch=0.4ms process=56.3ms store=0.4ms
+19:10:20.324 task=262218 done token=1 attempts=1 fetch=0.4ms process=16.3ms store=1.0ms
+19:10:20.339 task=262220 done token=1 attempts=1 fetch=0.5ms process=13.8ms store=0.4ms
+19:10:20.352 task=262222 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:23.017 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:23.066 task=262239 done token=1 attempts=1 fetch=1.0ms process=12.4ms store=2.2ms
+19:10:23.066 task=262238 lease сплив: статус queued (attempts=1, token=1)
+19:10:23.079 task=262238 done token=2 attempts=2 fetch=0.5ms process=11.7ms store=0.5ms
+19:10:23.105 task=262240 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:25.313 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:25.320 task=262264 lease сплив: статус queued (attempts=1, token=1)
+19:10:25.339 task=262264 done token=2 attempts=2 fetch=0.7ms process=16.4ms store=0.9ms
+19:10:25.351 task=262265 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.6ms
+19:10:25.364 task=262267 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=0.5ms
+19:10:25.365 task=262266 lease сплив: статус queued (attempts=1, token=1)
+19:10:25.413 task=262266 done token=2 attempts=2 fetch=0.4ms process=47.1ms store=0.6ms
+19:10:25.435 task=262268 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:27.308 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:27.335 task=262280 done token=1 attempts=1 fetch=0.7ms process=13.8ms store=0.9ms
+19:10:27.348 task=262282 done token=1 attempts=1 fetch=0.7ms process=11.4ms store=0.9ms
+19:10:27.361 task=262284 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.6ms
+19:10:27.361 task=262283 lease сплив: статус queued (attempts=1, token=1)
+19:10:27.404 task=262283 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:27.407 task=262283 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:27.411 task=262283 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:27.413 task=262283 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:27.427 task=262286 done token=1 attempts=1 fetch=0.5ms process=11.9ms store=1.6ms
+19:10:27.428 task=262285 lease сплив: статус queued (attempts=1, token=1)
+19:10:27.442 task=262285 done token=2 attempts=2 fetch=1.4ms process=11.5ms store=0.9ms
+19:10:27.455 task=262287 done token=1 attempts=1 fetch=0.6ms process=11.1ms store=0.7ms
+19:10:27.504 task=262288 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:27.508 task=262288 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:27.509 task=262288 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:27.522 task=262289 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.5ms
+19:10:27.534 task=262291 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.5ms
+19:10:27.546 task=262293 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:30.020 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:30.029 task=262301 lease сплив: статус queued (attempts=2, token=2)
+19:10:30.054 task=262301 done token=3 attempts=3 fetch=3.3ms process=14.8ms store=1.0ms
+19:10:30.068 task=262303 done token=1 attempts=1 fetch=0.4ms process=12.4ms store=0.4ms
+19:10:30.105 task=262305 done token=1 attempts=1 fetch=0.7ms process=33.9ms store=1.7ms
+19:10:30.105 task=262306 lease сплив: статус queued (attempts=1, token=1)
+19:10:30.122 task=262306 done token=2 attempts=2 fetch=0.5ms process=12.9ms store=2.9ms
+19:10:30.149 task=262307 done token=1 attempts=1 fetch=4.3ms process=18.3ms store=3.1ms
+19:10:30.162 task=262309 done token=1 attempts=1 fetch=0.5ms process=11.4ms store=0.5ms
+19:10:30.174 task=262311 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.4ms
+19:10:30.213 task=262313 done token=1 attempts=1 fetch=0.5ms process=36.3ms store=0.5ms
+19:10:30.229 task=262315 done token=1 attempts=1 fetch=0.5ms process=14.6ms store=0.4ms
+19:10:30.242 task=262317 done token=1 attempts=1 fetch=0.9ms process=11.7ms store=0.4ms
+19:10:30.255 task=262319 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=0.4ms
+19:10:30.307 task=262321 done token=1 attempts=1 fetch=0.3ms process=50.7ms store=0.7ms
+19:10:30.320 task=262322 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:33.030 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:33.050 task=262349 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:35.352 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:35.374 task=262394 done token=1 attempts=1 fetch=0.7ms process=11.6ms store=0.8ms
+19:10:35.386 task=262395 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.4ms
+19:10:35.386 task=262393 lease сплив: статус queued (attempts=1, token=1)
+19:10:35.399 task=262393 done token=2 attempts=2 fetch=0.4ms process=11.1ms store=0.6ms
+19:10:35.452 task=262396 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:35.453 task=262396 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:35.469 task=262399 done token=1 attempts=1 fetch=2.7ms process=11.0ms store=0.5ms
+19:10:35.469 task=262398 lease сплив: статус queued (attempts=1, token=1)
+19:10:35.482 task=262398 done token=2 attempts=2 fetch=0.5ms process=10.9ms store=0.6ms
+19:10:35.495 task=262400 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=1.0ms
+19:10:35.551 task=262401 done token=1 attempts=1 fetch=0.9ms process=12.0ms store=42.0ms
+19:10:35.565 task=262403 done token=1 attempts=1 fetch=0.5ms process=11.7ms store=0.5ms
+19:10:35.580 task=262406 done token=1 attempts=1 fetch=1.1ms process=12.9ms store=0.6ms
+19:10:35.593 task=262407 done token=1 attempts=1 fetch=0.7ms process=11.0ms store=0.4ms
+19:10:35.605 task=262409 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.4ms
+19:10:35.657 task=262411 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:35.658 task=262411 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:35.670 task=262413 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.5ms
+19:10:35.683 task=262415 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.4ms
+19:10:35.683 task=262414 lease сплив: статус queued (attempts=1, token=1)
+19:10:35.694 task=262414 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:38.037 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:38.043 task=262430 lease сплив: статус queued (attempts=1, token=1)
+19:10:38.058 task=262430 done token=2 attempts=2 fetch=0.9ms process=11.7ms store=1.1ms
+19:10:38.108 task=262431 done token=1 attempts=1 fetch=0.5ms process=48.6ms store=0.7ms
+19:10:38.123 task=262432 done token=1 attempts=1 fetch=1.6ms process=11.2ms store=0.6ms
+19:10:38.142 task=262433 done token=1 attempts=1 fetch=0.4ms process=17.3ms store=0.5ms
+19:10:38.155 task=262434 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=1.1ms
+19:10:38.203 task=262435 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=36.8ms
+19:10:38.203 task=262436 lease сплив: статус queued (attempts=1, token=1)
+19:10:38.216 task=262436 done token=2 attempts=2 fetch=0.5ms process=11.1ms store=0.5ms
+19:10:38.237 task=262437 done token=1 attempts=1 fetch=0.5ms process=19.5ms store=0.5ms
+19:10:38.249 task=262438 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.4ms
+19:10:38.261 task=262439 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.5ms
+19:10:38.310 task=262440 done token=1 attempts=1 fetch=0.4ms process=47.9ms store=0.5ms
+19:10:38.333 task=262441 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:40.332 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:40.339 task=262449 lease сплив: статус queued (attempts=2, token=2)
+19:10:40.354 task=262449 done token=3 attempts=3 fetch=1.4ms process=11.5ms store=0.8ms
+19:10:40.407 task=262451 done token=1 attempts=1 fetch=0.5ms process=51.6ms store=0.6ms
+19:10:40.429 task=262452 done token=1 attempts=1 fetch=0.4ms process=19.9ms store=0.7ms
+19:10:40.441 task=262453 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.5ms
+19:10:40.454 task=262454 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.5ms
+19:10:40.505 task=262455 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:40.506 task=262455 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:40.526 task=262456 done token=1 attempts=1 fetch=0.7ms process=12.0ms store=7.0ms
+19:10:40.542 task=262458 done token=1 attempts=1 fetch=0.8ms process=13.6ms store=0.9ms
+19:10:40.555 task=262461 done token=1 attempts=1 fetch=1.2ms process=10.8ms store=0.7ms
+19:10:40.556 task=262460 lease сплив: статус queued (attempts=1, token=1)
+19:10:40.568 task=262460 done token=2 attempts=2 fetch=0.4ms process=10.8ms store=0.5ms
+19:10:40.605 task=262462 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:40.609 task=262462 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:40.612 task=262462 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:40.614 task=262462 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:40.614 task=262462 lease сплив: статус queued (attempts=2, token=2)
+19:10:40.633 task=262462 done token=3 attempts=3 fetch=0.5ms process=17.9ms store=0.6ms
+19:10:40.646 task=262463 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.5ms
+19:10:40.658 task=262464 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.5ms
+19:10:40.709 task=262465 done token=1 attempts=1 fetch=0.5ms process=48.7ms store=0.6ms
+19:10:40.730 task=262466 done token=1 attempts=1 fetch=0.4ms process=19.7ms store=0.5ms
+19:10:40.742 task=262467 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.5ms
+19:10:40.755 task=262468 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.5ms
+19:10:40.806 task=262469 done token=1 attempts=1 fetch=0.4ms process=49.5ms store=0.6ms
+19:10:40.827 task=262470 done token=1 attempts=1 fetch=0.5ms process=20.2ms store=0.5ms
+19:10:40.840 task=262471 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.7ms
+19:10:40.853 task=262472 done token=1 attempts=1 fetch=0.5ms process=11.6ms store=0.6ms
+19:10:40.903 task=262473 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=38.2ms
+19:10:40.916 task=262474 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.5ms
+19:10:40.936 task=262475 done token=1 attempts=1 fetch=0.4ms process=19.3ms store=0.4ms
+19:10:40.948 task=262476 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.4ms
+19:10:40.960 task=262477 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:43.344 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:43.351 task=262486 lease сплив: статус queued (attempts=2, token=2)
+19:10:43.414 task=262486 token=3 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:43.428 task=262489 done token=1 attempts=1 fetch=0.4ms process=11.7ms store=0.9ms
+19:10:43.428 task=262488 lease сплив: статус queued (attempts=1, token=1)
+19:10:43.441 task=262488 done token=2 attempts=2 fetch=0.5ms process=11.8ms store=0.5ms
+19:10:43.454 task=262490 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.6ms
+19:10:43.513 task=262491 done token=1 attempts=1 fetch=0.4ms process=57.8ms store=0.5ms
+19:10:43.527 task=262492 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=1.2ms
+19:10:43.539 task=262493 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.6ms
+19:10:43.552 task=262494 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.5ms
+19:10:43.604 task=262495 done token=1 attempts=1 fetch=0.4ms process=51.0ms store=0.6ms
+19:10:43.620 task=262496 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:46.020 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:46.043 task=262504 done token=1 attempts=1 fetch=1.1ms process=12.3ms store=1.1ms
+19:10:46.043 task=262505 lease сплив: статус queued (attempts=1, token=1)
+19:10:46.056 task=262505 done token=2 attempts=2 fetch=0.5ms process=11.2ms store=0.7ms
+19:10:46.105 task=262506 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:46.106 task=262506 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:46.119 task=262507 done token=1 attempts=1 fetch=0.5ms process=11.8ms store=0.7ms
+19:10:46.120 task=262506 lease сплив: статус queued (attempts=2, token=2)
+19:10:46.134 task=262506 done token=3 attempts=3 fetch=0.5ms process=11.2ms store=0.6ms
+19:10:46.146 task=262508 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.5ms
+19:10:46.159 task=262509 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.6ms
+19:10:46.213 task=262510 done token=1 attempts=1 fetch=0.4ms process=53.2ms store=0.5ms
+19:10:46.225 task=262511 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.6ms
+19:10:46.238 task=262512 done token=1 attempts=1 fetch=0.3ms process=10.9ms store=0.5ms
+19:10:46.250 task=262513 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.5ms
+19:10:46.310 task=262514 done token=1 attempts=1 fetch=0.4ms process=58.7ms store=0.7ms
+19:10:46.322 task=262515 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:48.406 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:48.431 task=262528 done token=1 attempts=1 fetch=0.7ms process=16.2ms store=0.8ms
+19:10:48.443 task=262531 done token=1 attempts=1 fetch=0.4ms process=11.4ms store=0.4ms
+19:10:48.456 task=262533 done token=1 attempts=1 fetch=0.4ms process=11.4ms store=0.5ms
+19:10:48.456 task=262532 lease сплив: статус queued (attempts=1, token=1)
+19:10:48.503 task=262532 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:48.507 task=262532 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:48.509 task=262532 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:48.527 task=262534 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:51.024 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:51.035 task=262590 lease сплив: статус queued (attempts=2, token=2)
+19:10:51.052 task=262590 done token=3 attempts=3 fetch=2.2ms process=12.0ms store=0.8ms
+19:10:51.066 task=262591 done token=1 attempts=1 fetch=0.6ms process=12.7ms store=0.5ms
+19:10:51.080 task=262593 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:53.660 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:53.707 task=262614 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:53.732 task=262617 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:10:53.733 task=262617 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:10:53.747 task=262621 done token=1 attempts=1 fetch=0.4ms process=12.1ms store=1.4ms
+19:10:53.762 task=262622 done token=1 attempts=1 fetch=1.1ms process=11.7ms store=0.6ms
+19:10:53.763 task=262617 lease сплив: статус failed (attempts=3, token=3)
+19:10:53.806 task=262623 done token=1 attempts=1 fetch=0.5ms process=41.0ms store=1.3ms
+19:10:53.820 task=262624 done token=1 attempts=1 fetch=0.5ms process=11.4ms store=0.6ms
+19:10:53.842 task=262625 done token=1 attempts=1 fetch=0.4ms process=20.1ms store=0.5ms
+19:10:53.854 task=262626 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.7ms
+19:10:53.903 task=262627 done token=1 attempts=1 fetch=0.6ms process=11.4ms store=36.0ms
+19:10:53.915 task=262628 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.5ms
+19:10:53.941 task=262629 done token=1 attempts=1 fetch=0.4ms process=24.3ms store=0.5ms
+19:10:53.953 task=262630 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:56.417 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:56.425 task=262660 lease сплив: статус queued (attempts=1, token=1)
+19:10:56.449 task=262660 done token=2 attempts=2 fetch=0.8ms process=21.0ms store=1.1ms
+19:10:56.462 task=262661 done token=1 attempts=1 fetch=0.4ms process=11.4ms store=0.7ms
+19:10:56.511 task=262662 done token=1 attempts=1 fetch=0.4ms process=47.4ms store=0.6ms
+19:10:56.524 task=262663 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.5ms
+19:10:56.538 task=262664 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=1.3ms
+19:10:56.558 task=262665 done token=1 attempts=1 fetch=0.4ms process=19.1ms store=0.6ms
+19:10:56.608 task=262668 done token=1 attempts=1 fetch=0.4ms process=48.6ms store=0.5ms
+19:10:56.620 task=262669 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:10:59.104 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:10:59.110 task=262700 lease сплив: статус queued (attempts=1, token=1)
+19:10:59.126 task=262700 done token=2 attempts=2 fetch=0.9ms process=11.5ms store=0.9ms
+19:10:59.139 task=262701 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=0.7ms
+19:10:59.152 task=262702 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:01.419 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:01.428 task=262722 lease сплив: статус queued (attempts=1, token=1)
+19:11:01.443 task=262722 done token=2 attempts=2 fetch=0.9ms process=12.2ms store=1.0ms
+19:11:01.456 task=262723 done token=1 attempts=1 fetch=0.7ms process=11.0ms store=0.6ms
+19:11:01.511 task=262724 done token=1 attempts=1 fetch=0.4ms process=53.8ms store=0.9ms
+19:11:01.523 task=262725 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:04.014 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:04.022 task=262770 lease сплив: статус queued (attempts=2, token=2)
+19:11:04.085 task=262770 done token=3 attempts=3 fetch=0.7ms process=51.6ms store=9.3ms
+19:11:04.099 task=262771 done token=1 attempts=1 fetch=0.5ms process=12.3ms store=0.7ms
+19:11:04.137 task=262772 done token=1 attempts=1 fetch=0.7ms process=25.8ms store=10.5ms
+19:11:04.170 task=262773 done token=1 attempts=1 fetch=2.1ms process=28.3ms store=0.8ms
+19:11:04.182 task=262774 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.5ms
+19:11:04.204 task=262775 done token=1 attempts=1 fetch=0.4ms process=20.5ms store=0.6ms
+19:11:04.216 task=262776 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.6ms
+19:11:04.267 task=262777 done token=1 attempts=1 fetch=0.4ms process=48.8ms store=0.6ms
+19:11:04.279 task=262778 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.5ms
+19:11:04.291 task=262779 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.5ms
+19:11:04.312 task=262780 done token=1 attempts=1 fetch=0.4ms process=18.9ms store=0.6ms
+19:11:04.324 task=262781 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:06.413 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:06.469 task=262813 lease сплив: статус queued (attempts=1, token=1)
+19:11:06.484 task=262813 done token=2 attempts=2 fetch=0.9ms process=11.6ms store=0.9ms
+19:11:06.497 task=262814 done token=1 attempts=1 fetch=0.4ms process=11.6ms store=0.7ms
+19:11:06.510 task=262815 done token=1 attempts=1 fetch=0.5ms process=11.6ms store=0.6ms
+19:11:06.523 task=262816 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.6ms
+19:11:06.577 task=262817 done token=1 attempts=1 fetch=0.4ms process=53.1ms store=0.8ms
+19:11:06.590 task=262818 done token=1 attempts=1 fetch=0.5ms process=10.7ms store=0.6ms
+19:11:06.607 task=262819 done token=1 attempts=1 fetch=0.4ms process=15.8ms store=0.5ms
+19:11:06.619 task=262820 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.6ms
+19:11:06.675 task=262821 done token=1 attempts=1 fetch=0.4ms process=53.8ms store=0.6ms
+19:11:06.687 task=262822 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=0.5ms
+19:11:06.703 task=262823 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=3.7ms
+19:11:06.715 task=262824 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.5ms
+19:11:06.771 task=262825 done token=1 attempts=1 fetch=0.7ms process=54.2ms store=0.6ms
+19:11:06.784 task=262826 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.4ms
+19:11:06.796 task=262827 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.4ms
+19:11:06.811 task=262828 done token=1 attempts=1 fetch=0.4ms process=13.9ms store=0.4ms
+19:11:06.867 task=262829 done token=1 attempts=1 fetch=0.4ms process=55.2ms store=0.6ms
+19:11:06.880 task=262830 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.4ms
+19:11:06.892 task=262831 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:09.138 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:09.147 task=262846 lease сплив: статус queued (attempts=1, token=1)
+19:11:09.147 task=262847 lease сплив: статус queued (attempts=1, token=1)
+19:11:09.221 task=262846 done token=2 attempts=2 fetch=1.0ms process=66.9ms store=4.1ms
+19:11:09.246 task=262847 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:11.470 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:11.505 task=262860 lease сплив: статус queued (attempts=1, token=1)
+19:11:11.519 task=262860 done token=2 attempts=2 fetch=0.9ms process=11.8ms store=0.8ms
+19:11:11.532 task=262861 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.5ms
+19:11:11.562 task=262862 done token=1 attempts=1 fetch=0.5ms process=28.3ms store=0.9ms
+19:11:11.603 task=262863 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:14.055 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:14.063 task=262868 lease сплив: статус queued (attempts=2, token=2)
+19:11:14.077 task=262868 done token=3 attempts=3 fetch=1.0ms process=11.3ms store=0.9ms
+19:11:14.093 task=262869 done token=1 attempts=1 fetch=0.4ms process=12.5ms store=1.7ms
+19:11:14.113 task=262870 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:16.453 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:16.505 task=262878 lease сплив: статус queued (attempts=2, token=2)
+19:11:16.524 task=262878 done token=3 attempts=3 fetch=0.9ms process=16.5ms store=0.7ms
+19:11:16.537 task=262880 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.6ms
+19:11:16.549 task=262881 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.5ms
+19:11:16.561 task=262882 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.5ms
+19:11:16.619 task=262883 done token=1 attempts=1 fetch=0.5ms process=56.2ms store=0.6ms
+19:11:16.633 task=262884 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.8ms
+19:11:16.650 task=262885 done token=1 attempts=1 fetch=2.8ms process=13.2ms store=0.6ms
+19:11:16.662 task=262886 done token=1 attempts=1 fetch=0.5ms process=10.7ms store=0.5ms
+19:11:16.718 task=262887 done token=1 attempts=1 fetch=0.5ms process=53.8ms store=0.5ms
+19:11:16.730 task=262888 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.5ms
+19:11:16.743 task=262889 done token=1 attempts=1 fetch=0.7ms process=10.6ms store=0.5ms
+19:11:16.755 task=262890 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.5ms
+19:11:16.808 task=262891 done token=1 attempts=1 fetch=0.4ms process=51.4ms store=0.4ms
+19:11:16.825 task=262892 done token=1 attempts=1 fetch=0.4ms process=15.5ms store=0.5ms
+19:11:16.837 task=262893 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.4ms
+19:11:16.848 task=262894 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:19.043 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:19.052 task=262899 lease сплив: статус queued (attempts=1, token=1)
+19:11:19.052 task=262901 lease сплив: статус queued (attempts=1, token=1)
+19:11:19.066 task=262899 done token=2 attempts=2 fetch=1.0ms process=11.5ms store=0.9ms
+19:11:19.078 task=262901 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:21.531 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:21.538 task=262920 lease сплив: статус queued (attempts=1, token=1)
+19:11:21.552 task=262920 done token=2 attempts=2 fetch=0.7ms process=11.3ms store=0.8ms
+19:11:21.614 task=262921 done token=1 attempts=1 fetch=0.4ms process=60.2ms store=0.7ms
+19:11:21.628 task=262922 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=1.4ms
+19:11:21.642 task=262923 done token=1 attempts=1 fetch=0.7ms process=12.0ms store=0.6ms
+19:11:21.655 task=262924 done token=1 attempts=1 fetch=1.2ms process=10.8ms store=0.6ms
+19:11:21.710 task=262925 done token=1 attempts=1 fetch=0.4ms process=53.6ms store=0.7ms
+19:11:21.723 task=262926 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.5ms
+19:11:21.735 task=262927 done token=1 attempts=1 fetch=0.5ms process=10.6ms store=0.5ms
+19:11:21.748 task=262928 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.6ms
+19:11:21.760 task=262929 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:24.034 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:24.041 task=262946 lease сплив: статус queued (attempts=2, token=2)
+19:11:24.107 task=262946 done token=3 attempts=3 fetch=1.1ms process=62.5ms store=1.0ms
+19:11:24.122 task=262948 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:26.526 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:26.548 task=262994 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:29.046 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:29.068 task=263003 done token=1 attempts=1 fetch=1.5ms process=11.3ms store=0.9ms
+19:11:29.069 task=263002 lease сплив: статус queued (attempts=2, token=2)
+19:11:29.112 task=263002 token=3 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:29.112 task=263004 lease сплив: статус queued (attempts=1, token=1)
+19:11:29.129 task=263004 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:29.135 task=263004 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:29.139 task=263004 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:29.142 task=263004 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:29.142 task=263004 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:29.155 task=263006 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:31.538 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:31.559 task=263033 done token=1 attempts=1 fetch=0.8ms process=12.7ms store=0.8ms
+19:11:31.560 task=263032 lease сплив: статус queued (attempts=2, token=2)
+19:11:31.574 task=263032 done token=3 attempts=3 fetch=0.4ms process=11.5ms store=1.4ms
+19:11:31.627 task=263034 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:31.630 task=263034 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:31.631 task=263034 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:31.655 task=263037 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:34.010 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:34.018 task=263066 lease сплив: статус queued (attempts=1, token=1)
+19:11:34.034 task=263066 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:36.521 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:36.528 task=263076 lease сплив: статус queued (attempts=1, token=1)
+19:11:36.584 task=263076 done token=2 attempts=2 fetch=1.8ms process=52.8ms store=0.8ms
+19:11:36.598 task=263077 done token=1 attempts=1 fetch=0.9ms process=11.4ms store=1.1ms
+19:11:36.615 task=263078 done token=1 attempts=1 fetch=0.7ms process=12.0ms store=0.6ms
+19:11:36.628 task=263079 done token=1 attempts=1 fetch=0.5ms process=11.9ms store=0.6ms
+19:11:36.685 task=263080 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:36.685 task=263080 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:36.698 task=263081 done token=1 attempts=1 fetch=0.5ms process=11.6ms store=0.6ms
+19:11:36.711 task=263083 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:39.028 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:39.035 task=263098 lease сплив: статус queued (attempts=1, token=1)
+19:11:39.050 task=263098 done token=2 attempts=2 fetch=0.9ms process=12.0ms store=1.3ms
+19:11:39.069 task=263099 done token=1 attempts=1 fetch=2.0ms process=14.5ms store=0.9ms
+19:11:39.109 task=263100 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:39.112 task=263100 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:39.112 task=263100 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:39.136 task=263101 done token=1 attempts=1 fetch=0.5ms process=22.5ms store=0.4ms
+19:11:39.149 task=263104 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=0.7ms
+19:11:39.150 task=263103 lease сплив: статус queued (attempts=1, token=1)
+19:11:39.164 task=263103 done token=2 attempts=2 fetch=0.5ms process=12.3ms store=0.7ms
+19:11:39.208 task=263105 done token=1 attempts=1 fetch=0.5ms process=42.6ms store=0.6ms
+19:11:39.233 task=263106 done token=1 attempts=1 fetch=0.8ms process=22.8ms store=0.5ms
+19:11:39.245 task=263107 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.5ms
+19:11:39.257 task=263108 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.6ms
+19:11:39.304 task=263109 done token=1 attempts=1 fetch=0.4ms process=45.1ms store=0.5ms
+19:11:39.329 task=263110 done token=1 attempts=1 fetch=0.5ms process=23.5ms store=0.7ms
+19:11:39.340 task=263111 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:41.526 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:41.532 task=263115 lease сплив: статус queued (attempts=1, token=1)
+19:11:41.549 task=263115 done token=2 attempts=2 fetch=1.9ms process=12.7ms store=1.1ms
+19:11:41.562 task=263116 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.6ms
+19:11:41.616 task=263117 done token=1 attempts=1 fetch=40.4ms process=12.7ms store=0.8ms
+19:11:41.632 task=263118 done token=1 attempts=1 fetch=0.7ms process=12.6ms store=0.8ms
+19:11:41.648 task=263119 done token=1 attempts=1 fetch=0.8ms process=14.3ms store=0.6ms
+19:11:41.663 task=263120 done token=1 attempts=1 fetch=1.2ms process=12.0ms store=0.8ms
+19:11:41.704 task=263121 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:41.708 task=263121 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:41.713 task=263121 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:41.727 task=263123 done token=1 attempts=1 fetch=2.0ms process=11.2ms store=0.5ms
+19:11:41.741 task=263125 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=0.6ms
+19:11:41.755 task=263126 done token=1 attempts=1 fetch=1.4ms process=10.9ms store=0.9ms
+19:11:41.804 task=263127 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:41.806 task=263127 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:41.809 task=263127 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:41.810 task=263127 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:41.825 task=263129 done token=1 attempts=1 fetch=0.4ms process=11.8ms store=0.8ms
+19:11:41.825 task=263127 lease сплив: статус queued (attempts=2, token=2)
+19:11:41.839 task=263127 done token=3 attempts=3 fetch=0.5ms process=11.5ms store=0.9ms
+19:11:41.851 task=263130 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.6ms
+19:11:41.864 task=263131 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=0.7ms
+19:11:41.915 task=263132 done token=1 attempts=1 fetch=0.4ms process=49.5ms store=0.7ms
+19:11:41.928 task=263133 done token=1 attempts=1 fetch=0.5ms process=10.9ms store=0.6ms
+19:11:41.941 task=263134 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=0.5ms
+19:11:41.954 task=263135 done token=1 attempts=1 fetch=0.5ms process=10.9ms store=0.6ms
+19:11:42.013 task=263136 done token=1 attempts=1 fetch=0.5ms process=57.4ms store=1.0ms
+19:11:42.026 task=263137 done token=1 attempts=1 fetch=0.6ms process=11.4ms store=0.6ms
+19:11:42.039 task=263139 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.4ms
+19:11:42.053 task=263141 done token=1 attempts=1 fetch=0.4ms process=13.1ms store=0.5ms
+19:11:42.110 task=263143 done token=1 attempts=1 fetch=0.5ms process=54.0ms store=1.8ms
+19:11:42.111 task=263142 lease сплив: статус queued (attempts=1, token=1)
+19:11:42.125 task=263142 done token=2 attempts=2 fetch=0.5ms process=12.4ms store=1.0ms
+19:11:42.139 task=263144 done token=1 attempts=1 fetch=0.6ms process=12.0ms store=0.5ms
+19:11:42.152 task=263145 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=0.7ms
+19:11:42.204 task=263147 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:11:42.209 task=263147 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:11:42.209 task=263147 lease сплив: статус queued (attempts=2, token=2)
+19:11:42.222 task=263147 done token=3 attempts=3 fetch=0.4ms process=11.3ms store=0.5ms
+19:11:42.236 task=263149 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=1.5ms
+19:11:42.249 task=263151 done token=1 attempts=1 fetch=0.5ms process=11.9ms store=0.5ms
+19:11:42.305 task=263153 done token=1 attempts=1 fetch=0.4ms process=54.4ms store=0.5ms
+19:11:42.305 task=263155 lease сплив: статус queued (attempts=1, token=1)
+19:11:42.319 task=263155 done token=2 attempts=2 fetch=0.4ms process=12.6ms store=0.5ms
+19:11:42.331 task=263156 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.6ms
+19:11:42.345 task=263157 done token=1 attempts=1 fetch=1.3ms process=10.9ms store=0.5ms
+19:11:42.357 task=263158 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.5ms
+19:11:42.416 task=263159 done token=1 attempts=1 fetch=0.4ms process=11.7ms store=0.5ms
+19:11:42.428 task=263160 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.5ms
+19:11:42.440 task=263161 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.4ms
+19:11:42.452 task=263162 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.4ms
+19:11:42.513 task=263163 done token=1 attempts=1 fetch=0.3ms process=59.0ms store=0.5ms
+19:11:42.524 task=263164 done token=1 attempts=1 fetch=0.3ms process=10.6ms store=0.5ms
+19:11:42.536 task=263165 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.4ms
+19:11:42.550 task=263166 done token=1 attempts=1 fetch=0.4ms process=11.9ms store=0.5ms
+19:11:42.611 task=263167 done token=1 attempts=1 fetch=0.4ms process=60.2ms store=0.4ms
+19:11:42.623 task=263168 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:45.020 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:45.026 task=263186 lease сплив: статус queued (attempts=1, token=1)
+19:11:45.041 task=263186 done token=2 attempts=2 fetch=0.9ms process=11.5ms store=0.9ms
+19:11:45.054 task=263187 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=0.6ms
+19:11:45.113 task=263188 done token=1 attempts=1 fetch=0.4ms process=57.5ms store=0.6ms
+19:11:45.126 task=263189 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.5ms
+19:11:45.138 task=263190 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.7ms
+19:11:45.151 task=263191 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.6ms
+19:11:45.164 task=263192 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.7ms
+19:11:45.222 task=263193 done token=1 attempts=1 fetch=0.5ms process=56.4ms store=0.7ms
+19:11:45.234 task=263194 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.5ms
+19:11:45.247 task=263195 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.4ms
+19:11:45.259 task=263196 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:47.605 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:47.611 task=263254 lease сплив: статус queued (attempts=1, token=1)
+19:11:47.627 task=263254 done token=2 attempts=2 fetch=1.6ms process=12.2ms store=0.9ms
+19:11:47.646 task=263255 done token=1 attempts=1 fetch=0.9ms process=17.1ms store=0.5ms
+19:11:47.659 task=263256 done token=1 attempts=1 fetch=0.5ms process=11.4ms store=0.7ms
+19:11:47.712 task=263257 done token=1 attempts=1 fetch=0.5ms process=50.7ms store=0.5ms
+19:11:47.724 task=263258 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.5ms
+19:11:47.736 task=263259 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.5ms
+19:11:47.753 task=263260 done token=1 attempts=1 fetch=0.4ms process=16.2ms store=0.4ms
+19:11:47.807 task=263261 done token=1 attempts=1 fetch=0.4ms process=52.1ms store=0.5ms
+19:11:47.819 task=263262 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.5ms
+19:11:47.831 task=263263 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.4ms
+19:11:47.850 task=263264 done token=1 attempts=1 fetch=0.3ms process=18.2ms store=0.4ms
+19:11:47.904 task=263265 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=41.6ms
+19:11:47.916 task=263266 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.4ms
+19:11:47.927 task=263267 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.4ms
+19:11:47.946 task=263268 done token=1 attempts=1 fetch=0.4ms process=17.6ms store=0.4ms
+19:11:47.958 task=263269 done token=1 attempts=1 fetch=0.3ms process=10.6ms store=0.4ms
+19:11:48.010 task=263270 done token=1 attempts=1 fetch=0.4ms process=50.9ms store=0.4ms
+19:11:48.022 task=263271 done token=1 attempts=1 fetch=0.4ms process=10.5ms store=0.5ms
+19:11:48.034 task=263272 done token=1 attempts=1 fetch=0.3ms process=10.7ms store=0.5ms
+19:11:48.052 task=263273 done token=1 attempts=1 fetch=0.4ms process=17.2ms store=0.5ms
+19:11:48.106 task=263274 done token=1 attempts=1 fetch=0.4ms process=53.0ms store=0.4ms
+19:11:48.119 task=263275 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=0.5ms
+19:11:48.131 task=263276 done token=1 attempts=1 fetch=0.6ms process=10.6ms store=0.5ms
+19:11:48.150 task=263277 done token=1 attempts=1 fetch=0.4ms process=17.1ms store=0.4ms
+19:11:48.161 task=263278 done token=1 attempts=1 fetch=0.3ms process=10.6ms store=0.5ms
+19:11:48.214 task=263279 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:50.609 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:50.615 task=263301 lease сплив: статус queued (attempts=1, token=1)
+19:11:50.630 task=263301 done token=2 attempts=2 fetch=1.1ms process=11.3ms store=1.1ms
+19:11:50.649 task=263302 done token=1 attempts=1 fetch=0.6ms process=12.7ms store=5.2ms
+19:11:50.661 task=263303 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:53.008 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:53.015 task=263355 lease сплив: статус queued (attempts=1, token=1)
+19:11:53.031 task=263355 done token=2 attempts=2 fetch=1.1ms process=12.7ms store=0.9ms
+19:11:53.044 task=263356 done token=1 attempts=1 fetch=0.4ms process=11.6ms store=0.6ms
+19:11:53.106 task=263357 done token=1 attempts=1 fetch=0.4ms process=60.3ms store=0.9ms
+19:11:53.119 task=263358 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:55.611 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:55.618 task=263372 lease сплив: статус queued (attempts=1, token=1)
+19:11:55.632 task=263372 done token=2 attempts=2 fetch=0.8ms process=11.6ms store=1.0ms
+19:11:55.658 task=263373 done token=1 attempts=1 fetch=0.5ms process=24.8ms store=0.6ms
+19:11:55.703 task=263374 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=32.9ms
+19:11:55.716 task=263375 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.6ms
+19:11:55.728 task=263376 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.6ms
+19:11:55.755 task=263377 done token=1 attempts=1 fetch=0.4ms process=25.0ms store=0.7ms
+19:11:55.767 task=263378 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.4ms
+19:11:55.813 task=263379 done token=1 attempts=1 fetch=0.4ms process=44.3ms store=0.5ms
+19:11:55.825 task=263380 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.4ms
+19:11:55.854 task=263381 done token=1 attempts=1 fetch=0.5ms process=26.5ms store=0.9ms
+19:11:55.867 task=263382 done token=1 attempts=1 fetch=0.7ms process=11.4ms store=0.5ms
+19:11:55.912 task=263383 done token=1 attempts=1 fetch=0.4ms process=43.3ms store=0.5ms
+19:11:55.925 task=263384 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=1.4ms
+19:11:55.951 task=263385 done token=1 attempts=1 fetch=0.4ms process=24.1ms store=0.6ms
+19:11:55.963 task=263386 done token=1 attempts=1 fetch=0.5ms process=10.7ms store=0.4ms
+19:11:56.007 task=263387 done token=1 attempts=1 fetch=0.4ms process=43.3ms store=0.7ms
+19:11:56.020 task=263388 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:11:58.012 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:11:58.020 task=263402 lease сплив: статус queued (attempts=2, token=2)
+19:11:58.034 task=263402 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:00.012 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:00.019 task=263427 lease сплив: статус queued (attempts=1, token=1)
+19:12:00.034 task=263427 done token=2 attempts=2 fetch=1.1ms process=11.6ms store=1.0ms
+19:12:00.049 task=263428 done token=1 attempts=1 fetch=0.5ms process=12.6ms store=0.9ms
+19:12:00.109 task=263429 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:01.611 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:01.619 task=263433 lease сплив: статус queued (attempts=1, token=1)
+19:12:01.678 task=263433 done token=2 attempts=2 fetch=1.8ms process=54.8ms store=0.9ms
+19:12:01.691 task=263434 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:04.036 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:04.044 task=263442 lease сплив: статус queued (attempts=1, token=1)
+19:12:04.058 task=263442 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:06.003 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:06.010 task=263482 lease сплив: статус queued (attempts=2, token=2)
+19:12:06.024 task=263482 done token=3 attempts=3 fetch=0.8ms process=11.7ms store=0.9ms
+19:12:06.057 task=263483 done token=1 attempts=1 fetch=0.4ms process=30.7ms store=0.5ms
+19:12:06.069 task=263484 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.5ms
+19:12:06.110 task=263485 done token=1 attempts=1 fetch=0.4ms process=39.1ms store=0.8ms
+19:12:06.124 task=263486 done token=1 attempts=1 fetch=0.8ms process=11.1ms store=0.8ms
+19:12:06.155 task=263487 done token=1 attempts=1 fetch=0.4ms process=29.9ms store=0.6ms
+19:12:06.169 task=263488 done token=1 attempts=1 fetch=0.6ms process=11.8ms store=0.6ms
+19:12:06.209 task=263489 done token=1 attempts=1 fetch=0.9ms process=38.0ms store=0.5ms
+19:12:06.224 task=263490 done token=1 attempts=1 fetch=0.4ms process=12.2ms store=2.1ms
+19:12:06.253 task=263491 done token=1 attempts=1 fetch=0.4ms process=27.2ms store=1.1ms
+19:12:06.270 task=263492 done token=1 attempts=1 fetch=1.1ms process=11.9ms store=3.5ms
+19:12:06.307 task=263493 done token=1 attempts=1 fetch=0.5ms process=33.3ms store=2.1ms
+19:12:06.321 task=263494 done token=1 attempts=1 fetch=0.5ms process=12.5ms store=0.5ms
+19:12:06.333 task=263495 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:08.628 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:08.635 task=263510 lease сплив: статус queued (attempts=1, token=1)
+19:12:08.662 task=263510 done token=2 attempts=2 fetch=7.8ms process=16.5ms store=0.9ms
+19:12:08.709 task=263511 done token=1 attempts=1 fetch=0.4ms process=12.5ms store=0.7ms
+19:12:08.723 task=263512 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.7ms
+19:12:08.735 task=263513 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.5ms
+19:12:08.748 task=263514 done token=1 attempts=1 fetch=0.4ms process=11.1ms store=0.8ms
+19:12:08.804 task=263515 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:11.009 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:11.016 task=263536 lease сплив: статус queued (attempts=1, token=1)
+19:12:11.046 task=263536 done token=2 attempts=2 fetch=0.7ms process=27.2ms store=0.8ms
+19:12:11.058 task=263537 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.5ms
+19:12:11.103 task=263538 done token=1 attempts=1 fetch=0.4ms process=43.4ms store=0.6ms
+19:12:11.115 task=263539 done token=1 attempts=1 fetch=0.4ms process=10.9ms store=0.5ms
+19:12:11.128 task=263540 done token=1 attempts=1 fetch=0.3ms process=11.2ms store=0.5ms
+19:12:11.153 task=263541 done token=1 attempts=1 fetch=0.5ms process=23.6ms store=0.7ms
+19:12:11.166 task=263542 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=0.5ms
+19:12:11.212 task=263543 done token=1 attempts=1 fetch=0.8ms process=43.6ms store=0.6ms
+19:12:11.224 task=263544 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.5ms
+19:12:11.252 task=263545 done token=1 attempts=1 fetch=0.7ms process=25.9ms store=0.6ms
+19:12:11.268 task=263546 done token=1 attempts=1 fetch=0.5ms process=11.7ms store=3.3ms
+19:12:11.309 task=263547 done token=1 attempts=1 fetch=0.7ms process=39.9ms store=0.6ms
+19:12:11.323 task=263548 done token=1 attempts=1 fetch=0.5ms process=11.4ms store=0.4ms
+19:12:11.352 task=263549 done token=1 attempts=1 fetch=0.7ms process=27.7ms store=0.6ms
+19:12:11.365 task=263550 done token=1 attempts=1 fetch=0.6ms process=10.9ms store=0.5ms
+19:12:11.408 task=263551 done token=1 attempts=1 fetch=0.4ms process=41.4ms store=0.5ms
+19:12:11.419 task=263552 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:13.715 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:13.725 task=263569 lease сплив: статус queued (attempts=1, token=1)
+19:12:13.744 task=263569 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:16.012 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:16.036 task=263602 done token=1 attempts=1 fetch=0.8ms process=12.5ms store=1.8ms
+19:12:16.036 task=263601 lease сплив: статус queued (attempts=2, token=2)
+19:12:16.049 task=263601 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:18.023 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:18.030 task=263613 lease сплив: статус queued (attempts=2, token=2)
+19:12:18.045 task=263613 done token=3 attempts=3 fetch=1.0ms process=11.6ms store=0.9ms
+19:12:18.057 task=263615 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.4ms
+19:12:18.070 task=263617 done token=1 attempts=1 fetch=0.4ms process=10.6ms store=0.4ms
+19:12:18.124 task=263619 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:20.031 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:20.039 task=263639 lease сплив: статус queued (attempts=1, token=1)
+19:12:20.053 task=263639 done token=2 attempts=2 fetch=0.8ms process=11.2ms store=0.9ms
+19:12:20.066 task=263640 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.7ms
+19:12:20.110 task=263641 done token=1 attempts=1 fetch=0.4ms process=43.1ms store=0.8ms
+19:12:20.137 task=263642 done token=1 attempts=1 fetch=0.5ms process=24.3ms store=0.6ms
+19:12:20.149 task=263643 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.5ms
+19:12:20.161 task=263644 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:22.008 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:22.015 task=263665 lease сплив: статус queued (attempts=1, token=1)
+19:12:22.028 task=263665 done token=2 attempts=2 fetch=0.7ms process=11.4ms store=0.8ms
+19:12:22.042 task=263666 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=1.6ms
+19:12:22.103 task=263667 done token=1 attempts=1 fetch=0.4ms process=59.5ms store=0.6ms
+19:12:22.116 task=263668 done token=1 attempts=1 fetch=0.4ms process=11.2ms store=0.6ms
+19:12:22.129 task=263669 done token=1 attempts=1 fetch=0.4ms process=11.0ms store=0.6ms
+19:12:22.141 task=263670 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.6ms
+19:12:22.170 task=263671 done token=1 attempts=1 fetch=0.4ms process=27.7ms store=0.5ms
+19:12:22.211 task=263672 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:24.726 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:24.732 task=263699 lease сплив: статус queued (attempts=1, token=1)
+19:12:24.745 task=263699 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:27.021 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:27.045 task=263715 done token=1 attempts=1 fetch=0.9ms process=12.4ms store=1.4ms
+19:12:27.105 task=263717 done token=1 attempts=1 fetch=0.4ms process=59.0ms store=0.5ms
+19:12:27.106 task=263718 lease сплив: статус queued (attempts=1, token=1)
+19:12:27.118 task=263718 done token=2 attempts=2 fetch=0.4ms process=11.2ms store=0.5ms
+19:12:27.131 task=263720 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.6ms
+19:12:27.144 task=263722 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=1.1ms
+19:12:27.171 task=263724 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:28.730 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:28.737 task=263755 lease сплив: статус queued (attempts=2, token=2)
+19:12:28.750 task=263755 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:31.017 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:31.026 task=263771 lease сплив: статус queued (attempts=1, token=1)
+19:12:31.051 task=263771 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:31.057 task=263771 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:31.058 task=263771 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:33.013 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:33.020 task=263773 lease сплив: статус queued (attempts=2, token=2)
+19:12:33.036 task=263773 done token=3 attempts=3 fetch=0.8ms process=13.0ms store=1.0ms
+19:12:33.050 task=263774 done token=1 attempts=1 fetch=0.5ms process=11.9ms store=0.8ms
+19:12:33.076 task=263776 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:33.104 task=263776 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:33.106 task=263776 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:35.016 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:35.039 task=263785 done token=1 attempts=1 fetch=0.7ms process=12.4ms store=0.7ms
+19:12:35.053 task=263787 done token=1 attempts=1 fetch=0.5ms process=12.2ms store=0.5ms
+19:12:35.053 task=263783 lease сплив: статус queued (attempts=2, token=2)
+19:12:35.067 task=263788 done token=1 attempts=1 fetch=0.4ms process=12.2ms store=0.9ms
+19:12:35.119 task=263783 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:37.018 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:37.024 task=263800 lease сплив: статус queued (attempts=1, token=1)
+19:12:37.038 task=263800 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:39.072 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:39.123 task=263812 done token=1 attempts=1 fetch=1.1ms process=13.1ms store=0.8ms
+19:12:39.136 task=263814 done token=1 attempts=1 fetch=0.6ms process=12.1ms store=0.4ms
+19:12:39.164 task=263816 done token=1 attempts=1 fetch=0.5ms process=26.2ms store=0.5ms
+19:12:39.165 task=263815 lease сплив: статус queued (attempts=1, token=1)
+19:12:39.177 task=263815 done token=2 attempts=2 fetch=0.6ms process=11.4ms store=0.5ms
+19:12:39.203 task=263817 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:39.208 task=263817 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:39.212 task=263817 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:39.215 task=263817 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:39.215 task=263817 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:12:39.228 task=263819 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=0.5ms
+19:12:39.240 task=263821 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:41.804 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:41.827 task=263849 done token=1 attempts=1 fetch=0.7ms process=13.0ms store=0.8ms
+19:12:41.839 task=263851 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.6ms
+19:12:41.840 task=263850 lease сплив: статус queued (attempts=1, token=1)
+19:12:41.852 task=263850 done token=2 attempts=2 fetch=0.5ms process=11.0ms store=0.6ms
+19:12:41.905 task=263852 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:12:41.919 task=263854 done token=1 attempts=1 fetch=0.7ms process=11.3ms store=0.7ms
+19:12:41.919 task=263853 lease сплив: статус queued (attempts=1, token=1)
+19:12:41.933 task=263853 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:44.027 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:44.085 task=263877 done token=1 attempts=1 fetch=0.7ms process=10.9ms store=0.8ms
+19:12:44.086 task=263875 lease сплив: статус queued (attempts=1, token=1)
+19:12:44.105 task=263875 done token=2 attempts=2 fetch=0.5ms process=18.2ms store=0.4ms
+19:12:44.119 task=263880 done token=1 attempts=1 fetch=0.4ms process=12.0ms store=0.6ms
+19:12:44.119 task=263879 lease сплив: статус queued (attempts=1, token=1)
+19:12:44.131 task=263879 done token=2 attempts=2 fetch=0.5ms process=10.8ms store=0.6ms
+19:12:44.172 task=263883 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:44.175 task=263883 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:44.178 task=263883 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:44.180 task=263883 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:12:44.181 task=263884 lease сплив: статус queued (attempts=1, token=1)
+19:12:44.204 task=263884 done token=2 attempts=2 fetch=0.7ms process=20.7ms store=0.6ms
+19:12:44.204 task=263885 lease сплив: статус queued (attempts=1, token=1)
+19:12:44.216 task=263885 done token=2 attempts=2 fetch=0.5ms process=11.0ms store=0.5ms
+19:12:44.229 task=263887 done token=1 attempts=1 fetch=0.4ms process=11.3ms store=0.5ms
+19:12:44.270 task=263889 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:44.274 task=263889 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:44.277 task=263889 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:46.807 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:46.814 task=263903 lease сплив: статус queued (attempts=1, token=1)
+19:12:46.829 task=263904 done token=1 attempts=1 fetch=1.1ms process=12.6ms store=0.8ms
+19:12:46.844 task=263905 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:49.014 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:49.022 task=263913 lease сплив: статус queued (attempts=1, token=1)
+19:12:49.041 task=263913 done token=2 attempts=2 fetch=1.0ms process=13.2ms store=3.6ms
+19:12:49.054 task=263915 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=0.9ms
+19:12:49.110 task=263917 done token=1 attempts=1 fetch=0.4ms process=53.7ms store=0.7ms
+19:12:49.122 task=263918 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.4ms
+19:12:49.122 task=263916 lease сплив: статус queued (attempts=2, token=2)
+19:12:49.134 task=263916 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:51.018 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:51.025 task=263960 lease сплив: статус queued (attempts=1, token=1)
+19:12:51.040 task=263960 done token=2 attempts=2 fetch=1.1ms process=12.1ms store=0.8ms
+19:12:51.054 task=263962 done token=1 attempts=1 fetch=0.7ms process=11.5ms store=0.7ms
+19:12:51.054 task=263961 lease сплив: статус queued (attempts=1, token=1)
+19:12:51.067 task=263961 done token=2 attempts=2 fetch=0.6ms process=11.6ms store=0.5ms
+19:12:51.122 task=263963 done token=1 attempts=1 fetch=0.6ms process=53.2ms store=0.7ms
+19:12:51.135 task=263964 done token=1 attempts=1 fetch=0.7ms process=11.0ms store=0.5ms
+19:12:51.148 task=263965 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.8ms
+19:12:51.160 task=263966 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.6ms
+19:12:51.219 task=263967 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:53.008 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:53.016 task=263968 lease сплив: статус queued (attempts=2, token=2)
+19:12:53.033 task=263968 done token=3 attempts=3 fetch=1.1ms process=13.4ms store=1.1ms
+19:12:53.046 task=263971 done token=1 attempts=1 fetch=0.4ms process=11.5ms store=0.7ms
+19:12:53.059 task=263973 done token=1 attempts=1 fetch=0.4ms process=11.4ms store=0.4ms
+19:12:53.111 task=263975 done token=1 attempts=1 fetch=0.5ms process=50.2ms store=0.8ms
+19:12:53.125 task=263976 done token=1 attempts=1 fetch=1.3ms process=11.5ms store=1.0ms
+19:12:53.138 task=263978 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:56.014 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:56.061 task=263994 done token=1 attempts=1 fetch=1.0ms process=11.4ms store=0.9ms
+19:12:56.061 task=263993 lease сплив: статус queued (attempts=1, token=1)
+19:12:56.074 task=263993 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:12:58.046 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:12:58.069 task=264007 done token=1 attempts=1 fetch=0.8ms process=11.3ms store=1.0ms
+19:12:58.069 task=264005 lease сплив: статус failed (attempts=3, token=3)
+19:12:58.083 task=264008 done token=1 attempts=1 fetch=0.4ms process=12.2ms store=0.4ms
+19:12:58.106 task=264011 done token=1 attempts=1 fetch=0.6ms process=20.7ms store=1.1ms
+19:12:58.153 task=264012 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:12:58.153 task=264012 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:00.015 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:00.022 task=264024 lease сплив: статус queued (attempts=1, token=1)
+19:13:00.061 task=264024 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:00.065 task=264024 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:00.065 task=264024 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:00.082 task=264028 done token=1 attempts=1 fetch=0.5ms process=11.5ms store=3.5ms
+19:13:00.082 task=264024 lease сплив: статус failed (attempts=3, token=3)
+19:13:00.104 task=264030 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:00.110 task=264030 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:00.112 task=264030 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:00.128 task=264032 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:02.015 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:02.022 task=264077 lease сплив: статус queued (attempts=1, token=1)
+19:13:02.036 task=264077 done token=2 attempts=2 fetch=0.9ms process=11.4ms store=0.9ms
+19:13:02.049 task=264078 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.7ms
+19:13:02.107 task=264079 done token=1 attempts=1 fetch=0.5ms process=55.9ms store=1.2ms
+19:13:02.121 task=264080 done token=1 attempts=1 fetch=0.8ms process=11.3ms store=0.6ms
+19:13:02.134 task=264081 done token=1 attempts=1 fetch=0.6ms process=11.4ms store=0.6ms
+19:13:02.147 task=264082 done token=1 attempts=1 fetch=0.6ms process=11.1ms store=1.2ms
+19:13:02.207 task=264083 done token=1 attempts=1 fetch=0.7ms process=57.2ms store=0.7ms
+19:13:02.220 task=264084 done token=1 attempts=1 fetch=0.7ms process=11.8ms store=0.5ms
+19:13:02.233 task=264085 done token=1 attempts=1 fetch=0.6ms process=10.9ms store=0.5ms
+19:13:02.244 task=264086 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.4ms
+19:13:02.275 task=264087 done token=1 attempts=1 fetch=0.4ms process=29.8ms store=0.4ms
+19:13:02.314 task=264088 done token=1 attempts=1 fetch=0.4ms process=37.1ms store=0.4ms
+19:13:02.326 task=264089 done token=1 attempts=1 fetch=0.4ms process=10.8ms store=0.5ms
+19:13:02.338 task=264090 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.5ms
+19:13:02.374 task=264091 done token=1 attempts=1 fetch=0.5ms process=34.6ms store=0.5ms
+19:13:02.411 task=264092 done token=1 attempts=1 fetch=0.7ms process=36.3ms store=0.5ms
+19:13:02.424 task=264093 done token=1 attempts=1 fetch=0.7ms process=10.7ms store=1.0ms
+19:13:02.437 task=264094 done token=1 attempts=1 fetch=0.7ms process=10.9ms store=0.4ms
+19:13:02.469 task=264095 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:04.919 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:04.932 task=264109 lease сплив: статус queued (attempts=1, token=1)
+19:13:04.952 task=264109 done token=2 attempts=2 fetch=4.1ms process=11.5ms store=1.9ms
+19:13:04.971 task=264110 done token=1 attempts=1 fetch=2.5ms process=12.7ms store=0.9ms
+19:13:05.007 task=264111 done token=1 attempts=1 fetch=0.7ms process=34.4ms store=0.5ms
+19:13:05.020 task=264112 done token=1 attempts=1 fetch=0.7ms process=10.8ms store=1.0ms
+19:13:05.033 task=264113 done token=1 attempts=1 fetch=0.6ms process=11.7ms store=0.6ms
+19:13:05.049 task=264114 done token=1 attempts=1 fetch=0.6ms process=12.5ms store=2.2ms
+19:13:05.062 task=264116 done token=1 attempts=1 fetch=0.7ms process=11.5ms store=0.5ms
+19:13:05.103 task=264118 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:05.107 task=264118 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:05.110 task=264118 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:05.114 task=264118 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:05.114 task=264118 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:07.066 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:07.090 task=264145 done token=1 attempts=1 fetch=0.9ms process=11.8ms store=0.7ms
+19:13:07.145 task=264147 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:07.160 task=264148 done token=1 attempts=1 fetch=0.4ms process=13.5ms store=0.6ms
+19:13:07.171 task=264151 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:09.006 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:09.043 task=264166 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:09.047 task=264166 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:09.050 task=264166 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:09.051 task=264166 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:09.066 task=264170 done token=1 attempts=1 fetch=1.7ms process=11.4ms store=0.8ms
+19:13:09.066 task=264168 lease сплив: статус queued (attempts=1, token=1)
+19:13:09.066 task=264169 lease сплив: статус queued (attempts=1, token=1)
+19:13:09.078 task=264168 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:11.046 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:11.054 task=264180 lease сплив: статус queued (attempts=1, token=1)
+19:13:11.054 task=264182 lease сплив: статус queued (attempts=1, token=1)
+19:13:11.069 task=264180 done token=2 attempts=2 fetch=1.0ms process=11.9ms store=0.9ms
+19:13:11.118 task=264182 done token=2 attempts=2 fetch=0.6ms process=46.2ms store=1.3ms
+19:13:11.153 task=264183 done token=1 attempts=1 fetch=2.5ms process=30.7ms store=1.4ms
+19:13:11.203 task=264184 done token=1 attempts=1 fetch=1.2ms process=12.5ms store=35.5ms
+19:13:11.217 task=264186 done token=1 attempts=1 fetch=0.9ms process=11.8ms store=0.6ms
+19:13:11.240 task=264188 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:11.240 task=264188 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:11.254 task=264190 done token=1 attempts=1 fetch=0.5ms process=11.8ms store=0.6ms
+19:13:11.267 task=264191 done token=1 attempts=1 fetch=0.6ms process=11.7ms store=0.5ms
+19:13:11.316 task=264193 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:14.571 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:14.667 task=264210 done token=1 attempts=1 fetch=6.2ms process=28.3ms store=8.2ms
+19:13:14.670 task=264209 lease сплив: статус queued (attempts=1, token=1)
+19:13:14.691 task=264209 done token=2 attempts=2 fetch=1.5ms process=16.3ms store=0.8ms
+19:13:14.709 task=264213 done token=1 attempts=1 fetch=0.7ms process=13.6ms store=2.7ms
+19:13:14.733 task=264215 done token=1 attempts=1 fetch=0.8ms process=20.9ms store=2.1ms
+19:13:14.750 task=264217 done token=1 attempts=1 fetch=1.0ms process=12.6ms store=1.3ms
+19:13:14.767 task=264218 done token=1 attempts=1 fetch=0.8ms process=13.2ms store=2.0ms
+19:13:14.795 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.802 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.807 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.812 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.816 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.821 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.825 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.830 task=264220 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:14.833 task=264220 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:14.835 task=264220 lease сплив: статус queued (attempts=2, token=2)
+19:13:14.911 task=264220 token=3 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:14.983 task=264223 done token=1 attempts=1 fetch=9.9ms process=44.9ms store=8.9ms
+19:13:14.986 task=264222 lease сплив: статус queued (attempts=1, token=1)
+19:13:15.020 task=264222 done token=2 attempts=2 fetch=2.3ms process=24.8ms store=4.0ms
+19:13:15.098 task=264224 done token=1 attempts=1 fetch=3.6ms process=25.3ms store=47.1ms
+19:13:15.143 task=264225 done token=1 attempts=1 fetch=2.6ms process=37.0ms store=3.0ms
+19:13:15.210 task=264226 done token=1 attempts=1 fetch=2.5ms process=60.2ms store=0.9ms
+19:13:15.239 task=264227 done token=1 attempts=1 fetch=2.2ms process=22.5ms store=3.0ms
+19:13:15.296 task=264228 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:17.130 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:17.173 task=264247 lease сплив: статус queued (attempts=1, token=1)
+19:13:17.190 task=264248 done token=1 attempts=1 fetch=1.5ms process=12.0ms store=1.6ms
+19:13:17.211 task=264249 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:19.031 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:19.039 task=264267 lease сплив: статус queued (attempts=1, token=1)
+19:13:19.054 task=264267 done token=2 attempts=2 fetch=1.0ms process=11.8ms store=1.0ms
+19:13:19.118 task=264268 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:21.039 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:21.046 task=264291 lease сплив: статус queued (attempts=1, token=1)
+19:13:21.061 task=264291 done token=2 attempts=2 fetch=1.1ms process=11.5ms store=1.0ms
+19:13:21.105 task=264292 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:23.023 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:23.030 task=264322 lease сплив: статус queued (attempts=1, token=1)
+19:13:23.060 task=264322 done token=2 attempts=2 fetch=1.1ms process=25.8ms store=1.2ms
+19:13:23.105 task=264323 done token=1 attempts=1 fetch=0.8ms process=43.3ms store=0.9ms
+19:13:23.118 task=264324 done token=1 attempts=1 fetch=0.7ms process=11.3ms store=0.7ms
+19:13:23.132 task=264325 done token=1 attempts=1 fetch=0.7ms process=11.9ms store=0.7ms
+19:13:23.156 task=264327 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:23.157 task=264327 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:25.028 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:25.068 task=264347 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:25.075 task=264347 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:25.075 task=264347 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:25.106 task=264349 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:25.107 task=264349 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:25.122 task=264352 done token=1 attempts=1 fetch=1.1ms process=12.4ms store=0.9ms
+19:13:25.122 task=264353 lease сплив: статус queued (attempts=1, token=1)
+19:13:25.135 task=264353 done token=2 attempts=2 fetch=0.6ms process=10.9ms store=0.5ms
+19:13:25.173 task=264355 done token=1 attempts=1 fetch=0.6ms process=35.9ms store=0.8ms
+19:13:25.204 task=264356 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:25.204 task=264356 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:25.217 task=264358 done token=1 attempts=1 fetch=0.6ms process=10.9ms store=0.5ms
+19:13:25.230 task=264360 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.6ms
+19:13:25.230 task=264361 lease сплив: статус queued (attempts=1, token=1)
+19:13:25.270 task=264361 done token=2 attempts=2 fetch=0.6ms process=37.5ms store=1.4ms
+19:13:25.285 task=264362 done token=1 attempts=1 fetch=0.7ms process=12.1ms store=1.3ms
+19:13:25.307 task=264364 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:25.311 task=264364 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:25.314 task=264364 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:25.315 task=264364 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:25.328 task=264366 done token=1 attempts=1 fetch=0.8ms process=11.0ms store=0.6ms
+19:13:25.367 task=264368 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:28.027 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:28.034 task=264396 lease сплив: статус queued (attempts=1, token=1)
+19:13:28.065 task=264396 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:28.069 task=264396 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:28.069 task=264396 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:30.053 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:30.061 task=264412 lease сплив: статус queued (attempts=1, token=1)
+19:13:30.119 task=264412 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:30.123 task=264412 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:30.125 task=264412 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:30.125 task=264412 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:30.139 task=264415 done token=1 attempts=1 fetch=0.7ms process=11.5ms store=1.1ms
+19:13:30.153 task=264417 done token=1 attempts=1 fetch=0.6ms process=11.7ms store=0.8ms
+19:13:30.166 task=264418 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:32.029 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:32.037 task=264433 lease сплив: статус queued (attempts=1, token=1)
+19:13:32.054 task=264433 done token=2 attempts=2 fetch=1.1ms process=11.8ms store=1.7ms
+19:13:32.112 task=264434 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:34.025 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:34.032 task=264477 lease сплив: статус queued (attempts=1, token=1)
+19:13:34.047 task=264477 done token=2 attempts=2 fetch=1.2ms process=11.6ms store=1.0ms
+19:13:34.108 task=264478 done token=1 attempts=1 fetch=0.7ms process=58.1ms store=1.1ms
+19:13:34.122 task=264479 done token=1 attempts=1 fetch=0.7ms process=12.2ms store=0.7ms
+19:13:34.135 task=264480 done token=1 attempts=1 fetch=0.7ms process=11.2ms store=0.8ms
+19:13:34.150 task=264481 done token=1 attempts=1 fetch=0.7ms process=11.6ms store=0.7ms
+19:13:34.208 task=264482 done token=1 attempts=1 fetch=0.7ms process=56.2ms store=0.9ms
+19:13:34.221 task=264483 done token=1 attempts=1 fetch=0.7ms process=11.4ms store=0.5ms
+19:13:34.234 task=264484 done token=1 attempts=1 fetch=0.6ms process=11.3ms store=0.6ms
+19:13:34.246 task=264485 done token=1 attempts=1 fetch=0.7ms process=10.8ms store=0.5ms
+19:13:34.305 task=264486 done token=1 attempts=1 fetch=0.6ms process=56.5ms store=0.8ms
+19:13:34.319 task=264487 done token=1 attempts=1 fetch=0.8ms process=11.5ms store=1.0ms
+19:13:34.335 task=264488 done token=1 attempts=1 fetch=0.8ms process=12.0ms store=0.6ms
+19:13:34.348 task=264489 done token=1 attempts=1 fetch=0.8ms process=11.7ms store=0.7ms
+19:13:34.406 task=264490 done token=1 attempts=1 fetch=0.7ms process=55.5ms store=0.7ms
+19:13:34.418 task=264491 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:37.034 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:37.045 task=264500 lease сплив: статус queued (attempts=1, token=1)
+19:13:37.065 task=264500 done token=2 attempts=2 fetch=1.3ms process=15.8ms store=1.1ms
+19:13:37.110 task=264502 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:37.115 task=264502 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:37.118 task=264502 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:37.118 task=264502 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:37.119 task=264502 lease сплив: статус queued (attempts=2, token=2)
+19:13:37.139 task=264502 token=3 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:37.162 task=264504 done token=1 attempts=1 fetch=1.8ms process=15.3ms store=3.8ms
+19:13:37.205 task=264506 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:37.210 task=264506 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:37.213 task=264506 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:39.036 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:39.045 task=264521 lease сплив: статус queued (attempts=1, token=1)
+19:13:39.069 task=264521 done token=2 attempts=2 fetch=2.1ms process=19.7ms store=1.1ms
+19:13:39.116 task=264522 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:41.026 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:41.035 task=264544 lease сплив: статус queued (attempts=1, token=1)
+19:13:41.049 task=264544 done token=2 attempts=2 fetch=1.0ms process=11.9ms store=1.0ms
+19:13:41.108 task=264545 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:41.108 task=264545 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:41.121 task=264548 done token=1 attempts=1 fetch=0.7ms process=11.6ms store=0.6ms
+19:13:41.134 task=264550 done token=1 attempts=1 fetch=0.7ms process=11.4ms store=0.6ms
+19:13:41.149 task=264551 done token=1 attempts=1 fetch=1.5ms process=11.7ms store=0.7ms
+19:13:41.149 task=264549 lease сплив: статус queued (attempts=1, token=1)
+19:13:41.207 task=264549 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:41.208 task=264549 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:41.221 task=264557 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=0.6ms
+19:13:41.234 task=264559 done token=1 attempts=1 fetch=0.6ms process=11.2ms store=0.5ms
+19:13:41.247 task=264560 done token=1 attempts=1 fetch=0.6ms process=11.6ms store=0.4ms
+19:13:41.303 task=264562 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:41.305 task=264562 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:41.317 task=264565 done token=1 attempts=1 fetch=0.6ms process=11.3ms store=0.5ms
+19:13:41.331 task=264568 done token=1 attempts=1 fetch=1.1ms process=11.2ms store=0.5ms
+19:13:41.344 task=264569 done token=1 attempts=1 fetch=0.6ms process=11.1ms store=0.5ms
+19:13:41.344 task=264567 lease сплив: статус queued (attempts=2, token=2)
+19:13:41.356 task=264567 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:43.071 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:43.095 task=264571 done token=1 attempts=1 fetch=1.0ms process=14.2ms store=1.4ms
+19:13:43.111 task=264573 done token=1 attempts=1 fetch=0.8ms process=12.1ms store=1.7ms
+19:13:43.124 task=264574 done token=1 attempts=1 fetch=0.8ms process=11.2ms store=0.7ms
+19:13:43.174 task=264576 done token=1 attempts=1 fetch=0.7ms process=48.1ms store=0.7ms
+19:13:43.175 task=264577 lease сплив: статус queued (attempts=1, token=1)
+19:13:43.188 task=264577 done token=2 attempts=2 fetch=0.7ms process=11.1ms store=0.7ms
+19:13:43.207 task=264578 done token=1 attempts=1 fetch=0.8ms process=16.8ms store=0.9ms
+19:13:43.220 task=264579 done token=1 attempts=1 fetch=0.7ms process=10.8ms store=0.7ms
+19:13:43.273 task=264580 done token=1 attempts=1 fetch=0.6ms process=51.5ms store=0.6ms
+19:13:43.286 task=264581 done token=1 attempts=1 fetch=0.7ms process=11.0ms store=0.7ms
+19:13:43.307 task=264582 done token=1 attempts=1 fetch=0.7ms process=19.1ms store=0.6ms
+19:13:43.320 task=264583 done token=1 attempts=1 fetch=0.6ms process=11.5ms store=0.6ms
+19:13:43.374 task=264584 done token=1 attempts=1 fetch=0.8ms process=51.8ms store=0.6ms
+19:13:43.387 task=264585 done token=1 attempts=1 fetch=0.7ms process=11.5ms store=0.5ms
+19:13:43.406 task=264586 done token=1 attempts=1 fetch=0.6ms process=17.1ms store=0.8ms
+19:13:43.418 task=264587 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:45.093 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:45.124 task=264619 done token=1 attempts=1 fetch=0.9ms process=12.8ms store=1.0ms
+19:13:45.138 task=264621 done token=1 attempts=1 fetch=0.5ms process=11.9ms store=0.9ms
+19:13:45.151 task=264624 done token=1 attempts=1 fetch=0.7ms process=12.2ms store=0.5ms
+19:13:45.190 task=264625 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:45.204 task=264625 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:13:45.206 task=264625 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:13:45.218 task=264627 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:48.051 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:48.059 task=264668 lease сплив: статус queued (attempts=1, token=1)
+19:13:48.076 task=264668 done token=2 attempts=2 fetch=1.7ms process=12.9ms store=1.2ms
+19:13:48.136 task=264669 done token=1 attempts=1 fetch=1.1ms process=56.7ms store=1.6ms
+19:13:48.152 task=264670 done token=1 attempts=1 fetch=0.8ms process=13.0ms store=0.9ms
+19:13:48.166 task=264671 done token=1 attempts=1 fetch=0.9ms process=12.4ms store=0.8ms
+19:13:48.227 task=264672 done token=1 attempts=1 fetch=0.8ms process=58.1ms store=1.0ms
+19:13:48.241 task=264673 done token=1 attempts=1 fetch=0.7ms process=11.6ms store=0.7ms
+19:13:48.254 task=264674 done token=1 attempts=1 fetch=0.6ms process=11.1ms store=0.7ms
+19:13:48.267 task=264675 done token=1 attempts=1 fetch=0.7ms process=11.7ms store=0.6ms
+19:13:48.327 task=264676 done token=1 attempts=1 fetch=0.7ms process=57.5ms store=0.9ms
+19:13:48.340 task=264677 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:51.032 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:51.041 task=264711 lease сплив: статус queued (attempts=1, token=1)
+19:13:51.057 task=264711 done token=2 attempts=2 fetch=1.4ms process=12.4ms store=1.0ms
+19:13:51.105 task=264712 done token=1 attempts=1 fetch=0.6ms process=46.2ms store=0.9ms
+19:13:51.131 task=264713 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:53.050 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:53.057 task=264723 lease сплив: статус queued (attempts=1, token=1)
+19:13:53.058 task=264724 lease сплив: статус queued (attempts=1, token=1)
+19:13:53.105 task=264723 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:55.065 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:55.073 task=264756 lease сплив: статус queued (attempts=1, token=1)
+19:13:55.105 task=264756 done token=2 attempts=2 fetch=0.9ms process=29.6ms store=0.9ms
+19:13:55.118 task=264757 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:57.157 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:57.164 task=264784 lease сплив: статус queued (attempts=1, token=1)
+19:13:57.210 task=264784 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:13:59.105 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:13:59.143 task=264790 done token=1 attempts=1 fetch=1.7ms process=11.6ms store=0.8ms
+19:13:59.155 task=264793 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:01.107 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:01.139 task=264828 done token=1 attempts=1 fetch=0.9ms process=22.6ms store=1.0ms
+19:14:01.154 task=264831 done token=1 attempts=1 fetch=0.6ms process=12.4ms store=0.6ms
+19:14:01.154 task=264830 lease сплив: статус queued (attempts=1, token=1)
+19:14:01.203 task=264830 done token=2 attempts=2 fetch=0.8ms process=12.0ms store=36.0ms
+19:14:01.218 task=264833 done token=1 attempts=1 fetch=0.7ms process=12.4ms store=0.7ms
+19:14:01.241 task=264835 done token=1 attempts=1 fetch=1.0ms process=20.3ms store=0.9ms
+19:14:01.256 task=264837 done token=1 attempts=1 fetch=0.8ms process=12.7ms store=0.8ms
+19:14:01.256 task=264836 lease сплив: статус queued (attempts=1, token=1)
+19:14:01.308 task=264836 done token=2 attempts=2 fetch=0.7ms process=49.4ms store=0.8ms
+19:14:01.308 task=264838 lease сплив: статус queued (attempts=1, token=1)
+19:14:01.333 task=264838 done token=2 attempts=2 fetch=1.9ms process=22.5ms store=0.5ms
+19:14:01.346 task=264839 done token=1 attempts=1 fetch=0.6ms process=10.7ms store=0.6ms
+19:14:01.359 task=264840 done token=1 attempts=1 fetch=0.6ms process=11.4ms store=0.6ms
+19:14:01.407 task=264841 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:04.151 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:04.158 task=264859 lease сплив: статус queued (attempts=1, token=1)
+19:14:04.173 task=264859 done token=2 attempts=2 fetch=1.1ms process=11.7ms store=1.1ms
+19:14:04.232 task=264860 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:06.205 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:06.234 task=264867 done token=1 attempts=1 fetch=2.1ms process=16.5ms store=1.0ms
+19:14:06.235 task=264866 lease сплив: статус queued (attempts=1, token=1)
+19:14:06.249 task=264866 done token=2 attempts=2 fetch=0.7ms process=12.4ms store=1.3ms
+19:14:06.272 task=264870 done token=1 attempts=1 fetch=0.7ms process=20.6ms store=0.8ms
+19:14:06.303 task=264872 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:06.306 task=264872 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:06.310 task=264872 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:06.310 task=264872 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:06.323 task=264876 done token=1 attempts=1 fetch=0.8ms process=10.8ms store=0.6ms
+19:14:06.323 task=264877 lease сплив: статус queued (attempts=1, token=1)
+19:14:06.323 task=264878 lease сплив: статус queued (attempts=1, token=1)
+19:14:06.335 task=264877 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:09.046 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:09.053 task=264922 lease сплив: статус queued (attempts=1, token=1)
+19:14:09.053 task=264923 lease сплив: статус queued (attempts=1, token=1)
+19:14:09.069 task=264922 done token=2 attempts=2 fetch=0.9ms process=12.6ms store=1.0ms
+19:14:09.129 task=264923 done token=2 attempts=2 fetch=0.7ms process=58.1ms store=0.7ms
+19:14:09.142 task=264924 done token=1 attempts=1 fetch=0.8ms process=11.3ms store=0.7ms
+19:14:09.155 task=264925 done token=1 attempts=1 fetch=0.7ms process=11.1ms store=0.8ms
+19:14:09.170 task=264926 done token=1 attempts=1 fetch=0.8ms process=11.6ms store=1.1ms
+19:14:09.207 task=264927 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:09.226 task=264927 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:09.229 task=264927 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:11.154 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:11.176 task=264945 done token=1 attempts=1 fetch=0.8ms process=11.6ms store=0.9ms
+19:14:11.176 task=264944 lease сплив: статус queued (attempts=1, token=1)
+19:14:11.189 task=264944 done token=2 attempts=2 fetch=0.6ms process=11.3ms store=0.6ms
+19:14:11.240 task=264947 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:11.245 task=264947 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:11.247 task=264947 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:11.259 task=264949 done token=1 attempts=1 fetch=0.6ms process=10.9ms store=0.5ms
+19:14:11.272 task=264951 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.5ms
+19:14:11.284 task=264953 done token=1 attempts=1 fetch=0.6ms process=11.0ms store=0.5ms
+19:14:11.343 task=264954 done token=1 attempts=1 fetch=0.5ms process=57.5ms store=0.6ms
+19:14:11.344 task=264955 lease сплив: статус queued (attempts=1, token=1)
+19:14:11.356 task=264955 done token=2 attempts=2 fetch=0.6ms process=11.0ms store=0.5ms
+19:14:11.369 task=264956 done token=1 attempts=1 fetch=0.5ms process=10.9ms store=0.6ms
+19:14:11.382 task=264957 done token=1 attempts=1 fetch=0.5ms process=11.0ms store=0.8ms
+19:14:11.441 task=264958 done token=1 attempts=1 fetch=0.5ms process=57.8ms store=0.9ms
+19:14:11.454 task=264959 done token=1 attempts=1 fetch=0.7ms process=11.3ms store=0.6ms
+19:14:11.467 task=264960 done token=1 attempts=1 fetch=0.9ms process=11.2ms store=0.5ms
+19:14:11.480 task=264961 done token=1 attempts=1 fetch=0.6ms process=10.9ms store=0.5ms
+19:14:11.493 task=264962 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=1.5ms
+19:14:11.549 task=264963 done token=1 attempts=1 fetch=0.7ms process=52.7ms store=0.6ms
+19:14:11.561 task=264964 done token=1 attempts=1 fetch=0.7ms process=11.1ms store=0.5ms
+19:14:11.574 task=264965 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:14.039 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:14.046 task=265005 lease сплив: статус queued (attempts=1, token=1)
+19:14:14.060 task=265005 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:16.170 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:16.224 task=265030 done token=1 attempts=1 fetch=1.1ms process=13.2ms store=1.3ms
+19:14:16.250 task=265033 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:16.264 task=265036 done token=1 attempts=1 fetch=0.4ms process=12.0ms store=0.7ms
+19:14:16.264 task=265033 lease сплив: статус queued (attempts=2, token=2)
+19:14:16.264 task=265034 lease сплив: статус queued (attempts=1, token=1)
+19:14:16.305 task=265033 token=3 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:16.318 task=265039 done token=1 attempts=1 fetch=0.6ms process=11.2ms store=0.5ms
+19:14:16.333 task=265041 done token=1 attempts=1 fetch=1.5ms process=12.1ms store=0.8ms
+19:14:16.348 task=265044 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:16.352 task=265044 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:16.355 task=265044 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:16.357 task=265044 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:16.370 task=265046 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.5ms
+19:14:16.370 task=265044 lease сплив: статус queued (attempts=2, token=2)
+19:14:16.412 task=265044 token=3 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:16.426 task=265050 done token=1 attempts=1 fetch=0.6ms process=12.1ms store=1.3ms
+19:14:16.448 task=265053 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:16.452 task=265053 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:16.454 task=265053 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:19.071 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:19.079 task=265075 lease сплив: статус queued (attempts=1, token=1)
+19:14:19.097 task=265075 done token=2 attempts=2 fetch=3.0ms process=12.9ms store=1.0ms
+19:14:19.154 task=265077 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:19.155 task=265077 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:19.172 task=265080 done token=1 attempts=1 fetch=1.5ms process=12.8ms store=0.6ms
+19:14:19.172 task=265079 lease сплив: статус queued (attempts=1, token=1)
+19:14:19.186 task=265079 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:21.218 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:21.248 task=265108 done token=1 attempts=1 fetch=2.2ms process=15.8ms store=1.9ms
+19:14:21.263 task=265111 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:23.238 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:23.281 task=265138 lease сплив: статус queued (attempts=1, token=1)
+19:14:23.309 task=265138 done token=2 attempts=2 fetch=1.2ms process=23.9ms store=1.4ms
+19:14:23.323 task=265139 done token=1 attempts=1 fetch=0.7ms process=12.0ms store=0.7ms
+19:14:23.337 task=265140 done token=1 attempts=1 fetch=0.9ms process=11.2ms store=0.8ms
+19:14:23.380 task=265141 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:26.027 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:26.035 task=265158 lease сплив: статус queued (attempts=1, token=1)
+19:14:26.049 task=265158 done token=2 attempts=2 fetch=1.0ms process=11.7ms store=0.8ms
+19:14:26.115 task=265159 done token=1 attempts=1 fetch=0.6ms process=61.9ms store=2.5ms
+19:14:26.137 task=265160 done token=1 attempts=1 fetch=0.8ms process=18.9ms store=0.8ms
+19:14:26.160 task=265161 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:28.238 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:28.248 task=265177 lease сплив: статус queued (attempts=2, token=2)
+19:14:28.311 task=265177 done token=3 attempts=3 fetch=1.2ms process=53.0ms store=7.2ms
+19:14:28.325 task=265178 done token=1 attempts=1 fetch=0.7ms process=12.0ms store=0.6ms
+19:14:28.338 task=265179 done token=1 attempts=1 fetch=0.7ms process=11.6ms store=0.6ms
+19:14:28.355 task=265180 done token=1 attempts=1 fetch=0.7ms process=11.3ms store=3.5ms
+19:14:28.409 task=265181 done token=1 attempts=1 fetch=0.8ms process=46.6ms store=6.8ms
+19:14:28.423 task=265182 done token=1 attempts=1 fetch=0.9ms process=11.1ms store=1.0ms
+19:14:28.436 task=265183 done token=1 attempts=1 fetch=0.7ms process=11.2ms store=0.5ms
+19:14:28.449 task=265184 done token=1 attempts=1 fetch=0.6ms process=11.3ms store=0.7ms
+19:14:28.462 task=265185 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:31.127 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:31.136 task=265210 lease сплив: статус queued (attempts=1, token=1)
+19:14:31.177 task=265210 done token=2 attempts=2 fetch=1.2ms process=37.1ms store=1.2ms
+19:14:31.214 task=265211 done token=1 attempts=1 fetch=0.7ms process=34.2ms store=0.8ms
+19:14:31.227 task=265212 done token=1 attempts=1 fetch=0.9ms process=11.4ms store=0.6ms
+19:14:31.242 task=265213 done token=1 attempts=1 fetch=0.7ms process=12.3ms store=0.8ms
+19:14:31.276 task=265214 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:33.414 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:33.440 task=265231 done token=1 attempts=1 fetch=3.1ms process=13.4ms store=1.2ms
+19:14:33.440 task=265230 lease сплив: статус queued (attempts=1, token=1)
+19:14:33.453 task=265230 done token=2 attempts=2 fetch=0.7ms process=11.0ms store=0.5ms
+19:14:33.508 task=265232 done token=1 attempts=1 fetch=0.5ms process=53.4ms store=0.6ms
+19:14:33.523 task=265233 done token=1 attempts=1 fetch=0.6ms process=12.1ms store=1.9ms
+19:14:33.538 task=265234 done token=1 attempts=1 fetch=0.9ms process=12.1ms store=0.8ms
+19:14:33.587 task=265235 done token=1 attempts=1 fetch=0.9ms process=11.2ms store=35.6ms
+19:14:33.610 task=265236 done token=1 attempts=1 fetch=0.8ms process=21.1ms store=0.6ms
+19:14:33.622 task=265237 done token=1 attempts=1 fetch=0.6ms process=10.9ms store=0.6ms
+19:14:33.636 task=265238 done token=1 attempts=1 fetch=0.6ms process=11.2ms store=1.1ms
+19:14:33.649 task=265239 done token=1 attempts=1 fetch=0.6ms process=11.7ms store=0.5ms
+19:14:33.709 task=265240 done token=1 attempts=1 fetch=0.6ms process=58.6ms store=0.6ms
+19:14:33.722 task=265241 done token=1 attempts=1 fetch=0.7ms process=11.2ms store=0.5ms
+19:14:33.735 task=265242 done token=1 attempts=1 fetch=0.6ms process=11.2ms store=0.5ms
+19:14:33.748 task=265243 done token=1 attempts=1 fetch=0.7ms process=11.5ms store=0.5ms
+19:14:33.807 task=265244 done token=1 attempts=1 fetch=0.8ms process=19.1ms store=0.7ms
+19:14:33.820 task=265245 done token=1 attempts=1 fetch=0.7ms process=11.2ms store=0.5ms
+19:14:33.832 task=265246 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=0.6ms
+19:14:33.845 task=265247 done token=1 attempts=1 fetch=0.7ms process=11.3ms store=0.4ms
+19:14:33.905 task=265248 done token=1 attempts=1 fetch=0.6ms process=58.5ms store=0.6ms
+19:14:33.918 task=265249 done token=1 attempts=1 fetch=0.8ms process=11.4ms store=0.5ms
+19:14:33.931 task=265250 done token=1 attempts=1 fetch=0.6ms process=11.5ms store=0.5ms
+19:14:33.944 task=265251 done token=1 attempts=1 fetch=0.6ms process=11.0ms store=0.4ms
+19:14:34.004 task=265252 done token=1 attempts=1 fetch=0.6ms process=58.9ms store=0.6ms
+19:14:34.018 task=265253 done token=1 attempts=1 fetch=0.7ms process=12.1ms store=0.6ms
+19:14:34.031 task=265254 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.5ms
+19:14:34.043 task=265255 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.4ms
+19:14:34.104 task=265256 done token=1 attempts=1 fetch=0.6ms process=59.0ms store=0.6ms
+19:14:34.118 task=265257 done token=1 attempts=1 fetch=0.7ms process=12.4ms store=0.6ms
+19:14:34.131 task=265258 done token=1 attempts=1 fetch=0.7ms process=11.6ms store=0.5ms
+19:14:34.144 task=265259 done token=1 attempts=1 fetch=0.6ms process=11.0ms store=0.4ms
+19:14:34.192 task=265260 done token=1 attempts=1 fetch=0.5ms process=46.7ms store=0.5ms
+19:14:34.216 task=265261 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:36.313 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:36.320 task=265270 lease сплив: статус queued (attempts=2, token=2)
+19:14:36.335 task=265270 done token=3 attempts=3 fetch=1.0ms process=12.1ms store=0.8ms
+19:14:36.349 task=265272 done token=1 attempts=1 fetch=0.6ms process=11.3ms store=0.7ms
+19:14:36.408 task=265273 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:38.403 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:38.410 task=265298 lease сплив: статус queued (attempts=1, token=1)
+19:14:38.427 task=265298 done token=2 attempts=2 fetch=1.7ms process=12.7ms store=1.1ms
+19:14:38.443 task=265299 done token=1 attempts=1 fetch=1.6ms process=12.7ms store=0.7ms
+19:14:38.455 task=265300 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:41.027 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:41.034 task=265310 lease сплив: статус queued (attempts=2, token=2)
+19:14:41.048 task=265310 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:43.317 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:43.351 task=265333 done token=1 attempts=1 fetch=1.5ms process=12.2ms store=1.0ms
+19:14:43.366 task=265335 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:45.335 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:45.341 task=265347 lease сплив: статус queued (attempts=1, token=1)
+19:14:45.368 task=265347 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:45.372 task=265347 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:45.375 task=265347 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:45.375 task=265347 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:48.019 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:48.026 task=265371 lease сплив: статус queued (attempts=1, token=1)
+19:14:48.042 task=265371 done token=2 attempts=2 fetch=0.9ms process=12.9ms store=1.2ms
+19:14:48.056 task=265372 done token=1 attempts=1 fetch=0.8ms process=11.9ms store=0.7ms
+19:14:48.114 task=265373 done token=1 attempts=1 fetch=0.6ms process=55.3ms store=1.1ms
+19:14:48.131 task=265374 done token=1 attempts=1 fetch=0.8ms process=13.0ms store=2.7ms
+19:14:48.151 task=265375 done token=1 attempts=1 fetch=3.2ms process=13.0ms store=1.2ms
+19:14:48.205 task=265377 done token=1 attempts=1 fetch=0.8ms process=50.9ms store=1.2ms
+19:14:48.206 task=265378 lease сплив: статус queued (attempts=1, token=1)
+19:14:48.221 task=265378 done token=2 attempts=2 fetch=1.0ms process=12.3ms store=0.6ms
+19:14:48.235 task=265380 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:50.388 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:50.418 task=265405 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:14:50.418 task=265405 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:14:50.418 task=265403 lease сплив: статус queued (attempts=1, token=1)
+19:14:50.432 task=265403 done token=2 attempts=2 fetch=0.5ms process=11.3ms store=1.4ms
+19:14:50.480 task=265406 done token=1 attempts=1 fetch=0.7ms process=46.4ms store=0.6ms
+19:14:50.481 task=265405 lease сплив: статус queued (attempts=2, token=2)
+19:14:50.494 task=265405 done token=3 attempts=3 fetch=0.6ms process=11.2ms store=0.6ms
+19:14:50.513 task=265407 done token=1 attempts=1 fetch=0.6ms process=17.5ms store=0.5ms
+19:14:50.526 task=265408 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.5ms
+19:14:50.578 task=265409 done token=1 attempts=1 fetch=0.5ms process=50.8ms store=0.7ms
+19:14:50.591 task=265410 done token=1 attempts=1 fetch=0.6ms process=11.7ms store=0.4ms
+19:14:50.612 task=265411 done token=1 attempts=1 fetch=0.5ms process=19.0ms store=0.8ms
+19:14:50.625 task=265412 done token=1 attempts=1 fetch=0.7ms process=11.0ms store=0.5ms
+19:14:50.676 task=265413 done token=1 attempts=1 fetch=0.6ms process=49.7ms store=0.7ms
+19:14:50.689 task=265414 done token=1 attempts=1 fetch=0.6ms process=10.9ms store=0.5ms
+19:14:50.708 task=265415 done token=1 attempts=1 fetch=0.7ms process=17.1ms store=0.8ms
+19:14:50.720 task=265416 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:53.014 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:53.021 task=265441 lease сплив: статус queued (attempts=1, token=1)
+19:14:53.036 task=265441 done token=2 attempts=2 fetch=1.1ms process=11.6ms store=0.8ms
+19:14:53.049 task=265442 done token=1 attempts=1 fetch=0.6ms process=11.2ms store=0.6ms
+19:14:53.107 task=265443 done token=1 attempts=1 fetch=0.7ms process=54.6ms store=0.7ms
+19:14:53.120 task=265444 done token=1 attempts=1 fetch=0.6ms process=11.0ms store=0.6ms
+19:14:53.133 task=265445 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.5ms
+19:14:53.145 task=265446 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:55.368 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:55.375 task=265468 lease сплив: статус queued (attempts=1, token=1)
+19:14:55.389 task=265468 done token=2 attempts=2 fetch=1.0ms process=11.7ms store=0.8ms
+19:14:55.402 task=265469 done token=1 attempts=1 fetch=0.6ms process=11.1ms store=0.4ms
+19:14:55.415 task=265471 done token=1 attempts=1 fetch=0.4ms process=11.8ms store=0.4ms
+19:14:55.469 task=265473 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:58.012 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:14:58.021 task=265479 lease сплив: статус queued (attempts=1, token=1)
+19:14:58.038 task=265479 done token=2 attempts=2 fetch=1.2ms process=12.3ms store=1.1ms
+19:14:58.051 task=265480 done token=1 attempts=1 fetch=0.7ms process=11.6ms store=0.6ms
+19:14:58.103 task=265481 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:14:58.103 task=265481 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:00.332 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:00.340 task=265500 lease сплив: статус failed (attempts=3, token=3)
+19:15:00.354 task=265501 done token=1 attempts=1 fetch=0.9ms process=11.5ms store=0.8ms
+19:15:00.411 task=265502 done token=1 attempts=1 fetch=0.6ms process=54.3ms store=0.9ms
+19:15:00.424 task=265503 done token=1 attempts=1 fetch=0.7ms process=11.4ms store=0.8ms
+19:15:00.437 task=265504 done token=1 attempts=1 fetch=0.5ms process=11.2ms store=0.5ms
+19:15:00.450 task=265505 done token=1 attempts=1 fetch=0.5ms process=11.3ms store=0.6ms
+19:15:00.507 task=265506 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:03.545 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:03.564 task=265524 lease сплив: статус queued (attempts=1, token=1)
+19:15:03.627 task=265524 done token=2 attempts=2 fetch=8.3ms process=49.1ms store=2.2ms
+19:15:03.664 task=265525 done token=1 attempts=1 fetch=1.5ms process=24.9ms store=6.7ms
+19:15:03.684 task=265526 done token=1 attempts=1 fetch=1.0ms process=16.3ms store=1.5ms
+19:15:03.719 task=265527 done token=1 attempts=1 fetch=16.7ms process=14.8ms store=1.6ms
+19:15:03.735 task=265528 done token=1 attempts=1 fetch=0.8ms process=13.2ms store=0.8ms
+19:15:03.750 task=265529 done token=1 attempts=1 fetch=0.7ms process=12.1ms store=1.0ms
+19:15:03.817 task=265530 done token=1 attempts=1 fetch=1.0ms process=64.0ms store=1.5ms
+19:15:03.843 task=265531 done token=1 attempts=1 fetch=1.1ms process=20.2ms store=3.8ms
+19:15:04.054 task=265532 done token=1 attempts=1 fetch=2.1ms process=79.6ms store=127.8ms
+19:15:04.120 task=265533 done token=1 attempts=1 fetch=3.9ms process=20.4ms store=1.5ms
+19:15:04.138 task=265534 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:06.505 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:06.515 task=265582 lease сплив: статус queued (attempts=1, token=1)
+19:15:06.533 task=265582 done token=2 attempts=2 fetch=1.4ms process=13.8ms store=1.3ms
+19:15:06.549 task=265584 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:09.064 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:09.071 task=265605 lease сплив: статус queued (attempts=1, token=1)
+19:15:09.085 task=265605 done token=2 attempts=2 fetch=1.0ms process=11.3ms store=1.0ms
+19:15:09.111 task=265607 done token=1 attempts=1 fetch=0.5ms process=24.0ms store=0.7ms
+19:15:09.157 task=265610 done token=1 attempts=1 fetch=0.5ms process=44.3ms store=0.6ms
+19:15:09.157 task=265612 lease сплив: статус queued (attempts=1, token=1)
+19:15:09.169 task=265612 done token=2 attempts=2 fetch=0.4ms process=10.8ms store=0.4ms
+19:15:09.181 task=265613 done token=1 attempts=1 fetch=0.4ms process=10.7ms store=0.4ms
+19:15:09.207 task=265614 done token=1 attempts=1 fetch=0.4ms process=24.3ms store=0.7ms
+19:15:09.208 task=265615 lease сплив: статус queued (attempts=1, token=1)
+19:15:09.255 task=265615 done token=2 attempts=2 fetch=1.5ms process=12.5ms store=32.3ms
+19:15:09.268 task=265616 done token=1 attempts=1 fetch=0.7ms process=11.3ms store=0.5ms
+19:15:09.281 task=265617 done token=1 attempts=1 fetch=1.2ms process=10.7ms store=0.5ms
+19:15:09.304 task=265618 done token=1 attempts=1 fetch=0.4ms process=22.1ms store=0.5ms
+19:15:09.316 task=265619 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.5ms
+19:15:09.362 task=265620 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:11.450 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:11.473 task=265632 done token=1 attempts=1 fetch=2.8ms process=11.6ms store=1.3ms
+19:15:11.474 task=265633 lease сплив: статус queued (attempts=1, token=1)
+19:15:11.505 task=265634 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:14.013 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:14.022 task=265656 lease сплив: статус queued (attempts=1, token=1)
+19:15:14.058 task=265656 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:14.058 task=265656 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:15:14.072 task=265659 done token=1 attempts=1 fetch=0.4ms process=11.7ms store=0.7ms
+19:15:14.104 task=265660 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:16.437 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:16.460 task=265715 done token=1 attempts=1 fetch=0.7ms process=12.1ms store=0.9ms
+19:15:16.506 task=265718 done token=1 attempts=1 fetch=0.4ms process=44.6ms store=0.7ms
+19:15:16.506 task=265716 lease сплив: статус queued (attempts=1, token=1)
+19:15:16.528 task=265716 done token=2 attempts=2 fetch=0.5ms process=19.8ms store=0.6ms
+19:15:16.541 task=265720 done token=1 attempts=1 fetch=0.6ms process=11.4ms store=0.9ms
+19:15:16.555 task=265722 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:19.036 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:19.043 task=265754 lease сплив: статус queued (attempts=1, token=1)
+19:15:19.058 task=265754 done token=2 attempts=2 fetch=1.1ms process=11.2ms store=1.7ms
+19:15:19.072 task=265757 done token=1 attempts=1 fetch=0.5ms process=11.7ms store=0.5ms
+19:15:19.127 task=265758 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:19.127 task=265758 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:15:19.139 task=265759 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.5ms
+19:15:19.152 task=265761 done token=1 attempts=1 fetch=0.5ms process=10.8ms store=0.7ms
+19:15:19.164 task=265763 done token=1 attempts=1 fetch=0.5ms process=10.9ms store=0.5ms
+19:15:19.164 task=265764 lease сплив: статус queued (attempts=1, token=1)
+19:15:19.204 task=265764 done token=2 attempts=2 fetch=0.5ms process=38.1ms store=0.5ms
+19:15:19.228 task=265765 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:19.233 task=265765 token=1 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:19.234 task=265765 token=1 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:15:19.246 task=265767 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:21.419 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:21.441 task=265807 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:24.030 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:24.053 task=265821 lease сплив: статус queued (attempts=1, token=1)
+19:15:24.069 task=265821 done token=2 attempts=2 fetch=2.5ms process=12.2ms store=1.0ms
+19:15:24.082 task=265822 done token=1 attempts=1 fetch=0.6ms process=11.0ms store=0.5ms
+19:15:24.108 task=265823 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:26.433 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:26.452 task=265847 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:28.467 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:28.474 task=265860 lease сплив: статус queued (attempts=1, token=1)
+19:15:28.510 task=265860 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:28.512 task=265860 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:15:28.513 task=265860 lease сплив: статус failed (attempts=3, token=3)
+19:15:28.527 task=265861 done token=1 attempts=1 fetch=0.8ms process=11.7ms store=0.8ms
+19:15:28.540 task=265862 done token=1 attempts=1 fetch=0.5ms process=11.1ms store=0.5ms
+19:15:28.571 task=265863 done token=1 attempts=1 fetch=0.5ms process=30.0ms store=0.6ms
+19:15:28.611 task=265864 done token=1 attempts=1 fetch=0.6ms process=38.4ms store=0.7ms
+19:15:28.624 task=265865 done token=1 attempts=1 fetch=0.7ms process=11.3ms store=0.6ms
+19:15:28.641 task=265866 done token=1 attempts=1 fetch=0.6ms process=14.3ms store=0.9ms
+19:15:28.671 task=265867 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:31.008 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:31.063 task=265886 done token=1 attempts=1 fetch=1.3ms process=44.5ms store=1.1ms
+19:15:31.063 task=265885 lease сплив: статус queued (attempts=2, token=2)
+19:15:31.076 task=265885 token=3 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:33.451 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:33.457 task=265899 lease сплив: статус queued (attempts=1, token=1)
+19:15:33.507 task=265899 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:33.512 task=265899 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:33.517 task=265899 token=2 heartbeat оновив 0 рядків: lease втрачено, задачу забрав інший воркер
+19:15:33.518 task=265899 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+19:15:33.531 task=265901 done token=1 attempts=1 fetch=0.7ms process=11.2ms store=0.6ms
+19:15:33.544 task=265903 done token=1 attempts=1 fetch=0.4ms process=11.4ms store=0.6ms
+19:15:33.556 task=265904 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:36.015 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:36.025 task=265951 lease сплив: статус queued (attempts=1, token=1)
+19:15:36.039 task=265951 done token=2 attempts=2 fetch=1.0ms process=11.9ms store=0.8ms
+19:15:36.062 task=265952 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+19:15:38.506 старт worker=worker-6466655694-xdhsg claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=True T_poll=50мс FAIL_RATE=0.15
+19:15:38.530 task=265963 done token=1 attempts=1 fetch=1.2ms process=13.4ms store=1.3ms
+19:15:38.530 task=265962 lease сплив: статус queued (attempts=1, token=1)
+19:15:38.544 task=265962 done token=2 attempts=2 fetch=0.7ms process=10.9ms store=1.4ms
+19:15:38.568 task=265964 done token=1 attempts=1 fetch=9.4ms process=13.2ms store=0.6ms
+19:15:38.607 task=265965 done token=1 attempts=1 fetch=0.6ms process=35.8ms store=0.7ms
+19:15:38.619 task=265966 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)

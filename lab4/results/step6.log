@@ -1,0 +1,72 @@
+== 2026-11-10 20:23:33 W = 1: у черзі 2000 задач
+NOTICE:  truncate cascades to table "task_results"
+step6_w1: надіслано 2000 POST за 4.0 с (500.0 за секунду), створено задач (202): 2000, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 2.1 мс
+psql> SELECT status, count(*) FROM tasks GROUP BY status
+ status | count 
+--------+-------
+ queued |  2000
+(1 row)
+
+$ kubectl scale deployment/worker --replicas=1
+черга порожня: queued = 0, running = 0 (чекали 48 с)
+results/step6_w1/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=6, worker_claims=4, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=2, worker_throttled=2, worker_periods=2, restarts=2, db_xacts=1, up=2
+$ python3 scripts/calc.py x step6_w1
+X = 43.3 задач/с за останні 30.0 с (розкид 1.5); черга спорожніла за 47.0 с, завершено 2000
+$ python3 scripts/calc.py stat step6_w1
+worker_tasks_total:  done = 2000, failed = 0, lost = 0
+worker_claims_total: task = 2000, empty = 403
+  reap         n =   2403  середнє =    0.269 мс  p99 =    1.729 мс
+  claim        n =   2000  середнє =    0.347 мс  p99 =    1.533 мс
+  claim_empty  n =    403  середнє =    0.300 мс  p99 =    1.194 мс
+  fetch        n =   2000  середнє =    0.780 мс  p99 =    2.692 мс
+  process      n =   2000  середнє =   20.614 мс  p99 =   49.809 мс
+  store        n =   2000  середнє =    1.466 мс  p99 =   35.714 мс
+  claim_all    n =   2403  середнє =    0.339 мс  p99 =    1.448 мс
+== 2026-11-10 20:24:48 W = 2: у черзі 4000 задач
+NOTICE:  truncate cascades to table "task_results"
+step6_w2: надіслано 4000 POST за 8.0 с (500.0 за секунду), створено задач (202): 4000, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 2.6 мс
+psql> SELECT status, count(*) FROM tasks GROUP BY status
+ status | count 
+--------+-------
+ queued |  4000
+(1 row)
+
+$ kubectl scale deployment/worker --replicas=2
+черга порожня: queued = 0, running = 0 (чекали 47 с)
+results/step6_w2/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=9, worker_claims=6, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=3, worker_throttled=3, worker_periods=3, restarts=3, db_xacts=1, up=3
+$ python3 scripts/calc.py x step6_w2
+X = 86.1 задач/с за останні 30.0 с (розкид 5.0); черга спорожніла за 46.0 с, завершено 4000
+$ python3 scripts/calc.py stat step6_w2
+worker_tasks_total:  done = 4000, failed = 0, lost = 0
+worker_claims_total: task = 4000, empty = 806
+  reap         n =   4806  середнє =    0.271 мс  p99 =    1.440 мс
+  claim        n =   4000  середнє =    0.309 мс  p99 =    1.250 мс
+  claim_empty  n =    806  середнє =    0.274 мс  p99 =    0.984 мс
+  fetch        n =   4000  середнє =    0.656 мс  p99 =    2.222 мс
+  process      n =   4000  середнє =   20.360 мс  p99 =   73.054 мс
+  store        n =   4000  середнє =    1.385 мс  p99 =   33.673 мс
+  claim_all    n =   4806  середнє =    0.303 мс  p99 =    1.131 мс
+== 2026-11-10 20:26:05 W = 5: у черзі 10000 задач
+NOTICE:  truncate cascades to table "task_results"
+step6_w5: надіслано 10000 POST за 20.0 с (500.0 за секунду), створено задач (202): 10000, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 38.6 мс
+psql> SELECT status, count(*) FROM tasks GROUP BY status
+ status | count 
+--------+-------
+ queued | 10000
+(1 row)
+
+$ kubectl scale deployment/worker --replicas=5
+черга порожня: queued = 0, running = 0 (чекали 52 с)
+results/step6_w5/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=15, worker_claims=10, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=5, worker_throttled=5, worker_periods=5, restarts=5, db_xacts=1, up=5
+$ python3 scripts/calc.py x step6_w5
+X = 191.3 задач/с за останні 30.0 с (розкид 12.3); черга спорожніла за 51.6 с, завершено 10000
+$ python3 scripts/calc.py stat step6_w5
+worker_tasks_total:  done = 10000, failed = 0, lost = 0
+worker_claims_total: task = 10000, empty = 2084
+  reap         n =  12084  середнє =    0.266 мс  p99 =    1.906 мс
+  claim        n =  10000  середнє =    0.493 мс  p99 =    4.025 мс
+  claim_empty  n =   2084  середнє =    0.224 мс  p99 =    0.952 мс
+  fetch        n =  10000  середнє =    1.146 мс  p99 =    6.976 мс
+  process      n =  10000  середнє =   22.145 мс  p99 =   71.815 мс
+  store        n =  10000  середнє =    1.628 мс  p99 =   24.746 мс
+  claim_all    n =  12084  середнє =    0.447 мс  p99 =    3.504 мс

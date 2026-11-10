@@ -1,0 +1,134 @@
+== 2026-11-10 20:35:45 FAIL_RATE = 0,15; λ = 133.9 задач/с, 300 с; на 150-й секунді L = t_cpu / 2 = 0.0064 с, HEARTBEAT = 0
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0.15 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-655756c4bd-59vwb   telemed-worker    Running   0
+worker-655756c4bd-88pvk   telemed-worker2   Running   0
+worker-655756c4bd-bnqnq   telemed-worker    Running   0
+worker-655756c4bd-kssv9   telemed-worker    Running   0
+worker-655756c4bd-zfx4b   telemed-worker2   Running   0
+== 2026-11-10 20:38:15 перед сценарієм: поди першої половини прогону (L = 10 с, heartbeat)
+$ kubectl get pods -l app=worker
+NAME                      READY   STATUS   RESTARTS       AGE
+worker-655756c4bd-59vwb   0/1     Error    4 (104s ago)   2m30s
+worker-655756c4bd-88pvk   0/1     Error    4 (104s ago)   2m30s
+worker-655756c4bd-bnqnq   0/1     Error    4 (107s ago)   2m30s
+worker-655756c4bd-kssv9   0/1     Error    4 (105s ago)   2m29s
+worker-655756c4bd-zfx4b   0/1     Error    4 (103s ago)   2m30s
+$ kubectl set env deployment/worker LEASE_SECONDS=0.0064 HEARTBEAT=0   # 2026-11-10 20:38:15, сценарій Ф5
+deployment.apps/worker env updated
+deployment "worker" successfully rolled out
+step9_nohb: надіслано 40170 POST за 300.0 с (133.9 за секунду), створено задач (202): 40170, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 4.3 мс
+== 2026-11-10 20:40:50 кінець генерації: поди другої половини прогону
+$ kubectl get pods -l app=worker
+NAME                      READY   STATUS             RESTARTS       AGE
+worker-854df8b988-2x4nd   0/1     Error              4 (116s ago)   2m35s
+worker-854df8b988-ldj5v   0/1     Error              4 (116s ago)   2m35s
+worker-854df8b988-lpqm6   0/1     Error              4 (112s ago)   2m35s
+worker-854df8b988-msdhg   0/1     CrashLoopBackOff   4 (64s ago)    2m34s
+worker-854df8b988-r7s8c   0/1     Error              4 (113s ago)   2m34s
+psql> SELECT status, count(*) FROM tasks GROUP BY status ORDER BY status
+ status  | count 
+---------+-------
+ done    |   193
+ failed  |     7
+ queued  | 39969
+ running |     1
+(4 rows)
+
+за 180 с черга не спорожніла: лишилось 39918 задач у queued і running
+results/step9_nohb/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=15, worker_claims=10, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=12, worker_throttled=12, worker_periods=12, restarts=15, db_xacts=1, up=15
+psql> SELECT status, count(*) FROM tasks GROUP BY status ORDER BY status
+ status  | count 
+---------+-------
+ done    |   245
+ failed  |     7
+ queued  | 39917
+ running |     1
+(4 rows)
+
+psql> SELECT attempts, count(*) FROM tasks GROUP BY attempts ORDER BY attempts
+ attempts | count 
+----------+-------
+        0 | 39917
+        1 |   203
+        2 |    32
+        3 |    18
+(4 rows)
+
+psql> SELECT count(*) AS tasks_with_more_than_one_result FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d
+ tasks_with_more_than_one_result 
+---------------------------------
+                               0
+(1 row)
+
+$ рядки журналу про нуль оновлених рядків: перша половина / друга половина
+  перша:  0
+  друга:  0
+== 2026-11-10 20:43:52 FAIL_RATE = 0,15; λ = 133.9 задач/с, 300 с; на 150-й секунді L = t_cpu / 2 = 0.0064 с, HEARTBEAT = 1
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0.15 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-655756c4bd-4r6g5   telemed-worker    Running   0
+worker-655756c4bd-57jpx   telemed-worker2   Running   0
+worker-655756c4bd-727cx   telemed-worker    Running   0
+worker-655756c4bd-9zjkq   telemed-worker2   Running   0
+worker-655756c4bd-wvhd2   telemed-worker    Running   0
+== 2026-11-10 20:46:22 перед сценарієм: поди першої половини прогону (L = 10 с, heartbeat)
+$ kubectl get pods -l app=worker
+NAME                      READY   STATUS             RESTARTS       AGE
+worker-655756c4bd-4r6g5   0/1     Error              4 (108s ago)   2m30s
+worker-655756c4bd-57jpx   0/1     CrashLoopBackOff   4 (66s ago)    2m30s
+worker-655756c4bd-727cx   0/1     Error              4 (101s ago)   2m30s
+worker-655756c4bd-9zjkq   0/1     Error              4 (110s ago)   2m30s
+worker-655756c4bd-wvhd2   0/1     Error              4 (107s ago)   2m30s
+$ kubectl set env deployment/worker LEASE_SECONDS=0.0064 HEARTBEAT=1   # 2026-11-10 20:46:22, сценарій Ф5
+deployment.apps/worker env updated
+deployment "worker" successfully rolled out
+step9_hb: надіслано 40170 POST за 300.0 с (133.9 за секунду), створено задач (202): 40170, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 4.2 мс
+== 2026-11-10 20:48:57 кінець генерації: поди другої половини прогону
+$ kubectl get pods -l app=worker
+NAME                      READY   STATUS   RESTARTS       AGE
+worker-6fc49f87d7-2bftb   0/1     Error    4 (111s ago)   2m34s
+worker-6fc49f87d7-7bbkq   0/1     Error    4 (110s ago)   2m35s
+worker-6fc49f87d7-b9jg7   0/1     Error    4 (108s ago)   2m35s
+worker-6fc49f87d7-vmf8n   0/1     Error    4 (116s ago)   2m35s
+worker-6fc49f87d7-wpcnn   0/1     Error    4 (110s ago)   2m34s
+psql> SELECT status, count(*) FROM tasks GROUP BY status ORDER BY status
+ status  | count 
+---------+-------
+ done    |   295
+ failed  |     5
+ queued  | 39869
+ running |     1
+(4 rows)
+
+за 180 с черга не спорожніла: лишилось 39824 задач у queued і running
+results/step9_hb/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=9, worker_claims=6, done_rate=0, in_flight=1, db_cpu=1, worker_cpu=8, worker_throttled=8, worker_periods=8, restarts=15, db_xacts=1, up=15
+psql> SELECT status, count(*) FROM tasks GROUP BY status ORDER BY status
+ status  | count 
+---------+-------
+ done    |   341
+ failed  |     5
+ queued  | 39823
+ running |     1
+(4 rows)
+
+psql> SELECT attempts, count(*) FROM tasks GROUP BY attempts ORDER BY attempts
+ attempts | count 
+----------+-------
+        0 | 39823
+        1 |   298
+        2 |    40
+        3 |     9
+(4 rows)
+
+psql> SELECT count(*) AS tasks_with_more_than_one_result FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d
+ tasks_with_more_than_one_result 
+---------------------------------
+                               0
+(1 row)
+
+$ рядки журналу про нуль оновлених рядків: перша половина / друга половина
+  перша:  0
+  друга:  19

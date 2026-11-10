@@ -1,0 +1,41 @@
+# results/step8_before_fix.log (уривок, GRACE_SECONDS = 0)
+$ kubectl get pods -l app=worker -w -o custom-columns=POD,PHASE,EXIT,REASON | grep -v "<none>"   # коди завершення старих подів
+worker-649ccfcf48-ht9dx   Succeeded   0        Completed
+worker-649ccfcf48-j27nt   Succeeded   0        Completed
+worker-649ccfcf48-ntwst   Succeeded   0        Completed
+worker-649ccfcf48-rxxj8   Succeeded   0        Completed
+worker-649ccfcf48-t4rf7   Succeeded   0        Completed
+$ tail -n 2 журналів старих подів (kubectl logs -f, запущений до перезапуску)
+--- worker-649ccfcf48-ht9dx
+18:35:03.703 SIGTERM: нових задач не беру, задача в обробці: task=82519, чекаю до 0.0 с
+18:35:03.707 вихід з кодом 0
+--- worker-649ccfcf48-j27nt
+18:35:03.142 SIGTERM: нових задач не беру, задача в обробці: task=82507, чекаю до 0.0 с
+18:35:03.272 вихід з кодом 0
+--- worker-649ccfcf48-ntwst
+18:35:03.026 SIGTERM: нових задач не беру, задача в обробці: немає, чекаю до 0.0 с
+18:35:03.026 вихід з кодом 0
+--- worker-649ccfcf48-rxxj8
+18:35:02.422 вихід з кодом 0
+--- worker-649ccfcf48-t4rf7
+18:35:03.284 вихід з кодом 0
+$ grep -c 'повернуто в чергу' results/step8_grace0/exit_*.log
+0
+psql> SELECT count(*) AS tasks, count(*) FILTER (WHERE status = 'done') AS done, count(*) FILTER (WHERE status = 'failed') AS failed, count(*) FILTER (WHERE attempts > 1) AS attempts_gt_1 FROM tasks
+ tasks | done | failed | attempts_gt_1 
+-------+------+--------+---------------
+  8034 | 8034 |      0 |             1
+(1 row)
+psql> SELECT count(*) AS result_rows, (SELECT count(*) FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d) AS tasks_with_more_than_one_result FROM task_results
+ result_rows | tasks_with_more_than_one_result 
+-------------+---------------------------------
+        8034 |                               0
+(1 row)
+psql> SELECT id, status, attempts, token, worker_id FROM tasks WHERE attempts > 1 ORDER BY id LIMIT 10
+  id   | status | attempts | token |        worker_id        
+-------+--------+----------+-------+-------------------------
+ 82506 | done   |        2 |     2 | worker-7868b99489-s8hm9
+(1 row)
+$ grep -h "82506" results/step8_before_fix_grace0/*.log
+18:35:13.107 task=82506 lease сплив: статус queued (attempts=1, token=1)
+18:35:13.119 task=82506 done token=2 attempts=2 fetch=0.4ms process=10.9ms store=0.4ms

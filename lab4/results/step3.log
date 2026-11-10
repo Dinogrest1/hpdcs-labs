@@ -1,0 +1,91 @@
+$ psql -f db/step3_drop_pk.sql
+psql:<stdin>:3: NOTICE:  truncate cascades to table "task_results"
+TRUNCATE TABLE
+ALTER TABLE
+CREATE INDEX
+== 2026-11-10 20:15:45 наївне захоплення, T_poll = 50 мс, 5 воркерів
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=naive STORE_MODE=plain LEASE_ENABLED=0 HEARTBEAT=0 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-7b4fc774c7-65vnl   telemed-worker2   Running   0
+worker-7b4fc774c7-8lg4z   telemed-worker    Running   0
+worker-7b4fc774c7-cn74p   telemed-worker    Running   0
+worker-7b4fc774c7-dtzlb   telemed-worker2   Running   0
+worker-7b4fc774c7-szpsv   telemed-worker    Running   0
+step3_poll50: надіслано 300 POST за 3.0 с (100.0 за секунду), створено задач (202): 300, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 5.3 мс
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step3_poll50/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=3, worker_claims=2, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=6, worker_throttled=6, worker_periods=6, restarts=6, db_xacts=1, up=1
+psql> SELECT count(*) AS n FROM tasks
+  n  
+-----
+ 300
+(1 row)
+
+psql> SELECT count(*) AS result_rows, count(DISTINCT task_id) AS tasks_with_result FROM task_results
+ result_rows | tasks_with_result 
+-------------+-------------------
+         322 |               300
+(1 row)
+
+psql> SELECT count(*) AS n_dup FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d
+ n_dup 
+-------
+    21
+(1 row)
+
+psql> SELECT task_id, count(*) AS results, array_agg(DISTINCT worker_id) AS workers FROM task_results GROUP BY task_id HAVING count(*) > 1 ORDER BY task_id LIMIT 3
+ task_id | results |                      workers                      
+---------+---------+---------------------------------------------------
+     275 |       2 | {worker-7b4fc774c7-65vnl,worker-7b4fc774c7-8lg4z}
+     282 |       2 | {worker-7b4fc774c7-8lg4z,worker-7b4fc774c7-cn74p}
+     283 |       2 | {worker-7b4fc774c7-65vnl,worker-7b4fc774c7-szpsv}
+(3 rows)
+
+$ cat results/step3_poll50/log_*.log | grep -o 'task=[0-9]* done' | sort | uniq -d | wc -l   # задачі з більше ніж одним рядком done
+      21
+$ python3 scripts/calc.py dup step3_poll50
+n = 300; рядків у task_results: 322; n_dup за таблицею = 21, D = 0.0700; рядків done у журналах: 322; n_dup за журналами = 21, D = 0.0700
+найбільше рядків pg_stat_activity з wait_event_type = 'Lock' за прогін: 0
+== 2026-11-10 20:15:52 наївне захоплення, T_poll = 1 мс, 5 воркерів
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=1 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=naive STORE_MODE=plain LEASE_ENABLED=0 HEARTBEAT=0 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-59f7d5d467-6s87h   telemed-worker2   Running   0
+worker-59f7d5d467-cck9x   telemed-worker    Running   0
+worker-59f7d5d467-l9tpj   telemed-worker    Running   0
+worker-59f7d5d467-lkghd   telemed-worker    Running   0
+worker-59f7d5d467-ndz6c   telemed-worker2   Running   0
+step3_poll1: надіслано 300 POST за 3.0 с (100.0 за секунду), створено задач (202): 300, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 4.7 мс
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step3_poll1/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=18, worker_claims=12, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=11, worker_throttled=11, worker_periods=11, restarts=11, db_xacts=1, up=10
+psql> SELECT count(*) AS n FROM tasks
+  n  
+-----
+ 300
+(1 row)
+
+psql> SELECT count(*) AS result_rows, count(DISTINCT task_id) AS tasks_with_result FROM task_results
+ result_rows | tasks_with_result 
+-------------+-------------------
+         578 |               300
+(1 row)
+
+psql> SELECT count(*) AS n_dup FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d
+ n_dup 
+-------
+   175
+(1 row)
+
+psql> SELECT task_id, count(*) AS results, array_agg(DISTINCT worker_id) AS workers FROM task_results GROUP BY task_id HAVING count(*) > 1 ORDER BY task_id LIMIT 3
+ task_id | results |                                              workers                                              
+---------+---------+---------------------------------------------------------------------------------------------------
+     524 |       4 | {worker-59f7d5d467-6s87h,worker-59f7d5d467-cck9x,worker-59f7d5d467-l9tpj,worker-59f7d5d467-ndz6c}
+     529 |       4 | {worker-59f7d5d467-cck9x,worker-59f7d5d467-l9tpj,worker-59f7d5d467-lkghd,worker-59f7d5d467-ndz6c}
+     531 |       2 | {worker-59f7d5d467-lkghd,worker-59f7d5d467-ndz6c}
+(3 rows)
+
+$ cat results/step3_poll1/log_*.log | grep -o 'task=[0-9]* done' | sort | uniq -d | wc -l   # задачі з більше ніж одним рядком done
+     175
+$ python3 scripts/calc.py dup step3_poll1
+n = 300; рядків у task_results: 578; n_dup за таблицею = 175, D = 0.5833; рядків done у журналах: 578; n_dup за журналами = 175, D = 0.5833
+найбільше рядків pg_stat_activity з wait_event_type = 'Lock' за прогін: 0

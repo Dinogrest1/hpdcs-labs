@@ -1,0 +1,64 @@
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=1
+worker-7d6fcb6f79-df7hm   telemed-worker   Running   0
+$ kubectl get deployment worker -o jsonpath (replicas у маніфесті, ресурси, terminationGracePeriodSeconds)
+resources: {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"250m"}}
+terminationGracePeriodSeconds: 30
+рядків з полем replicas у k8s/worker.yaml (лише коментар): 1
+$ kubectl exec worker-7d6fcb6f79-df7hm -- env | grep ...   # WORKER_ID з імені пода; пароль не друкується
+CLAIM_MODE=skip_locked
+DB_HOST=db
+FAIL_RATE=0
+HEARTBEAT=1
+LEASE_ENABLED=1
+LEASE_SECONDS=10
+POLL_MS=50
+Q_HI=0.95
+Q_LO=0.05
+RESOURCE=/telemed-sessions
+STORE_MODE=idempotent
+WEB_HOST=web
+WORKER_ID=worker-7d6fcb6f79-df7hm
+$ curl localhost:9090/api/v1/targets   # ціль worker у Prometheus
+   web-595c59f959-cl768 http://10.244.1.4:8000/metrics up scrapeInterval 5s
+   worker-7d6fcb6f79-df7hm http://10.244.2.4:9000/metrics up scrapeInterval 5s
+$ генератор: 20 задач, 20 за секунду
+step2: надіслано 20 POST за 0.9 с (20.0 за секунду), створено задач (202): 20, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 2.6 мс
+черга порожня: queued = 0, running = 0 (чекали 1 с)
+results/step2/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=3, worker_claims=2, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=1, worker_throttled=1, worker_periods=1, restarts=1, db_xacts=1, up=1
+$ curl worker-7d6fcb6f79-df7hm:9000/metrics | grep -E 'worker_(tasks|claims)_total|in_flight|_(sum|count)'
+worker_tasks_total{result="done"} 20.0
+worker_tasks_total{result="failed"} 0.0
+worker_tasks_total{result="lost"} 0.0
+worker_claims_total{result="task"} 20.0
+worker_claims_total{result="empty"} 264.0
+worker_task_duration_seconds_count{step="reap"} 284.0
+worker_task_duration_seconds_sum{step="reap"} 0.1650876459995061
+worker_task_duration_seconds_count{step="claim_empty"} 264.0
+worker_task_duration_seconds_sum{step="claim_empty"} 0.07364593399972819
+worker_task_duration_seconds_count{step="claim"} 20.0
+worker_task_duration_seconds_sum{step="claim"} 0.007198986000503282
+worker_task_duration_seconds_count{step="fetch"} 20.0
+worker_task_duration_seconds_sum{step="fetch"} 0.012692532999835748
+worker_task_duration_seconds_count{step="process"} 20.0
+worker_task_duration_seconds_sum{step="process"} 0.25498604100016564
+worker_task_duration_seconds_count{step="store"} 20.0
+worker_task_duration_seconds_sum{step="store"} 0.016397858999880555
+worker_tasks_in_flight 0.0
+$ python3 scripts/calc.py timing step2
+задач: 20; t_io = fetch + store = 0.63 + 0.82 = 1.45 мс; t_cpu = 12.75 мс
+$ журнал воркера (останні 6 рядків)
+18:15:26.749 task=217 done token=1 attempts=1 fetch=0.5ms process=13.0ms store=0.6ms
+18:15:26.816 task=218 done token=1 attempts=1 fetch=1.1ms process=13.3ms store=0.5ms
+18:15:26.830 task=219 done token=1 attempts=1 fetch=0.5ms process=12.4ms store=0.5ms
+18:15:26.894 task=220 done token=1 attempts=1 fetch=0.8ms process=11.4ms store=0.6ms
+18:15:26.963 task=221 done token=1 attempts=1 fetch=0.6ms process=13.3ms store=2.8ms
+18:15:26.979 task=222 done token=1 attempts=1 fetch=1.0ms process=12.0ms store=2.1ms
+$ head -4 results/step2/gen.tasks.csv   # ідентифікатори створених задач
+n,sent_unix,record_id,priority,code,task_id,latency_ms
+0,1794334526.000,27,0,202,203,2.606
+1,1794334526.050,35,0,202,204,2.234
+2,1794334526.100,68,0,202,205,1.332
+$ curl localhost:8080/tasks/203   # задача з результатом
+{"id":203,"record_id":27,"status":"done","seed":125956493,"priority":2,"attempts":1,"max_attempts":3,"token":1,"lease_until":"2026-11-10T18:15:36.022119+00:00","worker_id":"worker-7d6fcb6f79-df7hm","created_at":"2026-11-10T18:15:26.001634+00:00","started_at":"2026-11-10T18:15:26.022119+00:00","finished_at":"2026-11-10T18:15:26.037582+00:00","result":{"token":1,"worker_id":"worker-7d6fcb6f79-df7hm","result":{"std":1182.978,"mean":2048.744,"p_hi":3890,"p_lo":204,"removed":6536,"record_id":27},"created_at":"2026-11-10T18:15:26.037582+00:00"}}

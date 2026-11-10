@@ -1,0 +1,87 @@
+$ psql -f db/step4_restore_pk.sql
+psql:<stdin>:2: NOTICE:  truncate cascades to table "task_results"
+TRUNCATE TABLE
+DROP INDEX
+psql:<stdin>:4: NOTICE:  constraint "task_results_pkey" of relation "task_results" does not exist, skipping
+ALTER TABLE
+ALTER TABLE
+== 2026-11-10 20:16:01 захоплення skip_locked, T_poll = 1 мс, 5 воркерів
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=1 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=skip_locked STORE_MODE=plain LEASE_ENABLED=0 HEARTBEAT=0 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-5ffd67d4d4-44px8   telemed-worker    Running   0
+worker-5ffd67d4d4-drjxg   telemed-worker    Running   0
+worker-5ffd67d4d4-mp9mh   telemed-worker2   Running   0
+worker-5ffd67d4d4-tt46m   telemed-worker2   Running   0
+worker-5ffd67d4d4-zzjvr   telemed-worker    Running   0
+step4_skip_locked: надіслано 300 POST за 3.0 с (100.0 за секунду), створено задач (202): 300, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 4.0 мс
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step4_skip_locked/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=24, worker_claims=16, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=16, worker_throttled=16, worker_periods=16, restarts=15, db_xacts=1, up=13
+psql> SELECT count(*) AS n, count(*) FILTER (WHERE status = 'done') AS done FROM tasks
+  n  | done 
+-----+------
+ 300 |  300
+(1 row)
+
+psql> SELECT count(*) AS result_rows, (SELECT count(*) FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d) AS n_dup FROM task_results
+ result_rows | n_dup 
+-------------+-------
+         300 |     0
+(1 row)
+
+$ python3 scripts/calc.py dup step4_skip_locked
+n = 300; рядків у task_results: 300; n_dup за таблицею = 0, D = 0.0000; рядків done у журналах: 300; n_dup за журналами = 0, D = 0.0000
+найбільше рядків pg_stat_activity з wait_event_type = 'Lock' за прогін: 0
+$ python3 scripts/calc.py stat step4_skip_locked
+worker_tasks_total:  done = 300, failed = 0, lost = 0
+worker_claims_total: task = 300, empty = 13780
+  claim        n =    300  середнє =    0.320 мс  p99 =    2.000 мс
+  claim_empty  n =  13780  середнє =    0.144 мс  p99 =    0.918 мс
+  fetch        n =    300  середнє =    0.472 мс  p99 =    1.818 мс
+  process      n =    300  середнє =   11.286 мс  p99 =   14.983 мс
+  store        n =    300  середнє =    0.567 мс  p99 =    2.000 мс
+  claim_all    n =  14080  середнє =    0.148 мс  p99 =    0.931 мс
+$ sort -t, -k2 -nr results/step4_skip_locked/db_seconds.csv | head -3   # unix, Lock у pg_stat_activity, granted = false у pg_locks, …
+1794334566.527,0,0,109226158,0,1,252,0
+1794334565.520,0,0,109222078,0,1,151,0
+1794334564.514,0,0,109218286,0,1,51,0
+== 2026-11-10 20:16:08 захоплення for_update, T_poll = 1 мс, 5 воркерів
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=1 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=for_update STORE_MODE=plain LEASE_ENABLED=0 HEARTBEAT=0 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-5c5868df67-d8ts7   telemed-worker2   Running   0
+worker-5c5868df67-g5n5m   telemed-worker2   Running   0
+worker-5c5868df67-p2fzd   telemed-worker    Running   0
+worker-5c5868df67-v4bdk   telemed-worker    Running   0
+worker-5c5868df67-x6prj   telemed-worker    Running   0
+step4_for_update: надіслано 300 POST за 3.0 с (100.0 за секунду), створено задач (202): 300, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 8.2 мс
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step4_for_update/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=30, worker_claims=20, done_rate=0, in_flight=1, db_cpu=1, worker_cpu=15, worker_throttled=15, worker_periods=15, restarts=20, db_xacts=1, up=17
+psql> SELECT count(*) AS n, count(*) FILTER (WHERE status = 'done') AS done FROM tasks
+  n  | done 
+-----+------
+ 300 |  300
+(1 row)
+
+psql> SELECT count(*) AS result_rows, (SELECT count(*) FROM (SELECT task_id FROM task_results GROUP BY task_id HAVING count(*) > 1) d) AS n_dup FROM task_results
+ result_rows | n_dup 
+-------------+-------
+         300 |     0
+(1 row)
+
+$ python3 scripts/calc.py dup step4_for_update
+n = 300; рядків у task_results: 300; n_dup за таблицею = 0, D = 0.0000; рядків done у журналах: 300; n_dup за журналами = 0, D = 0.0000
+найбільше рядків pg_stat_activity з wait_event_type = 'Lock' за прогін: 0
+$ python3 scripts/calc.py stat step4_for_update
+worker_tasks_total:  done = 300, failed = 0, lost = 0
+worker_claims_total: task = 300, empty = 13366
+  claim        n =    300  середнє =    0.431 мс  p99 =    3.000 мс
+  claim_empty  n =  13366  середнє =    0.153 мс  p99 =    0.966 мс
+  fetch        n =    300  середнє =    0.648 мс  p99 =    2.833 мс
+  process      n =    300  середнє =   12.087 мс  p99 =   26.667 мс
+  store        n =    300  середнє =    0.807 мс  p99 =    6.250 мс
+  claim_all    n =  13666  середнє =    0.159 мс  p99 =    0.993 мс
+$ sort -t, -k2 -nr results/step4_for_update/db_seconds.csv | head -3   # unix, Lock у pg_stat_activity, granted = false у pg_locks, …
+1794334574.259,0,0,109246419,0,1,225,0
+1794334573.253,0,0,109242790,0,2,124,0
+1794334572.248,0,0,109238906,0,1,24,0

@@ -1,0 +1,58 @@
+== 2026-11-10 20:27:42 λ = 0.7 · X(5) = 133.9 задач/с, 180 с
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-7d6fcb6f79-8sz6w   telemed-worker    Running   0
+worker-7d6fcb6f79-dvwsc   telemed-worker    Running   0
+worker-7d6fcb6f79-dz8c7   telemed-worker2   Running   0
+worker-7d6fcb6f79-thnmx   telemed-worker    Running   0
+worker-7d6fcb6f79-v2mbr   telemed-worker2   Running   0
+step7_07: надіслано 24102 POST за 180.0 с (133.9 за секунду), створено задач (202): 24102, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 6.2 мс
+psql> SELECT status, count(*) FROM tasks GROUP BY status ORDER BY status
+ status | count 
+--------+-------
+ done   | 24102
+(1 row)
+
+черга порожня: queued = 0, running = 0 (чекали 0 с)
+results/step7_07/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=30, worker_claims=20, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=10, worker_throttled=10, worker_periods=10, restarts=10, db_xacts=1, up=10
+$ python3 scripts/calc.py stat step7_07
+worker_tasks_total:  done = 24102, failed = 0, lost = 0
+worker_claims_total: task = 24102, empty = 9408
+  reap         n =  33510  середнє =    0.224 мс  p99 =    1.927 мс
+  claim        n =  24102  середнє =    0.366 мс  p99 =    2.375 мс
+  claim_empty  n =   9408  середнє =    0.154 мс  p99 =    1.885 мс
+  fetch        n =  24102  середнє =    0.691 мс  p99 =    3.979 мс
+  process      n =  24102  середнє =   15.729 мс  p99 =   68.993 мс
+  store        n =  24102  середнє =    1.053 мс  p99 =    7.328 мс
+  claim_all    n =  33510  середнє =    0.306 мс  p99 =    2.226 мс
+== 2026-11-10 20:30:48 λ = 1.3 · X(5) = 248.7 задач/с, 120 с
+NOTICE:  truncate cascades to table "task_results"
+$ kubectl set env deployment/worker POLL_MS=50 LEASE_SECONDS=10 FAIL_RATE=0 CLAIM_MODE=skip_locked STORE_MODE=idempotent LEASE_ENABLED=1 HEARTBEAT=1 CLAIM_ORDER=created GRACE_SECONDS=25
+$ kubectl scale deployment/worker --replicas=5
+worker-7d6fcb6f79-5lzc2   telemed-worker2   Running   0
+worker-7d6fcb6f79-5zgjh   telemed-worker2   Running   0
+worker-7d6fcb6f79-j4hvx   telemed-worker    Running   0
+worker-7d6fcb6f79-jz59l   telemed-worker    Running   0
+worker-7d6fcb6f79-x6mfv   telemed-worker    Running   0
+step7_13: надіслано 29844 POST за 120.0 с (248.7 за секунду), створено задач (202): 29844, не 2xx: 0, помилок зʼєднання: 0, p99 відповіді 8.8 мс
+psql> SELECT status, count(*) FROM tasks GROUP BY status ORDER BY status
+ status  | count 
+---------+-------
+ done    | 23248
+ queued  |  6591
+ running |     5
+(3 rows)
+
+черга порожня: queued = 0, running = 0 (чекали 35 с)
+results/step7_13/prom.json: tasks_queued=1, tasks_running=1, worker_tasks=30, worker_claims=20, done_rate=1, in_flight=1, db_cpu=1, worker_cpu=10, worker_throttled=10, worker_periods=10, restarts=10, db_xacts=1, up=10
+$ python3 scripts/calc.py stat step7_13
+worker_tasks_total:  done = 29844, failed = 0, lost = 0
+worker_claims_total: task = 29844, empty = 184
+  reap         n =  30028  середнє =    0.266 мс  p99 =    2.356 мс
+  claim        n =  29844  середнє =    0.524 мс  p99 =    3.887 мс
+  claim_empty  n =    184  середнє =    0.161 мс  p99 =    0.495 мс
+  fetch        n =  29844  середнє =    1.210 мс  p99 =    6.957 мс
+  process      n =  29844  середнє =   22.623 мс  p99 =   49.695 мс
+  store        n =  29844  середнє =    1.587 мс  p99 =   22.095 мс
+  claim_all    n =  30028  середнє =    0.522 мс  p99 =    3.873 мс

@@ -1,0 +1,28 @@
+18:38:17.773 старт worker=worker-854df8b988-r7s8c claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=False T_poll=50мс FAIL_RATE=0.15
+18:38:17.778 task=87859 lease сплив: статус queued (attempts=1, token=1)
+18:38:17.793 task=87859 done token=2 attempts=2 fetch=0.9ms process=11.3ms store=1.4ms
+18:38:17.851 task=87860 done token=1 attempts=1 fetch=0.6ms process=48.0ms store=9.0ms
+18:38:17.863 task=87861 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:38:18.817 старт worker=worker-854df8b988-r7s8c claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=False T_poll=50мс FAIL_RATE=0.15
+18:38:18.826 task=87862 lease сплив: статус queued (attempts=2, token=2)
+18:38:18.826 task=87863 lease сплив: статус queued (attempts=1, token=1)
+18:38:18.884 task=87862 token=3 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+18:38:18.906 task=87865 token=2 завершення оновило 0 рядків: задача вже не належить воркеру, результат відкинуто
+18:38:18.920 task=87868 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:38:34.479 старт worker=worker-854df8b988-r7s8c claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=False T_poll=50мс FAIL_RATE=0.15
+18:38:34.485 task=87902 lease сплив: статус queued (attempts=1, token=1)
+18:38:34.498 task=87902 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:38:57.482 старт worker=worker-854df8b988-r7s8c claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=False T_poll=50мс FAIL_RATE=0.15
+18:38:57.489 task=87906 lease сплив: статус queued (attempts=1, token=1)
+18:38:57.504 task=87906 done token=2 attempts=2 fetch=1.2ms process=11.3ms store=1.1ms
+18:38:57.557 task=87907 done token=1 attempts=1 fetch=0.6ms process=51.6ms store=1.1ms
+18:38:57.570 task=87908 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:39:57.563 старт worker=worker-854df8b988-r7s8c claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=False T_poll=50мс FAIL_RATE=0.15
+18:39:57.570 task=87934 lease сплив: статус queued (attempts=1, token=1)
+18:39:57.584 task=87934 token=2 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
+18:41:20.553 старт worker=worker-854df8b988-r7s8c claim=skip_locked store=idempotent order=created lease=True L=0.0064с heartbeat=False T_poll=50мс FAIL_RATE=0.15
+18:41:20.569 task=87987 lease сплив: статус queued (attempts=1, token=1)
+18:41:20.585 task=87987 done token=2 attempts=2 fetch=1.7ms process=11.8ms store=1.7ms
+18:41:20.586 task=87988 lease сплив: статус queued (attempts=1, token=1)
+18:41:20.602 task=87988 done token=2 attempts=2 fetch=0.9ms process=14.3ms store=1.1ms
+18:41:20.616 task=87989 token=1 вбудоване падіння після обробки (FAIL_RATE=0.15): os._exit(1)
