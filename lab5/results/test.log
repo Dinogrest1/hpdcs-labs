@@ -1,0 +1,23 @@
+$ go vet ./...
+$ go test -race -count=1 -v ./...
+=== RUN   TestSequential
+--- PASS: TestSequential (0.07s)
+=== RUN   TestLastDoesNotMutate
+--- PASS: TestLastDoesNotMutate (1.53s)
+=== RUN   TestConcurrent
+    ring_test.go:102: rw=false: append = 210079
+    ring_test.go:102: rw=true: append = 47154
+--- PASS: TestConcurrent (1.00s)
+PASS
+ok  	ringbench	3.710s
+$ go test -count=1 -v ./...   (без детектора гонок)
+=== RUN   TestSequential
+--- PASS: TestSequential (0.01s)
+=== RUN   TestLastDoesNotMutate
+--- PASS: TestLastDoesNotMutate (0.11s)
+=== RUN   TestConcurrent
+    ring_test.go:102: rw=false: append = 1712385
+    ring_test.go:102: rw=true: append = 166655
+--- PASS: TestConcurrent (1.00s)
+PASS
+ok  	ringbench	1.310s

@@ -1,0 +1,14 @@
+{
+ "mode": "cs",
+ "lock": "global",
+ "run": 2,
+ "ops_per_role": 5000000,
+ "t_cs_w_mean_ns": 12.139031,
+ "t_cs_w_median_ns": 0,
+ "t_cs_r_mean_ns": 14.691098,
+ "t_cs_r_median_ns": 0,
+ "tau_w_mean_ns": 40.2728316,
+ "tau_r_mean_ns": 42.6522068,
+ "clock_ns": 11.40675205,
+ "go_version": "go1.27.4"
+}
