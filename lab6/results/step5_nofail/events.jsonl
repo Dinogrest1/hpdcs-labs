@@ -1,0 +1,12 @@
+{"event": "proc_start", "rank": 0, "t_proc_start": 1795467016.829739, "t": 1795467018.1679502, "attempt": 0}
+{"event": "proc_start", "rank": 1, "t_proc_start": 1795467016.834116, "t": 1795467018.168221, "attempt": 0}
+{"event": "ckpt", "step": 10, "t": 1795467018.738313, "attempt": 0}
+{"event": "ckpt", "step": 20, "t": 1795467019.23697, "attempt": 0}
+{"event": "ckpt", "step": 30, "t": 1795467019.732862, "attempt": 0}
+{"event": "ckpt", "step": 40, "t": 1795467020.228181, "attempt": 0}
+{"event": "ckpt", "step": 50, "t": 1795467020.743221, "attempt": 0}
+{"event": "ckpt", "step": 60, "t": 1795467021.35164, "attempt": 0}
+{"event": "ckpt", "step": 70, "t": 1795467021.964564, "attempt": 0}
+{"event": "ckpt", "step": 80, "t": 1795467022.505712, "attempt": 0}
+{"event": "ckpt", "step": 90, "t": 1795467023.000231, "attempt": 0}
+{"event": "ckpt", "step": 100, "t": 1795467023.5168, "attempt": 0}

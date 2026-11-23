@@ -1,0 +1,81 @@
+# Фонове навантаження на початку кроку
+22:43  up 5 days, 11:43, 1 user, load averages: 4.28 3.57 3.47
+PID    COMMAND          %CPU
+29138  prl_vm_app       59.6
+419    WindowServer     37.8
+0      kernel_task      15.9
+1      launchd          7.9 
+31461  top              7.3 
+
+# Стенд
+machdep.cpu.brand_string: Apple M5 Pro
+hw.physicalcpu: 15
+hw.logicalcpu: 15
+hw.perflevel0.physicalcpu: 5
+hw.perflevel1.physicalcpu: 10
+hw.memsize: 25769803776
+27.2.1
+Python 3.12.16
+OMP_NUM_THREADS=7
+
+# Параметри мережі, M, n_e
+{
+ "cpu": "Apple M5 Pro",
+ "c_phys": 15,
+ "c_logical": 15,
+ "c_perf": 5,
+ "c_eff": 10,
+ "mem_gb": 24.0,
+ "os": "macOS 27.2.1",
+ "python": "3.12.16",
+ "torch": "2.15.0",
+ "n_th": 7,
+ "dataset": "Д2 bloodmnist",
+ "K": 8,
+ "C": 3,
+ "widths": [
+  64,
+  128,
+  512
+ ],
+ "n_params": 3291528,
+ "M_bytes": 13166112,
+ "M_mib": 12.556182861328125,
+ "n_tensors": 8,
+ "tensor_sizes": {
+  "features.0.weight": 1728,
+  "features.0.bias": 64,
+  "features.3.weight": 73728,
+  "features.3.bias": 128,
+  "head.1.weight": 3211264,
+  "head.1.bias": 512,
+  "head.3.weight": 4096,
+  "head.3.bias": 8
+ },
+ "N": 7000,
+ "B": 192,
+ "P_max": 2,
+ "b": 96,
+ "K_c": 10,
+ "s_f": 25,
+ "n_ep": 3,
+ "lr0": 0.02,
+ "n_e": {
+  "P=1,b=192": 36,
+  "P=2,b=96": 36,
+  "P=1,b=96": 72
+ },
+ "test_size": 3421
+}
+
+# Навчання в одному процесі без torch.distributed: батч B = 192, η = 0,02, 3 епохи
+[s1_single_train] P=1 b=192 lr=0.02: n_e=36, кроків 108, ACC=0.7790, AUC=0.9593, max втрата останньої епохи 1.0820, різниця сум ваг 0.000e+00, час навчання 6.9 с
+
+# Швидкість: 10 кроків прогріву + 50 вимірюваних, 7 повторів
+[s1_single_bench_r1] sync=none P=1 b=192: t_step=64.20 мс (fwd 17.55, bwd 45.63, sync 0.00, opt 0.72), X=2868.0 прикл./с, завантаження батча 0.53 мс
+[s1_single_bench_r2] sync=none P=1 b=192: t_step=59.41 мс (fwd 15.94, bwd 42.44, sync 0.00, opt 0.65), X=3206.0 прикл./с, завантаження батча 0.39 мс
+[s1_single_bench_r3] sync=none P=1 b=192: t_step=60.72 мс (fwd 16.72, bwd 43.21, sync 0.00, opt 0.67), X=3155.4 прикл./с, завантаження батча 0.40 мс
+[s1_single_bench_r4] sync=none P=1 b=192: t_step=60.28 мс (fwd 16.31, bwd 43.18, sync 0.00, opt 0.66), X=3123.7 прикл./с, завантаження батча 0.43 мс
+[s1_single_bench_r5] sync=none P=1 b=192: t_step=58.29 мс (fwd 16.05, bwd 41.67, sync 0.00, opt 0.64), X=3237.6 прикл./с, завантаження батча 0.49 мс
+[s1_single_bench_r6] sync=none P=1 b=192: t_step=59.23 мс (fwd 16.06, bwd 42.29, sync 0.00, opt 0.65), X=3216.9 прикл./с, завантаження батча 0.39 мс
+[s1_single_bench_r7] sync=none P=1 b=192: t_step=57.98 мс (fwd 15.80, bwd 41.59, sync 0.00, opt 0.63), X=3245.0 прикл./с, завантаження батча 0.40 мс

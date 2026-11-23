@@ -1,0 +1,36 @@
+# Фонове навантаження на початку кроку
+22:50  up 5 days, 11:49, 1 user, load averages: 6.88 5.81 4.65
+PID    COMMAND          %CPU
+29138  prl_vm_app       58.7
+419    WindowServer     37.4
+0      kernel_task      10.9
+33757  top              8.3 
+568    coreaudiod       6.6 
+
+# Прогін з відмовою: torchrun --max-restarts=1, статична адреса групи
+W1123 22:50:07.000000 33771 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 33775 closing signal SIGTERM
+E1123 22:50:07.020000 33771 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: 1) local_rank: 1 (pid: 33776) of binary: /Users/bogdan/My Files/Documents/uni/Високопродуктивні/lab6/.venv/bin/python3.12
+[s5_fail] P=2 b=96 lr=0.02: n_e=36, кроків 108, ACC=0.7790, AUC=0.9594, max втрата останньої епохи 1.0830, різниця сум ваг 0.000e+00, час навчання 4.7 с
+
+# Файл-позначка (час відмови, секунди Unix) і журнал подій
+1795467006.891145
+{"event": "proc_start", "rank": 0, "t_proc_start": 1795467004.398935, "t": 1795467005.635796, "attempt": 0}
+{"event": "proc_start", "rank": 1, "t_proc_start": 1795467004.403709, "t": 1795467005.636225, "attempt": 0}
+{"event": "ckpt", "step": 10, "t": 1795467006.163427, "attempt": 0}
+{"event": "ckpt", "step": 20, "t": 1795467006.675124, "attempt": 0}
+{"event": "fail", "step": 25, "rank": 1, "t": 1795467006.891435, "attempt": 0}
+{"event": "proc_start", "rank": 0, "t_proc_start": 1795467007.05054, "t": 1795467008.491601, "attempt": 1}
+{"event": "proc_start", "rank": 1, "t_proc_start": 1795467007.054615, "t": 1795467008.4918551, "attempt": 1}
+{"event": "resume", "from_step": 20, "epoch": 0, "step_in_epoch": 20, "t": 1795467008.501017, "attempt": 1}
+{"event": "first_step_after_resume", "step": 21, "t": 1795467008.590751, "attempt": 1}
+{"event": "ckpt", "step": 30, "t": 1795467009.065321, "attempt": 1}
+{"event": "ckpt", "step": 40, "t": 1795467009.607263, "attempt": 1}
+{"event": "ckpt", "step": 50, "t": 1795467010.083647, "attempt": 1}
+{"event": "ckpt", "step": 60, "t": 1795467010.5747, "attempt": 1}
+{"event": "ckpt", "step": 70, "t": 1795467011.106289, "attempt": 1}
+{"event": "ckpt", "step": 80, "t": 1795467011.6817799, "attempt": 1}
+{"event": "ckpt", "step": 90, "t": 1795467012.263653, "attempt": 1}
+{"event": "ckpt", "step": 100, "t": 1795467012.817077, "attempt": 1}
+
+# Контроль: ті самі контрольні точки без відмови (чи змінюють вони навчання)
+[s5_ckpt_nofail] P=2 b=96 lr=0.02: n_e=36, кроків 108, ACC=0.7790, AUC=0.9594, max втрата останньої епохи 1.0830, різниця сум ваг 0.000e+00, час навчання 5.7 с

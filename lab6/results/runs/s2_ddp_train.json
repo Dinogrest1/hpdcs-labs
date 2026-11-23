@@ -1,0 +1,29 @@
+{
+ "tag": "s2_ddp_train",
+ "task": "train",
+ "sync": "ddp",
+ "ns": false,
+ "world": 2,
+ "b": 96,
+ "B_global": 192,
+ "lr": 0.02,
+ "threads": 7,
+ "omp_num_threads_env": "7",
+ "n_params": 3291528,
+ "n_e": 36,
+ "steps_total": 108,
+ "steps_logged": 108,
+ "acc": 0.7790119847997662,
+ "auc": 0.9593570469919861,
+ "max_loss_last_epoch": 1.08297181,
+ "final_loss": 0.644815028,
+ "t_train_s": 5.4798240840027574,
+ "resumed": false,
+ "weight_sums": [
+  -92.58878718421893,
+  -92.58878718421893
+ ],
+ "weight_sum_diff": 0.0,
+ "ckpt_every": 0,
+ "fail_step": 0
+}

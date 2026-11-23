@@ -1,0 +1,48 @@
+{
+ "cpu": "Apple M5 Pro",
+ "c_phys": 15,
+ "c_logical": 15,
+ "c_perf": 5,
+ "c_eff": 10,
+ "mem_gb": 24.0,
+ "os": "macOS 27.2.1",
+ "python": "3.12.16",
+ "torch": "2.15.0",
+ "n_th": 7,
+ "dataset": "Д2 bloodmnist",
+ "K": 8,
+ "C": 3,
+ "widths": [
+  64,
+  128,
+  512
+ ],
+ "n_params": 3291528,
+ "M_bytes": 13166112,
+ "M_mib": 12.556182861328125,
+ "n_tensors": 8,
+ "tensor_sizes": {
+  "features.0.weight": 1728,
+  "features.0.bias": 64,
+  "features.3.weight": 73728,
+  "features.3.bias": 128,
+  "head.1.weight": 3211264,
+  "head.1.bias": 512,
+  "head.3.weight": 4096,
+  "head.3.bias": 8
+ },
+ "N": 7000,
+ "B": 192,
+ "P_max": 2,
+ "b": 96,
+ "K_c": 10,
+ "s_f": 25,
+ "n_ep": 3,
+ "lr0": 0.02,
+ "n_e": {
+  "P=1,b=192": 36,
+  "P=2,b=96": 36,
+  "P=1,b=96": 72
+ },
+ "test_size": 3421
+}

@@ -1,0 +1,18 @@
+{
+ "tag": "s2_sync50",
+ "task": "sync50",
+ "sync": "manual",
+ "ns": false,
+ "world": 2,
+ "b": 96,
+ "B_global": 192,
+ "lr": 0.02,
+ "threads": 7,
+ "omp_num_threads_env": "7",
+ "steps": 50,
+ "weight_sums": [
+  -95.2529108979027,
+  -95.2529108979027
+ ],
+ "weight_sum_diff": 0.0
+}

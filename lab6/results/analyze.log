@@ -1,0 +1,44 @@
+Таблиця 2: {
+ "t_single": 59.406603992101736,
+ "X_single": 3206.020605377021,
+ "t_manual": 53.42602050222922,
+ "t_sync": 9.783187007997185,
+ "c_manual": 0.1831165210515535,
+ "t_ddp": 45.11924949474633,
+ "t_ns": 43.142000009538606,
+ "t_comm_exp": 1.9772494852077216,
+ "c_ddp": 0.04382274765979766,
+ "X_ddp": 4248.653474954328,
+ "X_ns": 4360.299666185936,
+ "X_manual": 3520.6937838003614
+}
+Еквівалентність: {"max_ratio": 7.41906162751237e-06, "control": 0.9137402691708181, "sum_diff": 0.0, "train_sum_diff_ddp": 0.0}
+Таблиця 3: {"t1": 60.87499999557622, "t1ns": 59.1297914943425, "X1": 3138.8825572571795, "t2": 43.116728993481956, "t2ns": 41.78331251023337, "X2": 4462.275469982467, "S": 1.4216127518583224, "E": 0.7108063759291612, "e": 0.4068528840822607, "c1": 0.02866872281495759, "c2": 0.030925733801610025}
+Таблиця 4: {"t1": 32.668062500306405, "X1": 2904.913270810467, "t2": 43.116728993481956, "X2": 4462.275469982467, "S_w": 1.5361131483066612, "E_w": 0.7680565741533306}
+Розклад: {"S_ns": 1.4198481908189797, "slowdown_ms": 9.115250009926967, "slowdown_pct": 27.90263429256471, "Ew_ns": 0.7818447255062771}
+Таблиця 5: {"P = 1": {"acc": 0.836597486115171, "auc": 0.9776478487052789, "steps": 216, "max_last": 0.698629439}, "P = P_max, з кроку 2": {"acc": 0.7790119847997662, "auc": 0.9593570469919861, "steps": 108, "max_last": 1.08297181}, "P = P_max": {"acc": 0.8076585793627594, "auc": 0.9724679832025743, "steps": 108, "max_last": 0.727336824}}
+Таблиця 6: {"ckpt_step": 20, "redo": 4, "t_lost": 1.9156270027160645, "t_f_minus_t_c": 0.21631097793579102, "t_r": 1.6993160247802734, "done_before_fail": 24}
+Втрати 6: {"acc_fail": 0.7790119847997662, "acc_nofail": 0.7790119847997662, "acc_ckpt_nofail": 0.7790119847997662, "maxdiff_fail_vs_nofail": 0.0, "maxdiff_after_resume": 0.0, "maxdiff_single_vs_ddp": 0.028064249999999902}
+results/tables/t1_dataset.md
+results/tables/t1_nparams.md
+results/tables/t1_stand.md
+results/tables/t1_tensors.md
+results/tables/t2_equiv_tensors.md
+results/tables/t2_quality.md
+results/tables/t2_sums.md
+results/tables/t2_sync.md
+results/tables/t3_strong.md
+results/tables/t4_weak.md
+results/tables/t5_loss_stats.md
+results/tables/t5_quality.md
+results/tables/t5_steps.md
+results/tables/t6_components.md
+results/tables/t6_equal.md
+results/tables/t6_failure.md
+results/tables/t6_loss.md
+results/tables/t6_loss_detail.md
+results/tables/t_decomp.md
+results/tables/t_paired.md
+results/tables/t_phases.md
+results/tables/t_spread.md
+results/tables/t_xwall.md

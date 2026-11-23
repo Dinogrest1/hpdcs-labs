@@ -1,0 +1,52 @@
+{
+ "tag": "s2_equiv",
+ "task": "equiv",
+ "sync": "manual",
+ "ns": false,
+ "world": 2,
+ "b": 96,
+ "B_global": 192,
+ "lr": 0.02,
+ "threads": 7,
+ "omp_num_threads_env": "7",
+ "per_tensor": {
+  "features.0.weight": 7.41906162751237e-06,
+  "features.0.bias": 2.1060121592718027e-07,
+  "features.3.weight": 6.086693373819846e-06,
+  "features.3.bias": 3.4994437634138055e-07,
+  "head.1.weight": 5.977996872312036e-07,
+  "head.1.bias": 1.751034270279669e-07,
+  "head.3.weight": 3.675770795351645e-07,
+  "head.3.bias": 5.6910590389326486e-08
+ },
+ "max_ratio": 7.41906162751237e-06,
+ "control_local_vs_full": {
+  "features.0.weight": 0.4896610589729243,
+  "features.0.bias": 0.9137402691708181,
+  "features.3.weight": 0.6843975759529318,
+  "features.3.bias": 0.6604778770414442,
+  "head.1.weight": 0.4443106037366921,
+  "head.1.bias": 0.4711304791066153,
+  "head.3.weight": 0.674281556813908,
+  "head.3.bias": 0.7153399423222548
+ },
+ "control_max_ratio": 0.9137402691708181,
+ "max_abs_g": {
+  "features.0.weight": 0.0029185968451201916,
+  "features.0.bias": 0.0033166566863656044,
+  "features.3.weight": 0.005431841127574444,
+  "features.3.bias": 0.006653361488133669,
+  "head.1.weight": 0.005452711135149002,
+  "head.1.bias": 0.01063739974051714,
+  "head.3.weight": 0.01520207803696394,
+  "head.3.bias": 0.06545864790678024
+ },
+ "indices_rank0_first": [
+  5044,
+  5817,
+  155,
+  87,
+  6401,
+  771
+ ]
+}

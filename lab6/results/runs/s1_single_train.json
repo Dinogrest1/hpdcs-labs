@@ -1,0 +1,28 @@
+{
+ "tag": "s1_single_train",
+ "task": "train",
+ "sync": "none",
+ "ns": false,
+ "world": 1,
+ "b": 192,
+ "B_global": 192,
+ "lr": 0.02,
+ "threads": 7,
+ "omp_num_threads_env": "7",
+ "n_params": 3291528,
+ "n_e": 36,
+ "steps_total": 108,
+ "steps_logged": 108,
+ "acc": 0.7790119847997662,
+ "auc": 0.9593098252416331,
+ "max_loss_last_epoch": 1.0820092,
+ "final_loss": 0.635955155,
+ "t_train_s": 6.888665500009665,
+ "resumed": false,
+ "weight_sums": [
+  -96.59653641999299
+ ],
+ "weight_sum_diff": 0.0,
+ "ckpt_every": 0,
+ "fail_step": 0
+}

@@ -1,0 +1,29 @@
+{
+ "tag": "s4_p2_lrP_train",
+ "task": "train",
+ "sync": "ddp",
+ "ns": false,
+ "world": 2,
+ "b": 96,
+ "B_global": 192,
+ "lr": 0.04,
+ "threads": 7,
+ "omp_num_threads_env": "7",
+ "n_params": 3291528,
+ "n_e": 36,
+ "steps_total": 108,
+ "steps_logged": 108,
+ "acc": 0.8076585793627594,
+ "auc": 0.9724679832025743,
+ "max_loss_last_epoch": 0.727336824,
+ "final_loss": 0.481174648,
+ "t_train_s": 5.000252500001807,
+ "resumed": false,
+ "weight_sums": [
+  -312.8991413714202,
+  -312.8991413714202
+ ],
+ "weight_sum_diff": 0.0,
+ "ckpt_every": 0,
+ "fail_step": 0
+}
